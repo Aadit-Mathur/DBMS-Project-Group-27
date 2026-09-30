@@ -1,0 +1,201 @@
+seller_id,name,category
+1,Banyan Tree Living,Furniture
+2,OfficeCraft Solutions,Stationery & Office Supplies
+3,Kosha Fashion House,Clothing
+4,BharatMart,Grocery & Food
+5,The Indian Basket,Grocery & Food
+6,Shree Ganesh Enterprises,Home & Kitchen
+7,Vijayawada Value Mart,Grocery & Food
+8,Imphal Heritage Store,Home & Kitchen
+9,Kota Study Store,Stationery & Office Supplies
+10,Ganga Enterprises,Grocery & Food
+11,PureHarvest Foods,Grocery & Food
+12,Karigar Collective,Home & Kitchen
+13,Siliguri Travel Goods,Travel & Luggage
+14,Raipur Retail Hub,Grocery & Food
+15,Cuttack Stationery World,Stationery & Office Supplies
+16,Kerala Kitchen,Kitchen Appliances
+17,Sari Street,Clothing
+18,Neem & Co.,Beauty & Personal Care
+19,Pondicherry Lifestyle Studio,Home & Kitchen
+20,Virasat India,Home & Kitchen
+21,DigitalDukaan,Electronics
+22,Noida Smart Living,Home Appliances
+23,QuickCart Enterprises,Grocery & Food
+24,Omkar Business Solutions,Stationery & Office Supplies
+25,SportSphere India,Sports & Fitness
+26,The Wardrobe Co,Clothing
+27,GlowNest Beauty,Beauty & Personal Care
+28,Agra Craft Bazaar,Home & Kitchen
+29,StyleStreet Retail,Pet Supplies
+30,Solapur Textile Mart,Clothing
+31,Kaveri Traders,Grocery & Food
+32,Himalayan Travel Gear,Travel & Luggage
+33,Thanjavur Art House,Home & Kitchen
+34,Jaipur Jewel Box,Beauty & Personal Care
+35,Pragati Retail Works,Home & Kitchen
+36,NCR Tech Traders,Computers & Laptops
+37,Marigold Collections,Clothing
+38,SchoolBag Central,Stationery & Office Supplies
+39,FreshField Grocers,Grocery & Food
+40,SmartBuy Junction,Electronics
+41,Coastal Kitchenware,Kitchen Appliances
+42,MangoTree Books,Books
+43,FitNation India,Sports & Fitness
+44,Gadget Grove,Mobiles & Accessories
+45,Rajputana Handicrafts,Home & Kitchen
+46,Pioneer Office Solutions,Stationery & Office Supplies
+47,Rajdhani Traders,Grocery & Food
+48,Mangalore Coastal Goods,Travel & Luggage
+49,Krishna Retail,Pet Supplies
+50,Walkway Footwear,Footwear
+51,Riwaayat Collections,Clothing
+52,Farm2Shelf Market,Grocery & Food
+53,Shree Balaji Traders,Grocery & Food
+54,Pixel & Parts,Electronics
+55,Ethnic Edit,Clothing
+56,Royal Living,Furniture
+57,TechTrove India,Computers & Laptops
+58,Aavartan Retail,Home & Kitchen
+59,Heritage Lane,Home & Kitchen
+60,RoadReady Auto,Automotive
+61,Narmada Marketplace,Grocery & Food
+62,Sattva Naturals,Beauty & Personal Care
+63,Kochi Travel Store,Travel & Luggage
+64,Udaipur Decor Studio,Home & Kitchen
+65,Saraswati Book House,Books
+66,Chennai Computer Depot,Computers & Laptops
+67,Indigo Loom,Clothing
+68,Bharat Bazaar,Grocery & Food
+69,Vishwakarma Tools & Supply,Automotive
+70,AyurVeda Essentials,Beauty & Personal Care
+71,Srinagar Artisan Collective,Home & Kitchen
+72,Crafted in Bharat,Home & Kitchen
+73,Kala Kendra,Home & Kitchen
+74,Kaveri Lifestyle,Clothing
+75,DailyBasket Traders,Grocery & Food
+76,Computer Corner,Computers & Laptops
+77,Panchvati Stores,Grocery & Food
+78,Bengaluru Gadget Works,Mobiles & Accessories
+79,Jalandhar Sports Depot,Sports & Fitness
+80,Maa Durga Enterprises,Grocery & Food
+81,Guwahati Outdoor Store,Travel & Luggage
+82,Astitva Creations,Home & Kitchen
+83,Dastkari Bazaar,Grocery & Food
+84,The Living Room Store,Furniture
+85,Lakshmi Trading House,Home & Kitchen
+86,Madurai Textile Works,Clothing
+87,Ananta Marketplace,Grocery & Food
+88,Footprint Footwear,Footwear
+89,Ghaziabad Retail Works,Pet Supplies
+90,Kitchen Canvas,Kitchen Appliances
+91,Eastern Valley Traders,Grocery & Food
+92,Salem Appliance House,Home Appliances
+93,PlayZone Bazaar,Grocery & Food
+94,Golden Peacock Crafts,Home & Kitchen
+95,Mitti & More,Home & Kitchen
+96,Patna Stationery Hub,Stationery & Office Supplies
+97,Meerut Sports Supply,Sports & Fitness
+98,Cookware Collective,Kitchen Appliances
+99,Hubballi Hardware House,Home & Kitchen
+100,Malabar Essentials,Grocery & Food
+101,Nilgiri Naturals,Beauty & Personal Care
+102,KitchenKart India,Kitchen Appliances
+103,HomeHive India,Home & Kitchen
+104,Vadodara Home Essentials,Grocery & Food
+105,Veda Wellness,Beauty & Personal Care
+106,PetPal Supplies,Pet Supplies
+107,Chai & Craft,Home & Kitchen
+108,Banjara Crafts,Home & Kitchen
+109,Indus Mercantile,Grocery & Food
+110,OfficeOrbit,Stationery & Office Supplies
+111,Tulsi Home Store,Home & Kitchen
+112,Visakhapatnam Electronics,Electronics
+113,Saffron Homeware,Home & Kitchen
+114,Lucknow Lifestyle,Clothing
+115,Spice Garden India,Grocery & Food
+116,AutoGear India,Automotive
+117,Aangan Decor,Home & Kitchen
+118,MobileMania Store,Mobiles & Accessories
+119,Mysuru Furnishings,Furniture
+120,NatureNest Organics,Furniture
+121,Furniture Foundry,Furniture
+122,Prakruti Organics,Beauty & Personal Care
+123,Cauvery Traders,Grocery & Food
+124,Konkan Auto Mart,Grocery & Food
+125,Ananya Collections,Clothing
+126,Vellore Tech Point,Computers & Laptops
+127,Bharat Artisan House,Home & Kitchen
+128,Mitra Fashion Studio,Clothing
+129,Abhivyakti Arts,Home & Kitchen
+130,Surya Enterprises,Electronics
+131,Urban Loom,Clothing
+132,Dehradun Adventure Shop,Travel & Luggage
+133,Ahmedabad Appliance Centre,Home Appliances
+134,Sai Krupa Retailers,Grocery & Food
+135,Deccan Digital Store,Computers & Laptops
+136,Panaji Beachside Retail,Travel & Luggage
+137,Avani Enterprises,Home & Kitchen
+138,Jamshedpur Industrial Supply,Automotive
+139,UrbanNest Furnishings,Furniture
+140,Book World India,Books
+141,Delhi Daily Mart,Grocery & Food
+142,HomeChef Depot,Kitchen Appliances
+143,Desi Pantry,Grocery & Food
+144,Earth & Earthy,Beauty & Personal Care
+145,Thiruvananthapuram Green Store,Grocery & Food
+146,SoleStory,Footwear
+147,Millet House India,Grocery & Food
+148,Nashik Fresh Basket,Grocery & Food
+149,Dharohar India,Home & Kitchen
+150,ValueKart India,Grocery & Food
+151,Shillong Mountain Goods,Travel & Luggage
+152,Nagpur Auto Accessories,Automotive
+153,Coconut Grove Goods,Grocery & Food
+154,Surat Textile House,Clothing
+155,Aranya Naturals,Beauty & Personal Care
+156,ChoicePoint Marketplace,Grocery & Food
+157,CasaCraft India,Home & Kitchen
+158,BlueKite Technologies,Computers & Laptops
+159,RoamReady,Travel & Luggage
+160,Aarav Ventures,Electronics
+161,Beauty Basket India,Beauty & Personal Care
+162,Lotus Living,Furniture
+163,Evergreen Retail,Grocery & Food
+164,Made in India Store,Home & Kitchen
+165,TrailBlaze Sports,Sports & Fitness
+166,Peacock Avenue,Clothing
+167,Desi Drapes,Clothing
+168,Coimbatore Kitchen Mart,Kitchen Appliances
+169,Mumbai Mobile Hub,Mobiles & Accessories
+170,Chandigarh Living,Furniture
+171,Cotton Route,Clothing
+172,Wellness Window,Beauty & Personal Care
+173,Modern Muse Apparel,Clothing
+174,Appliance Avenue,Home Appliances
+175,Varanasi Heritage,Home & Kitchen
+176,DriveMate Accessories,Automotive
+177,TravelTrail India,Sports & Fitness
+178,Little Explorers Store,Toys & Games
+179,Sundar Handicrafts,Home & Kitchen
+180,PetNest Supplies,Pet Supplies
+181,Jaipur Craft House,Home & Kitchen
+182,Amravati General Store,Grocery & Food
+183,Rajkot Machine Mart,Grocery & Food
+184,Kanpur Footwear House,Footwear
+185,SoleCraft India,Footwear
+186,Rangoli Home Studio,Home & Kitchen
+187,Amrut Foods,Grocery & Food
+188,Prime Choice Retail,Grocery & Food
+189,Faridabad Home Centre,Home Appliances
+190,Tiruchirappalli Book Depot,Books
+191,Kolkata Book Corner,Books
+192,Godavari Home Store,Home & Kitchen
+193,WeaveWorks India,Clothing
+194,Puri Coastal Crafts,Home & Kitchen
+195,Everyday Essentials,Grocery & Food
+196,Thread & Trend,Clothing
+197,Asansol Home Market,Grocery & Food
+198,Sahyadri Goods,Home & Kitchen
+199,Warangal Daily Needs,Grocery & Food
+200,Dhanbad Electronics Point,Electronics
