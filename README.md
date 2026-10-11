@@ -25,7 +25,8 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 
 ### In progress / next milestones
 
-- Development of the frontend ongoing
+- Addition of a few more triggers, views, etc. under consideration
+- Development of the frontend is ongoing
 - Admin dashboard module in development
 - Final frontend-backend integration and UX refinement
 - Complete end-to-end validation across frontend, backend, and database workflows
