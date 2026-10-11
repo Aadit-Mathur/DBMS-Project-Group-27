@@ -1,2 +1,6 @@
 python-dotenv
 psycopg2-binary
+fastapi
+uvicorn[standard]
+httpx
+pytest
