@@ -17,7 +17,7 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 ### Completed work
 
 - Core database objects and business rules for the marketplace have been implemented for the seller, product, category, order, payment, and shipment workflow.
-- SQL constraints, unique keys, checks, triggers, views, and functions are in place to support validation and inventory-related logic.
+- Most SQL constraints, unique keys, checks, triggers, views, and functions are in place to support validation and inventory-related logic.
 - FastAPI routes have been implemented for seller registration, product management, product search, category listing, and order-related actions.
 - Transactional database logic is used for order placement and stock updates to keep the core workflow atomic.
 - SQL validation scripts and API tests have been added to exercise key constraints and backend operations.
