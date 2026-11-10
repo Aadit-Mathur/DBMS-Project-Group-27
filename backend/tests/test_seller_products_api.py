@@ -18,13 +18,15 @@ def test_register_seller(seller):
 
 
 def test_invalid_phone_is_400(client):
-    res = client.post("/sellers", json={"name": "X", "email": "__x__@example.in", "phone": "12345"})
+    res = client.post(
+        "/sellers", json={"name": "X", "email": "__x__@example.in", "phone": "12345"})
     assert res.status_code == 400
     assert res.json()["constraint"] == "chk_seller_phone"
 
 
 def test_duplicate_email_is_409(client, seller):
-    res = client.post("/sellers", json={"name": "X", "email": seller["email"], "phone": "6999999913"})
+    res = client.post(
+        "/sellers", json={"name": "X", "email": seller["email"], "phone": "6999999913"})
     assert res.status_code == 409
 
 
@@ -96,7 +98,8 @@ def test_edit_price_updates_last_updated(client, conn, seller, product):
                        headers=seller_header(seller))
     assert res.status_code == 200
     assert float(res.json()["price"]) == 549.0
-    assert not res.json()["last_updated"].startswith("2000")      # set by the trigger
+    assert not res.json()["last_updated"].startswith(
+        "2000")      # set by the trigger
 
 
 def test_edit_other_sellers_product_is_403(client, other_seller, product):
@@ -137,49 +140,67 @@ def test_restock_zero_is_400(client, seller, product):
 # ---------- removing ----------
 
 def test_remove_never_ordered_product_deletes_it(client, seller, product):
-    res = client.delete(f"/products/{product['product_id']}", headers=seller_header(seller))
+    res = client.delete(
+        f"/products/{product['product_id']}", headers=seller_header(seller))
     assert res.status_code == 204
-    assert client.get(f"/sellers/{seller['seller_id']}/products?include_inactive=true").json() == []
+    assert client.get(
+        f"/sellers/{seller['seller_id']}/products?include_inactive=true").json() == []
 
 
 def test_remove_ordered_product_delists_it(client, conn, seller, product):
-    """Puts the product into an existing order (rolled back), then removes it.
+    """Puts the product into a NEW Pending order (rolled back), then removes it.
     The order_item FK blocks the delete (23503, or 23001 on PostgreSQL 18+),
-    so the API must delist the product instead of failing."""
+    so the API must delist the product instead of failing.
+    (Lines can only be added to a Pending order, so the test makes its own.)"""
     with conn.cursor() as cur:
-        cur.execute("SELECT to_regclass('order_item') IS NOT NULL, to_regclass('orders') IS NOT NULL")
+        cur.execute(
+            "SELECT to_regclass('order_item') IS NOT NULL, to_regclass('orders') IS NOT NULL")
         has_items, has_orders = cur.fetchone()
         if not (has_items and has_orders):
-            pytest.skip("orders / order_item tables do not exist yet (ordering module)")
-        cur.execute("SELECT order_id FROM orders ORDER BY order_id LIMIT 1")
-        row = cur.fetchone()
-        if row is None:
-            pytest.skip("no orders in the database yet to attach the product to")
+            pytest.skip(
+                "orders / order_item tables do not exist yet (ordering module)")
+        cur.execute(
+            "SELECT customer_id, address_id FROM address ORDER BY address_id LIMIT 1")
+        addr = cur.fetchone()
+        if addr is None:
+            pytest.skip(
+                "no address in the database yet to place the test order for")
+        cur.execute(
+            "INSERT INTO orders (customer_id, address_id) VALUES (%s, %s) RETURNING order_id", addr)
+        order_id = cur.fetchone()[0]
         cur.execute("INSERT INTO order_item (order_id, product_id, quantity, unit_price) "
-                    "VALUES (%s, %s, 1, 499.00)", (row[0], product["product_id"]))
+                    "VALUES (%s, %s, 1, 499.00)", (order_id, product["product_id"]))
 
-    res = client.delete(f"/products/{product['product_id']}", headers=seller_header(seller))
+    res = client.delete(
+        f"/products/{product['product_id']}", headers=seller_header(seller))
     assert res.status_code == 200, res.text
     assert res.json()["status"] == "delisted"
-    assert client.get(f"/sellers/{seller['seller_id']}/products").json() == []        # hidden
-    hidden = client.get(f"/sellers/{seller['seller_id']}/products?include_inactive=true").json()
-    assert hidden[0]["is_active"] is False                                           # but kept
+    assert client.get(
+        # hidden
+        f"/sellers/{seller['seller_id']}/products").json() == []
+    hidden = client.get(
+        f"/sellers/{seller['seller_id']}/products?include_inactive=true").json()
+    # but kept
+    assert hidden[0]["is_active"] is False
 
 
 def test_remove_other_sellers_product_is_403(client, other_seller, product):
-    res = client.delete(f"/products/{product['product_id']}", headers=seller_header(other_seller))
+    res = client.delete(
+        f"/products/{product['product_id']}", headers=seller_header(other_seller))
     assert res.status_code == 403
 
 
 # ---------- customer search and categories ----------
 
 def test_search_finds_product(client, product, category_id):
-    res = client.get("/products", params={"q": "__API Test", "category_id": category_id})
+    res = client.get(
+        "/products", params={"q": "__API Test", "category_id": category_id})
     assert [p["product_id"] for p in res.json()] == [product["product_id"]]
 
 
 def test_search_price_filter_excludes_product(client, product, category_id):
-    res = client.get("/products", params={"category_id": category_id, "max_price": "100"})
+    res = client.get(
+        "/products", params={"category_id": category_id, "max_price": "100"})
     assert res.json() == []
 
 
