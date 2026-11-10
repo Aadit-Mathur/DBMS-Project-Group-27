@@ -1,4 +1,5 @@
-"""Product endpoints: customer search, and seller edit / restock / remove.
+"""Product endpoints: customer search and product page, and seller edit /
+restock / remove / relist.
 
 Authentication is not built yet, so seller-only routes take the
 logged-in seller's id in the X-Seller-Id header. Every seller route
@@ -69,6 +70,32 @@ def search_products(
         return cur.fetchall()
 
 
+@router.get("/{product_id}")
+def get_product(product_id: int):
+    """One product with its category and seller (the customer's product page).
+    A delisted product is still returned, with is_active = false, so an old
+    order can link to it; the frontend must not offer it for sale."""
+    with db.transaction() as cur:
+        cur.execute(
+            """
+            SELECT p.product_id, p.product_name, p.description, p.brand, p.price,
+                   p.quantity_in_stock, p.quantity_in_stock > 0 AS in_stock,
+                   p.reorder_level, p.is_active, p.last_updated,
+                   c.category_id, c.category_name,
+                   s.seller_id, s.name AS seller_name
+            FROM   product p
+            JOIN   category c ON c.category_id = p.category_id
+            JOIN   seller   s ON s.seller_id   = p.seller_id
+            WHERE  p.product_id = %s
+            """,
+            (product_id,),
+        )
+        row = cur.fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail="Product not found.")
+        return row
+
+
 @router.patch("/{product_id}")
 def update_product(product_id: int, body: ProductUpdate,
                    seller_id: int = Header(alias="X-Seller-Id")):
@@ -129,3 +156,15 @@ def remove_product(product_id: int, seller_id: int = Header(alias="X-Seller-Id")
                 "status": "delisted",
                 "reason": "The product appears in past orders, so it was hidden instead of deleted.",
             })
+
+
+@router.post("/{product_id}/relist")
+def relist_product(product_id: int, seller_id: int = Header(alias="X-Seller-Id")):
+    """Undo a delisting. Without this a delisted product is a dead end: it
+    cannot be sold, and UNIQUE (seller_id, product_name) stops the seller
+    from adding it again under the same name."""
+    with db.transaction() as cur:
+        require_owned_product(cur, product_id, seller_id)
+        cur.execute("UPDATE product SET is_active = TRUE WHERE product_id = %s RETURNING *",
+                    (product_id,))
+        return cur.fetchone()

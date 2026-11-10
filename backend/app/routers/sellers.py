@@ -1,5 +1,5 @@
-"""Seller endpoints: registration, dashboard, own catalog, low-stock alerts."""
-from fastapi import APIRouter, HTTPException
+"""Seller endpoints: registration, lookup, dashboard, own catalog, low-stock alerts."""
+from fastapi import APIRouter, HTTPException, Query
 
 from .. import db
 from ..schemas import ProductCreate, SellerCreate
@@ -28,9 +28,41 @@ def register_seller(body: SellerCreate):
         return cur.fetchone()
 
 
+@router.get("")
+def find_seller(email: str = Query(..., min_length=3)):
+    """Seller "login": there are no passwords in this project, so the seller
+    portal finds the seller by email once and keeps seller_id (the same
+    convention as GET /customers?email=)."""
+    with db.transaction() as cur:
+        cur.execute(
+            "SELECT seller_id, name, email, phone, registration_date "
+            "FROM seller WHERE lower(email) = lower(%s)",
+            (email,),
+        )
+        row = cur.fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail="Seller not found.")
+        return row
+
+
+@router.get("/{seller_id}")
+def get_seller(seller_id: int):
+    with db.transaction() as cur:
+        cur.execute(
+            "SELECT seller_id, name, email, phone, registration_date "
+            "FROM seller WHERE seller_id = %s",
+            (seller_id,),
+        )
+        row = cur.fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail="Seller not found.")
+        return row
+
+
 @router.get("/{seller_id}/dashboard")
 def seller_dashboard(seller_id: int):
-    """Query Q1 for one seller: catalog size, stock, inventory value, low-stock count."""
+    """Query Q1 for one seller: catalog size, stock, inventory value, and the
+    low-stock count read from the view v_low_stock_products."""
     with db.transaction() as cur:
         cur.execute(
             """
@@ -40,8 +72,8 @@ def seller_dashboard(seller_id: int):
                    COALESCE(SUM(p.quantity_in_stock) FILTER (WHERE p.is_active), 0) AS units_in_stock,
                    COALESCE(SUM(p.price * p.quantity_in_stock)
                             FILTER (WHERE p.is_active), 0)                          AS inventory_value,
-                   COUNT(p.product_id) FILTER (WHERE p.is_active
-                                                 AND p.quantity_in_stock <= p.reorder_level) AS low_stock_products
+                   (SELECT COUNT(*) FROM v_low_stock_products v
+                    WHERE  v.seller_id = s.seller_id)                               AS low_stock_products
             FROM   seller s
             LEFT JOIN product p ON p.seller_id = s.seller_id
             WHERE  s.seller_id = %s

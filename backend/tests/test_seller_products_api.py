@@ -30,6 +30,25 @@ def test_duplicate_email_is_409(client, seller):
     assert res.status_code == 409
 
 
+# ---------- seller lookup ("login") ----------
+
+def test_find_seller_by_email_ignores_case(client, seller):
+    res = client.get("/sellers", params={"email": seller["email"].upper()})
+    assert res.status_code == 200
+    assert res.json()["seller_id"] == seller["seller_id"]
+
+
+def test_find_unknown_seller_is_404(client):
+    assert client.get("/sellers", params={"email": "__nobody__@example.in"}).status_code == 404
+
+
+def test_get_seller(client, seller):
+    res = client.get(f"/sellers/{seller['seller_id']}")
+    assert res.status_code == 200
+    assert res.json()["name"] == seller["name"]
+    assert client.get("/sellers/-1").status_code == 404
+
+
 # ---------- adding products ----------
 
 def test_add_product(product):
@@ -190,7 +209,58 @@ def test_remove_other_sellers_product_is_403(client, other_seller, product):
     assert res.status_code == 403
 
 
-# ---------- customer search and categories ----------
+# ---------- relisting ----------
+
+def delist(conn, product_id):
+    with conn.cursor() as cur:
+        cur.execute("UPDATE product SET is_active = FALSE WHERE product_id = %s", (product_id,))
+
+
+def test_relist_makes_product_visible_again(client, conn, seller, product, category_id):
+    delist(conn, product["product_id"])
+    assert client.get("/products", params={"category_id": category_id}).json() == []
+    res = client.post(f"/products/{product['product_id']}/relist", headers=seller_header(seller))
+    assert res.status_code == 200
+    assert res.json()["is_active"] is True
+    found = client.get("/products", params={"category_id": category_id}).json()
+    assert [p["product_id"] for p in found] == [product["product_id"]]
+
+
+def test_relist_other_sellers_product_is_403(client, conn, other_seller, product):
+    delist(conn, product["product_id"])
+    res = client.post(f"/products/{product['product_id']}/relist",
+                      headers=seller_header(other_seller))
+    assert res.status_code == 403
+
+
+# ---------- customer search, product page and categories ----------
+
+def test_product_page(client, seller, product, category_id):
+    res = client.get(f"/products/{product['product_id']}")
+    assert res.status_code == 200
+    body = res.json()
+    assert body["seller_name"] == seller["name"]
+    assert body["category_id"] == category_id
+    assert body["in_stock"] is True and body["is_active"] is True
+
+
+def test_unknown_product_page_is_404(client):
+    assert client.get("/products/-1").status_code == 404
+
+
+def test_delisted_product_is_not_in_search(client, conn, product, category_id):
+    delist(conn, product["product_id"])
+    assert client.get("/products", params={"category_id": category_id}).json() == []
+    assert client.get(f"/products/{product['product_id']}").json()["is_active"] is False
+
+
+def test_cors_preflight_allows_seller_header(client):
+    res = client.options("/products/1", headers={
+        "Origin": "http://localhost:5500",
+        "Access-Control-Request-Method": "PATCH",
+        "Access-Control-Request-Headers": "x-seller-id,content-type"})
+    assert res.status_code == 200
+    assert "x-seller-id" in res.headers["access-control-allow-headers"].lower()
 
 def test_search_finds_product(client, product, category_id):
     res = client.get(

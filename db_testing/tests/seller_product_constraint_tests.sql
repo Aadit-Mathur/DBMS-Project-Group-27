@@ -5,7 +5,7 @@
 -- DATABASE rejects it. Runs inside a transaction that is rolled back
 -- at the end, so it never changes your data. Safe to run on Neon.
 --
--- Run:  python db/run_sql.py db/tests/seller_product_constraint_tests.sql
+-- Run:  python db_testing/run_sql.py db_testing/tests/seller_product_constraint_tests.sql
 -- Every line should start with PASS. A FAIL stops the script.
 -- Blocked deletes: PostgreSQL 18+ (Neon) reports ON DELETE RESTRICT as
 -- restrict_violation (23001); older versions as foreign_key_violation
