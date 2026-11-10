@@ -14,7 +14,7 @@ from fastapi import FastAPI
 
 from . import db
 from .errors import postgres_error_handler
-from .routers import categories, products, sellers, orders
+from .routers import categories, products, sellers, orders, customers
 
 app = FastAPI(
     title="E-Commerce DBMS Project - Group 27",
@@ -31,6 +31,7 @@ app.include_router(sellers.router)
 app.include_router(products.router)
 app.include_router(categories.router)
 app.include_router(orders.router)
+app.include_router(customers.router)
 # Ordering module:  app.include_router(orders.router)
 # Admin module:     app.include_router(admin.router)
 
