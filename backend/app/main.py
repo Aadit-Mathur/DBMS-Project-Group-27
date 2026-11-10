@@ -11,6 +11,7 @@ includes it below (ordering, admin, ...).
 """
 import psycopg2
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from . import db
 from .errors import postgres_error_handler
@@ -25,6 +26,11 @@ app = FastAPI(
 )
 
 app.add_exception_handler(psycopg2.Error, postgres_error_handler)
+
+# The frontend is plain HTML/JS served from another origin (a file or a dev
+# server), and seller routes send the custom X-Seller-Id header, so the
+# browser needs CORS (including the preflight) to be allowed.
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 # Seller & Products module
 app.include_router(sellers.router)

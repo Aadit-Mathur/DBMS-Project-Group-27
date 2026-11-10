@@ -10,7 +10,7 @@
 -- Everything runs in one transaction: if any step fails (for example
 -- existing data breaks a new CHECK), nothing is changed.
 --
--- Run:  python db/run_sql.py db/seller_product_schema.sql
+-- Run:  python db_testing/run_sql.py db_testing/seller_product_schema.sql
 -- Run this BEFORE the ordering tables (ORDER_ITEM references PRODUCT).
 -- =====================================================================
 
