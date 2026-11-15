@@ -11,38 +11,45 @@ async function loadCart() {
 
     try {
 
-        const products = await getProducts();
+        // getProducts() only returns the first 20 products, so look up each
+        // cart item by its own id instead.
+        const results = await Promise.allSettled(
+            cart.map(cartItem => getProduct(cartItem.product_id))
+        );
 
         cartContainer.innerHTML = "";
 
-        cart.forEach(cartItem => {
+        cart.forEach((cartItem, i) => {
 
-            const product = products.find(
-                p => p.product_id === cartItem.product_id
-            );
+            const cartItemDiv = document.createElement("div");
+            cartItemDiv.classList.add("product-card");
 
-            if (!product) {
+            if (results[i].status !== "fulfilled") {
+                const note = document.createElement("p");
+                note.textContent =
+                    `Product #${cartItem.product_id} is no longer available.`;
+                cartItemDiv.appendChild(note);
+                cartContainer.appendChild(cartItemDiv);
                 return;
             }
 
-            const cartItemDiv = document.createElement("div");
+            const product = results[i].value;
 
-            cartItemDiv.classList.add("product-card");
+            // textContent (not innerHTML) so product text is never treated as HTML
+            const title = document.createElement("h2");
+            title.textContent = product.product_name;
+            cartItemDiv.appendChild(title);
 
-            cartItemDiv.innerHTML = `
-                <h2>${product.product_name}</h2>
-
-                <p>Brand: ${product.brand}</p>
-
-                <p>Price: ₹${product.price}</p>
-
-                <p>Quantity: ${cartItem.quantity}</p>
-
-                <p>
-                    Total:
-                    ₹${Number(product.price) * cartItem.quantity}
-                </p>
-            `;
+            [
+                `Brand: ${product.brand ?? "-"}`,
+                `Price: ₹${product.price}`,
+                `Quantity: ${cartItem.quantity}`,
+                `Total: ₹${Number(product.price) * cartItem.quantity}`
+            ].forEach(text => {
+                const p = document.createElement("p");
+                p.textContent = text;
+                cartItemDiv.appendChild(p);
+            });
 
             cartContainer.appendChild(cartItemDiv);
         });

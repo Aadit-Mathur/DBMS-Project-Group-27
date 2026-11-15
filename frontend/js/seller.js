@@ -583,76 +583,52 @@ async function addSellerProduct() {
 
 
 function showEditProductForm(productId) {
-    const productName = prompt("Enter new product name:");
+    // Stock is not edited here: it only changes through "Restock Product" and orders.
+    // Leave a prompt blank to keep the current value.
+    const productName = prompt("New product name (blank = keep):");
     if (productName === null) return;
 
-    const price = prompt("Enter new price:");
+    const price = prompt("New price (blank = keep):");
     if (price === null) return;
 
-    const stock = prompt("Enter new quantity in stock:");
-    if (stock === null) return;
-
-    const reorderLevel = prompt("Enter new reorder level:");
+    const reorderLevel = prompt("New reorder level (blank = keep):");
     if (reorderLevel === null) return;
 
-    updateSellerProduct(
-        productId,
-        productName,
-        Number(price),
-        Number(stock),
-        Number(reorderLevel)
-    );
+    updateSellerProduct(productId, productName.trim(), price.trim(), reorderLevel.trim());
 }
 
-async function updateSellerProduct(
-    productId,
-    productName,
-    price,
-    stock,
-    reorderLevel
-) {
+async function updateSellerProduct(productId, productName, price, reorderLevel) {
     const sellerId = Number(localStorage.getItem("seller_id"));
 
+    // Send only the fields that were filled in (PATCH /products/{id}).
+    const changes = {};
+    if (productName) changes.product_name = productName;
+    if (price) changes.price = Number(price);
+    if (reorderLevel) changes.reorder_level = Number(reorderLevel);
+
+    if (Object.keys(changes).length === 0) {
+        alert("Nothing to update.");
+        return;
+    }
+
     try {
-        // Get the existing product first
         const response = await fetch(
-            `${API_BASE_URL}/products/${productId}`
-        );
-
-        const product = await response.json();
-
-        if (!response.ok) {
-            throw new Error(
-                product.detail || "Unable to load product"
-            );
-        }
-
-        // Update the product while preserving
-        // category, description and brand
-        const updateResponse = await fetch(
-            `${API_BASE_URL}/sellers/${sellerId}/products/${productId}`,
+            `${API_BASE_URL}/products/${productId}`,
             {
-                method: "PUT",
+                method: "PATCH",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "X-Seller-Id": sellerId
                 },
-                body: JSON.stringify({
-                    category_id: product.category_id,
-                    product_name: productName,
-                    price: price,
-                    description: product.description,
-                    brand: product.brand,
-                    quantity_in_stock: stock,
-                    reorder_level: reorderLevel
-                })
+                body: JSON.stringify(changes)
             }
         );
 
-        const result = await updateResponse.json();
+        const result = await response.json();
 
-        if (!updateResponse.ok) {
+        if (!response.ok) {
             throw new Error(
-                result.detail || "Unable to update product"
+                typeof result.detail === "string" ? result.detail : "Unable to update product"
             );
         }
 
@@ -787,7 +763,7 @@ async function relistSellerProduct(productId) {
         const response = await fetch(
             `${API_BASE_URL}/products/${productId}/relist`,
             {
-                method: "PATCH",
+                method: "POST",
                 headers: {
                     "X-Seller-Id": sellerId
                 }
