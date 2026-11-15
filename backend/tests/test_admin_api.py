@@ -1,10 +1,3 @@
-"""Tests for the admin dashboard API (/admin/*).
-
-Run from the repository root:   pytest backend/tests/test_admin_api.py -v
-All DB work is rolled back (see conftest.py). The tests only READ data, and
-check invariants (e.g. "two half-ranges add up to the full range") instead of
-hard-coded numbers, so they pass on both Neon and a local restore.
-"""
 from datetime import date, timedelta
 
 import pytest
@@ -16,7 +9,7 @@ ENDPOINTS = [
     "/admin/summary", "/admin/revenue-trend", "/admin/orders-by-status",
     "/admin/top-products", "/admin/top-sellers", "/admin/sales-by-category",
     "/admin/low-stock", "/admin/payments", "/admin/new-customers",
-    "/admin/shipments",
+    "/admin/shipments", "/admin/overview",
 ]
 
 
@@ -194,3 +187,13 @@ def test_shipments_delivery_time_only_for_delivered(client, auth):
     for r in get(client, auth, "/admin/shipments"):
         if r["status"] != "Delivered":
             assert r["avg_days_to_deliver"] is None
+
+
+def test_overview_counts_match_tables(client, auth, conn):
+    with conn.cursor() as cur:
+        cur.execute("SELECT (SELECT COUNT(*) FROM customer), (SELECT COUNT(*) FROM seller), "
+                    "(SELECT COUNT(*) FROM product), (SELECT COUNT(*) FROM product WHERE is_active)")
+        customers, sellers, products, active = cur.fetchone()
+    o = get(client, auth, "/admin/overview")
+    assert (o["customers"], o["sellers"], o["products"], o["active_products"]) == (customers, sellers, products, active)
+    assert o["active_products"] <= o["products"]

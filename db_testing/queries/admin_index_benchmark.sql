@@ -1,3 +1,22 @@
+-- =============================================================================
+-- admin_index_benchmark.sql -- does an index on orders(order_date) help the
+-- admin dashboard?  (Yash Agarwal, admin module)
+--
+-- Every /admin/* date filter is "WHERE o.order_date >= X AND o.order_date < Y".
+-- The schema has no plain index on orders.order_date (idx_orders_pending only
+-- covers Pending orders), so these queries read the whole orders table.
+--
+-- !! RUN THIS ON A SCRATCH DATABASE, NOT THE SHARED NEON DB !!
+--    createdb ecommerce_bench
+--    python db_testing/restore_database.py --database-url postgresql://.../ecommerce_bench
+--    psql postgresql://.../ecommerce_bench -f db_testing/queries/admin_index_benchmark.sql
+--
+-- RESULTS I MEASURED (local PostgreSQL 16, 6-day window, median of 3 runs):
+--   302 orders (real data):   planner ignores the index -> no real difference
+--   200,302 orders (scaled):  orders access  Seq Scan ~8 ms  ->  Index Scan ~0.3 ms
+--                             whole query    ~46 ms        ->  ~32 ms
+--   (the rest of the query time is scanning payment, which this index doesn't touch)
+-- =============================================================================
 
 -- 1. Scale the data up so the planner has a reason to prefer an index.
 --    Bulk load only: skip triggers; ids start at 100000 to avoid the real rows.

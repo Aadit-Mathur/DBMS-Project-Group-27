@@ -5,26 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 
 <body>
 
     <h1>Admin Dashboard</h1>
 
-    <div id="dashboard"></div>
+    <!-- The /admin/* API needs the X-Admin-Key header (ADMIN_API_KEY in .env). -->
+    <section id="keyGate" class="admin-panel">
+        <h2>Admin key</h2>
+        <p>Enter the <code>ADMIN_API_KEY</code> from the server's <code>.env</code> file.</p>
+        <input type="password" id="adminKeyInput" placeholder="Admin key" autocomplete="off">
+        <button id="unlockBtn">Unlock</button>
+        <p id="keyMessage" class="admin-error"></p>
+    </section>
 
-    <hr>
+    <main id="adminApp" hidden>
 
-    <div id="topProducts"></div>
+        <section class="admin-panel admin-filters">
+            <label>From <input type="date" id="dateFrom"></label>
+            <label>To <input type="date" id="dateTo"></label>
+            <label>Group by
+                <select id="interval">
+                    <option value="day">Day</option>
+                    <option value="week">Week</option>
+                    <option value="month" selected>Month</option>
+                </select>
+            </label>
+            <button id="applyBtn">Apply</button>
+            <button id="resetBtn" class="secondary">Reset</button>
+            <button id="lockBtn" class="secondary">Lock</button>
+            <span id="filterMessage" class="admin-error"></span>
+        </section>
 
-    <hr>
+        <p class="admin-note">Revenue counts only orders with a <strong>successful</strong> payment.
+            Dates filter on the order date (the end date is included).</p>
 
-    <div id="categorySales"></div>
+        <div id="overview" class="kpi-grid three"></div>
+        <div id="kpis" class="kpi-grid"></div>
 
-    <hr>
+        <div class="chart-grid">
+            <section class="admin-panel wide">
+                <h2>Revenue trend</h2>
+                <div class="chart-box"><canvas id="chartRevenue"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
 
-    <div id="orderStatus"></div>
+            <section class="admin-panel">
+                <h2>Orders by status</h2>
+                <div class="chart-box"><canvas id="chartStatus"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
 
+            <section class="admin-panel">
+                <h2>Sales by category</h2>
+                <div class="chart-box tall"><canvas id="chartCategory"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
+
+            <section class="admin-panel">
+                <h2>Payments by method</h2>
+                <div class="chart-box"><canvas id="chartPayments"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
+
+            <section class="admin-panel">
+                <h2>Shipment status</h2>
+                <div class="chart-box"><canvas id="chartShipments"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
+
+            <section class="admin-panel wide">
+                <h2>New customers</h2>
+                <div class="chart-box"><canvas id="chartCustomers"></canvas><p class="empty" hidden>No data for this range</p></div>
+            </section>
+        </div>
+
+        <div class="table-grid">
+            <section class="admin-panel"><h2>Top products</h2><div id="topProductsTable"></div></section>
+            <section class="admin-panel"><h2>Top sellers</h2><div id="topSellersTable"></div></section>
+            <section class="admin-panel wide"><h2>Low stock</h2><div id="lowStockTable"></div></section>
+        </div>
+
+    </main>
+
+    <script src="../js/vendor/chart.umd.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/admin.js"></script>
 

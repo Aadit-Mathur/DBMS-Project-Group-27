@@ -12,7 +12,13 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 - Payment and shipment workflow logic
 - Database-enforced integrity checks, transactions, and reporting queries
 
-## Current Progress (Mid-Sem Evaluation)
+## Submission
+
+- Git tag: `final`
+- Final commit hash: `PASTE_HASH_HERE`
+- Course: CS F212 (DBMS), Group 27
+
+## Final Submission Status
 
 ### Completed work
 
@@ -22,20 +28,21 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 - Transactional database logic is used for order placement and stock updates to keep the core workflow atomic.
 - SQL validation scripts and API tests have been added to exercise key constraints and backend operations.
 - Sample data generation scripts are included to populate realistic customers, sellers, categories, products, and addresses for testing.
+- Admin dashboard: 10 read-only, API-key-protected `/admin/*` endpoints (revenue trend, orders by status, top products and sellers, sales by category, low stock, payments, new customers, shipments, overview) backed by SQL aggregates, plus a dashboard page with charts. See [Admin dashboard](#admin-dashboard).
+- Three views, nine indexes, nine triggers and fourteen stored functions in the schema. See [Database objects](#database-objects).
 
 ### In progress / next milestones
 
 - Addition of a few more triggers, views, etc. under consideration
 - Development of the frontend is ongoing
-- Admin dashboard module in development
 - Final frontend-backend integration and UX refinement
 - Complete end-to-end validation across frontend, backend, and database workflows
 
 ## Repository Structure
 
 - `backend/app/` — FastAPI application, database connection, request validation, and routers
-- `backend/tests/` — API tests for seller/product workflows
-- `db_testing/` — database restore, schema scripts, SQL validation files, and queries
+- `backend/tests/` — API tests (seller/product, ordering and admin dashboard)
+- `db_testing/` — database restore, schema scripts, SQL validation files, and queries (admin dashboard SQL: `db_testing/queries/admin_queries.sql`)
 - `reconstruct_database/` — portable schema and sample data dumps
 - `populate_DB/` — data-generation scripts for realistic sample data
 - `Reference/` — design documents used as the baseline for the project
@@ -43,6 +50,7 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 ## Technology Stack
 
 - Backend: Python, FastAPI
+- Frontend: HTML, CSS, JavaScript; charts use Chart.js 4.5.1, bundled in `frontend/js/vendor/` (works offline)
 - Database: PostgreSQL (Neon or local)
 - Database access: psycopg2, SQL, PL/pgSQL
 - Validation: pytest and SQL constraint tests
@@ -54,12 +62,15 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-# Set DATABASE_URL in a local .env file before running the app.
-# It may be a Neon URL or a local PostgreSQL URL.
+# Create a .env file in the repository root with:
+#   DATABASE_URL=postgresql://...   (a Neon URL or a local PostgreSQL URL)
+#   ADMIN_API_KEY=choose-a-secret   (needed for the /admin endpoints and dashboard)
 uvicorn backend.app.main:app --reload
 ```
 
 The API documentation is available at `/docs` when the server is running.
+
+To open the pages, serve the `frontend/` folder (for example `python -m http.server 8080` inside it) with the API running on port 8000, then open `http://localhost:8080/admin/admin.html` and enter the `ADMIN_API_KEY`.
 
 ## Reproducible database setup
 
@@ -161,6 +172,39 @@ connection URL to the same restore command:
 python db_testing/restore_database.py --database-url $env:DATABASE_URL
 ```
 
+## Admin dashboard
+
+The admin module is read-only. Every `/admin/*` route needs the header `X-Admin-Key: <ADMIN_API_KEY>`
+(wrong or missing key: 401). Revenue counts only orders with a **successful** payment. Most endpoints take
+optional `date_from` / `date_to` (the end date is inclusive).
+
+| Endpoint | What it shows |
+|---|---|
+| `GET /admin/overview` | customers, sellers, products, active products |
+| `GET /admin/summary` | orders, paid orders, revenue, average order value, refunds |
+| `GET /admin/revenue-trend` | revenue per day, week or month |
+| `GET /admin/orders-by-status` | order counts per status |
+| `GET /admin/top-products`, `/admin/top-sellers` | best sellers by units and revenue |
+| `GET /admin/sales-by-category` | revenue and percentage share per category |
+| `GET /admin/low-stock` | active products at or below reorder level (view `v_low_stock_products`) |
+| `GET /admin/payments` | payment methods by status |
+| `GET /admin/new-customers` | registrations over time |
+| `GET /admin/shipments` | shipment status counts and average delivery days |
+
+- Full reference and examples: [`docs/ADMIN_API.md`](docs/ADMIN_API.md)
+- The raw SQL for every endpoint (GROUP BY, multi-table JOINs, FILTER, a window function): [`db_testing/queries/admin_queries.sql`](db_testing/queries/admin_queries.sql)
+- Index experiment on `orders(order_date)` with EXPLAIN ANALYZE: [`db_testing/queries/admin_index_benchmark.sql`](db_testing/queries/admin_index_benchmark.sql)
+- Tests: `pytest backend/tests/test_admin_api.py -v`
+- Dashboard page: `frontend/admin/admin.html` (date filters, six charts, three tables)
+
+## Database objects
+
+- **11 tables:** address, category, customer, order_event, order_fn_backup, order_item, orders, payment, product, seller, shipment
+- **3 views:** `v_low_stock_products`, `v_order_summary`, `v_paid_orders`
+- **9 indexes:** `idx_order_event_order`, `idx_order_item_order`, `idx_order_item_product`, `idx_orders_customer`, `idx_orders_pending` (partial), `idx_payment_successful` (partial), `idx_product_category_price`, `idx_product_low_stock` (partial), `uq_shipment_tracking` (unique, partial)
+- **9 triggers** (order item freeze and total, order guard and event log, payment flow and event log, product timestamp, shipment flow and event log)
+- **14 functions:** `place_order`, `begin_payment`, `record_payment`, `cancel_order`, `expire_unpaid_orders`, `advance_shipment`, `restock_product` and the trigger functions behind the triggers above
+
 ## Contributors
 
 ### Aadit Mathur (2024AAPS0310H)
@@ -187,6 +231,7 @@ python db_testing/restore_database.py --database-url $env:DATABASE_URL
 - Admin dashboard module development 
 - Analytical queries and reporting functionality for revenue
 - Charts and visualisations
+- Admin API tests (pytest) and API documentation
 
 
 # E-Commerce Marketplace — DBMS Project
@@ -250,10 +295,11 @@ Sellers can:
 
 ### Administrator
 The administrator dashboard provides:
-- Overall system statistics
-- Top-selling products
-- Category-wise sales reports
-- Order-status summaries
+- Overall system statistics (customers, sellers, products, orders, revenue)
+- Revenue trend, top-selling products and sellers
+- Category-wise sales, order-status, payment and shipment summaries
+- Low-stock alerts and new-customer trends
+- Date-range filtering and charts
 
 ---
 
@@ -297,12 +343,14 @@ Administrator opens the dashboard → views customer, seller, product and order 
 
 ## 6. Reports and Dashboard
 
-The application provides the following reports:
+The application provides ten admin reports through the API-key-protected `/admin/*` endpoints (see [Admin dashboard](#admin-dashboard)):
 
-- Overall dashboard statistics
-- Top products by units sold and revenue
-- Category-wise sales
-- Order-status summary
+- Overview counts and revenue summary
+- Revenue trend (day, week, month)
+- Top products and top sellers by units and revenue
+- Category-wise sales with percentage share
+- Order-status, payment-method and shipment-status summaries
+- Low-stock list and new-customer registrations
 
 These reports use SQL joins, aggregation, grouping, filtering and ordering across multiple relations.
 
@@ -357,6 +405,7 @@ These queries support both application functionality and administrative reportin
 
 ## 9. Project Structure
 
+```text
 DBMS-Project-Group-27/
 │
 ├── backend/
@@ -384,13 +433,8 @@ DBMS-Project-Group-27/
 ├── docs/
 ├── requirements.txt
 └── README.md
+```
 
-
-### Part 3 — Setup
-
-Continue with:
-
-```markdown
 ---
 
 ## 10. Running the Backend
@@ -401,3 +445,4 @@ From the project root, run:
 
 ```bash
 uvicorn backend.app.main:app --reload
+```

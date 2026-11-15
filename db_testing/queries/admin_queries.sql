@@ -1,3 +1,19 @@
+-- =============================================================================
+-- admin_queries.sql  --  raw SQL behind every /admin/* endpoint
+-- Author: Yash Agarwal (2024AAPS0294H) | Admin dashboard module
+--
+-- Each query below is the same SQL that backend/app/routers/admin.py runs
+-- (psycopg2's %(name)s placeholders are written as psql :name variables here).
+--
+-- HOW TO RUN (from the repo root):
+--   psql "$DATABASE_URL" -f db_testing/queries/admin_queries.sql
+--
+-- DEFINITIONS USED EVERYWHERE
+--   * Revenue  = orders that have a payment row with payment_status = 'Successful'
+--   * Date window filters orders.order_date; date_to is inclusive (< date_to + 1)
+--   * Setting a bound to NULL means "no limit on that side"
+-- =============================================================================
+
 -- Parameters. Use NULL for "no bound", or a quoted date wrapped in single quotes:
 --   \set date_from '''2026-01-01'''
 \set date_from NULL
@@ -135,3 +151,10 @@ WHERE  (:date_from::date IS NULL OR o.order_date >= :date_from::date)
 GROUP  BY sh.shipment_status
 ORDER  BY array_position(
           ARRAY['Pending','Shipped','In Transit','Delivered','Cancelled'], sh.shipment_status::text);
+
+\echo '--- Q9  /admin/overview  (headline counts, no date window) ---'
+-- Uses: scalar subqueries, one round trip
+SELECT (SELECT COUNT(*) FROM customer)                AS customers,
+       (SELECT COUNT(*) FROM seller)                  AS sellers,
+       (SELECT COUNT(*) FROM product)                 AS products,
+       (SELECT COUNT(*) FROM product WHERE is_active) AS active_products;

@@ -253,3 +253,18 @@ def shipments(date_from: Optional[date] = None, date_to: Optional[date] = None):
                   ARRAY['Pending','Shipped','In Transit','Delivered','Cancelled'], sh.shipment_status::text)
     """
     return _rows(sql, _window(date_from, date_to))
+
+
+# --------------------------------------------------------------------------
+# 9. Overview counts (live snapshot, no date window)
+# --------------------------------------------------------------------------
+@router.get("/overview")
+def overview():
+    # Scalar subqueries: one round trip returns all the headline counts.
+    sql = """
+        SELECT (SELECT COUNT(*) FROM customer)                     AS customers,
+               (SELECT COUNT(*) FROM seller)                       AS sellers,
+               (SELECT COUNT(*) FROM product)                      AS products,
+               (SELECT COUNT(*) FROM product WHERE is_active)      AS active_products
+    """
+    return _rows(sql, {})[0]

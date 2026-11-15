@@ -21,7 +21,7 @@ X-Admin-Key: <value of ADMIN_API_KEY from .env>
 - **Revenue** = orders whose payment has `payment_status = 'Successful'`. Pending, failed and refunded payments are not revenue.
 - **Date window** (`date_from`, `date_to`, both optional, `YYYY-MM-DD`) filters `orders.order_date`. `date_to` is **inclusive** (the whole day counts).
   Leave a bound out for "no limit on that side". A window with no orders returns zeros / `[]`, not an error.
-  (`/admin/new-customers` filters `customer.registration_date` instead; `/admin/low-stock` has no date window.)
+  (`/admin/new-customers` filters `customer.registration_date` instead; `/admin/low-stock` and `/admin/overview` have no date window.)
 
 ## Endpoints
 
@@ -37,6 +37,7 @@ X-Admin-Key: <value of ADMIN_API_KEY from .env>
 | `GET /admin/payments` | | Q6 | `{method, status, payments, amount}` per payment method and status |
 | `GET /admin/new-customers` | `interval` (default `month`) | Q7 | list of `{period, new_customers}` |
 | `GET /admin/shipments` | | Q8 | `{status, shipments, avg_days_to_deliver}` (days only filled for `Delivered`, else `null`) |
+| `GET /admin/overview` | | Q9 | one object: `customers, sellers, products, active_products` (live counts, no date window) |
 
 ## Example
 ```
@@ -61,8 +62,9 @@ Response samples (all data, no date window):
 | Window function `SUM(SUM(x)) OVER ()` | sales-by-category (`pct_of_revenue`) |
 | View `v_low_stock_products` | low-stock |
 | `date_trunc` time bucketing (unit whitelisted, never raw user input) | revenue-trend, new-customers |
+| Scalar subqueries | overview |
 | Parameterised queries (`%(name)s`), so no SQL injection | all |
 
 ## Tests
-`pytest backend/tests/test_admin_api.py -v` (53 tests: key check on every endpoint, input validation, date filters, empty and inverted ranges,
+`pytest backend/tests/test_admin_api.py -v` (57 tests: key check on every endpoint, input validation, date filters, empty and inverted ranges,
 and consistency checks such as "two half-ranges add up to the whole" and "trend total equals summary revenue"). All changes are rolled back.
