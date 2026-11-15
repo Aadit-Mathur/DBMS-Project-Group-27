@@ -147,52 +147,6 @@ def add_product(seller_id: int, body: ProductCreate):
         )
         return cur.fetchone()
 
-@router.put("/{seller_id}/products/{product_id}", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
-def update_product(
-    seller_id: int,
-    product_id: int,
-    body: ProductCreate
-):
-    with db.transaction() as cur:
-        require_seller(cur, seller_id)
-
-        cur.execute(
-            """
-            UPDATE product
-            SET category_id = %s,
-                product_name = %s,
-                description = %s,
-                brand = %s,
-                price = %s,
-                quantity_in_stock = %s,
-                reorder_level = %s
-            WHERE product_id = %s
-              AND seller_id = %s
-            RETURNING *
-            """,
-            (
-                body.category_id,
-                body.product_name,
-                body.description,
-                body.brand,
-                body.price,
-                body.quantity_in_stock,
-                body.reorder_level,
-                product_id,
-                seller_id
-            )
-        )
-
-        product = cur.fetchone()
-
-        if product is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Product not found for this seller."
-            )
-
-        return product
-
 @router.get("/{seller_id}/low-stock", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def low_stock(seller_id: int):
     """Reads the view v_low_stock_products."""
