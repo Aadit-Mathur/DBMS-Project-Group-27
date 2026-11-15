@@ -35,40 +35,56 @@ async function request(method, path, { params, body, seller, admin } = {}) {
 const get = (p, o) => request('GET', p, o), post = (p, body, o) => request('POST', p, { ...o, body });
 
 export const api = {
-  health: () => get('/health'),
-  categories: () => get('/categories'),
+  health: () => get("/health"),
+  reports: { dashboard: () => get("/reports/dashboard") },
+  categories: () => get("/categories"),
   products: {
-    search: (params) => get('/products', { params }),
+    search: (params) => get("/products", { params }),
     get: (id) => get(`/products/${id}`),
-    update: (id, body) => request('PATCH', `/products/${id}`, { body, seller: true }),
-    restock: (id, quantity) => post(`/products/${id}/restock`, { quantity }, { seller: true }),
-    remove: (id) => request('DELETE', `/products/${id}`, { seller: true }),   // 204 = deleted, 200 = delisted
+    update: (id, body) =>
+      request("PATCH", `/products/${id}`, { body, seller: true }),
+    restock: (id, quantity) =>
+      post(`/products/${id}/restock`, { quantity }, { seller: true }),
+    remove: (id) => request("DELETE", `/products/${id}`, { seller: true }), // 204 = deleted, 200 = delisted
     relist: (id) => post(`/products/${id}/relist`, undefined, { seller: true }),
   },
   customers: {
-    find: (email) => get('/customers', { params: { email } }),
+    find: (email) => get("/customers", { params: { email } }),
     addresses: (id) => get(`/customers/${id}/addresses`),
     orders: (id, params) => get(`/customers/${id}/orders`, { params }),
   },
   sellers: {
-    register: (body) => post('/sellers', body),
-    find: (email) => get('/sellers', { params: { email } }),
+    register: (body) => post("/sellers", body),
+    find: (email) => get("/sellers", { params: { email } }),
     dashboard: (id) => get(`/sellers/${id}/dashboard`),
-    products: (id, include_inactive = true) => get(`/sellers/${id}/products`, { params: { include_inactive } }),
+    products: (id, include_inactive = true) =>
+      get(`/sellers/${id}/products`, { params: { include_inactive } }),
     addProduct: (id, body) => post(`/sellers/${id}/products`, body),
     lowStock: (id) => get(`/sellers/${id}/low-stock`),
     orders: (id) => get(`/sellers/${id}/orders`),
   },
   orders: {
-    place: (body) => post('/orders', body),
+    place: (body) => post("/orders", body),
     get: (id) => get(`/orders/${id}`),
     tracking: (id) => get(`/orders/${id}/tracking`),
     pay: (id, body) => post(`/orders/${id}/payment`, body),
     cancel: (id, body) => post(`/orders/${id}/cancel`, body),
     shipment: (id, body) => post(`/orders/${id}/shipment`, body),
-    expireUnpaid: (minutes) => request('POST', `/orders/expire-unpaid`, { params: { minutes } }),
+    expireUnpaid: (minutes) =>
+      request("POST", `/orders/expire-unpaid`, { params: { minutes } }),
   },
   admin: Object.fromEntries(
-    ['overview', 'summary', 'revenue-trend', 'orders-by-status', 'top-products', 'top-sellers', 'sales-by-category',
-      'low-stock', 'payments', 'new-customers', 'shipments'].map((n) => [n, (params) => get(`/admin/${n}`, { params, admin: true })])),
+    [
+      "summary",
+      "revenue-trend",
+      "orders-by-status",
+      "top-products",
+      "top-sellers",
+      "sales-by-category",
+      "low-stock",
+      "payments",
+      "new-customers",
+      "shipments",
+    ].map((n) => [n, (params) => get(`/admin/${n}`, { params, admin: true })])
+  ),
 };
