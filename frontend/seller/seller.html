@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Dashboard - E-Commerce DBMS</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Seller Dashboard</h1>
+
+    <div>
+
+        <h2>Seller Login</h2>
+
+        <input
+            type="email"
+            id="sellerEmail"
+            placeholder="Enter seller email"
+        >
+
+        <button onclick="loadSeller()">
+            Find Seller
+        </button>
+
+    </div>
+
+    <div id="sellerDetails">
+        <!-- Seller details will appear here -->
+    </div>
+
+    <div id="sellerDashboard">
+        <!-- Dashboard statistics will appear here -->
+    </div>
+
+    <div id="sellerProducts">
+        <!-- Seller products will appear here -->
+    </div>
+
+    <div id="addProductSection">
+
+        <h2>Add New Product</h2>
+
+        <input
+            type="number"
+            id="productCategoryId"
+            placeholder="Category ID"
+        >
+
+        <input
+            type="text"
+            id="productName"
+            placeholder="Product Name"
+        >
+
+        <input
+            type="number"
+            id="productPrice"
+            placeholder="Price"
+            step="0.01"
+        >
+
+        <input
+            type="text"
+            id="productBrand"
+            placeholder="Brand"
+        >
+
+        <textarea
+            id="productDescription"
+            placeholder="Description"
+        ></textarea>
+
+        <input
+            type="number"
+            id="productStock"
+            placeholder="Quantity in Stock"
+            value="0"
+        >
+
+        <input
+            type="number"
+            id="productReorderLevel"
+            placeholder="Reorder Level"
+            value="10"
+        >
+
+        <button onclick="addSellerProduct()">
+            Add Product
+        </button>
+
+    </div>
+
+    <div id="lowStock">
+        <!-- Low-stock products will appear here -->
+    </div>
+
+    <div id="sellerOrders">
+        <!-- Seller orders will be displayed here -->
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/seller.js"></script>
+
+</body>
+
+</html>

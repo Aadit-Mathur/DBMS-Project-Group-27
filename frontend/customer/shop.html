@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop - E-Commerce DBMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Our Products</h1>
+
+    <p>Browse products available in our marketplace.</p>
+
+    <div id="filters">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+        >
+
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+        </select>
+
+        <input
+            type="number"
+            id="minPrice"
+            placeholder="Min price"
+        >
+
+        <input
+            type="number"
+            id="maxPrice"
+            placeholder="Max price"
+        >
+
+        <label>
+            <input type="checkbox" id="stockFilter">
+            In stock only
+        </label>
+
+        <button onclick="searchProducts()">Search</button>
+
+    </div>
+
+    <div id="products">
+        <!-- Products will appear here -->
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/customer.js"></script>
+
+</body>
+
+</html>

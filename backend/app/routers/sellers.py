@@ -126,6 +126,51 @@ def add_product(seller_id: int, body: ProductCreate):
         )
         return cur.fetchone()
 
+@router.put("/{seller_id}/products/{product_id}")
+def update_product(
+    seller_id: int,
+    product_id: int,
+    body: ProductCreate
+):
+    with db.transaction() as cur:
+        require_seller(cur, seller_id)
+
+        cur.execute(
+            """
+            UPDATE product
+            SET category_id = %s,
+                product_name = %s,
+                description = %s,
+                brand = %s,
+                price = %s,
+                quantity_in_stock = %s,
+                reorder_level = %s
+            WHERE product_id = %s
+              AND seller_id = %s
+            RETURNING *
+            """,
+            (
+                body.category_id,
+                body.product_name,
+                body.description,
+                body.brand,
+                body.price,
+                body.quantity_in_stock,
+                body.reorder_level,
+                product_id,
+                seller_id
+            )
+        )
+
+        product = cur.fetchone()
+
+        if product is None:
+            raise HTTPException(
+                status_code=404,
+                detail="Product not found for this seller."
+            )
+
+        return product
 
 @router.get("/{seller_id}/low-stock")
 def low_stock(seller_id: int):
@@ -143,3 +188,44 @@ def low_stock(seller_id: int):
             (seller_id,),
         )
         return cur.fetchall()
+
+@router.get("/{seller_id}/orders")
+def seller_orders(seller_id: int):
+    with db.transaction() as cur:
+
+        require_seller(cur, seller_id)
+
+        cur.execute("""
+            SELECT
+                o.order_id,
+                o.order_date,
+                o.order_status AS status,
+                o.total_amount,
+
+                oi.order_item_id,
+                oi.product_id,
+                p.product_name,
+                oi.quantity,
+                oi.unit_price,
+                oi.subtotal,
+
+                sh.shipment_status,
+                sh.carrier,
+                sh.tracking_number
+
+            FROM orders o
+            JOIN order_item oi
+                ON oi.order_id = o.order_id
+
+            JOIN product p
+                ON p.product_id = oi.product_id
+
+            LEFT JOIN shipment sh
+                ON sh.order_id = o.order_id
+
+            WHERE p.seller_id = %s
+
+            ORDER BY o.order_date DESC, o.order_id DESC
+        """, (seller_id,))
+
+        return [dict(row) for row in cur.fetchall()]

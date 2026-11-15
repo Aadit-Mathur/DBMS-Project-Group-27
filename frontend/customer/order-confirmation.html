@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmation - E-Commerce DBMS</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Order Placed Successfully!</h1>
+
+    <div id="orderConfirmation">
+        Loading order details...
+    </div>
+
+    <button id="payButton" style="display: none;">
+        Pay Now
+    </button>
+
+    <div>
+        <button onclick="window.location.href='shop.html'">
+            Continue Shopping
+        </button>
+
+        <button onclick="window.location.href='orders.html'">
+            View My Orders
+        </button>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/order-confirmation.js"></script>
+
+</body>
+
+</html>
