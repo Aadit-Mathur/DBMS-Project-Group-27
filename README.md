@@ -14,8 +14,8 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 
 ## Submission
 
-- Git tag: `final` (create this tag on the submitted commit)
-- Final commit hash: replace this line with the submitted commit hash
+- Git tag: `final` 
+- Final commit hash: a1a09f3069b8cd869e47e60ce730240f25d4d102
 
 ## Members and Contributions
 
