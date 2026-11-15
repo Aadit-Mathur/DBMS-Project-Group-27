@@ -1,17 +1,3 @@
-"""Admin dashboard: read-only analytics over the whole platform.
-
-Every stat is one SQL aggregate query (GROUP BY / JOIN / SUM / COUNT) run in
-Postgres; Python only passes parameters and returns the rows.
-
-Definitions used everywhere (state these in the report):
-  * "Revenue" = money from orders whose payment is 'Successful'.
-    Refunded, failed and pending payments are NOT revenue, so a paid-then-
-    cancelled order drops out automatically (its payment becomes 'Refunded').
-  * Date filters apply to orders.order_date, so every stat uses the same
-    window. Both ends are inclusive: date_from 00:00 .. date_to 23:59:59.
-  * Product/category/seller sales use order_item.unit_price * quantity
-    (order_item.subtotal), i.e. the price at purchase time, not today's price.
-"""
 import os
 import secrets
 from datetime import date
