@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from . import db
 from .errors import postgres_error_handler
-from .routers import categories, products, sellers, orders, customers
+from .routers import categories, products, sellers, orders, customers, admin
 
 app = FastAPI(
     title="E-Commerce DBMS Project - Group 27",
@@ -39,7 +39,7 @@ app.include_router(categories.router)
 app.include_router(orders.router)
 app.include_router(customers.router)
 # Ordering module:  app.include_router(orders.router)
-# Admin module:     app.include_router(admin.router)
+app.include_router(admin.router)
 
 
 @app.get("/health", tags=["Health"])
