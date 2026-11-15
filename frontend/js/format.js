@@ -49,7 +49,12 @@ export function productType(name, brand) {
 export const displayName = (name) => String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
 
 const ROOT = new URL('../img/products/', import.meta.url).href;
-export function imgSrc(p) { const f = IMG[productType(p.product_name, p.brand).toLowerCase()]; return f ? ROOT + f : null; }
+// Order lines carry no brand, so when the exact type is unknown drop leading words (the brand) until one matches.
+export function imgSrc(p) {
+  const words = productType(p.product_name, p.brand).toLowerCase().split(/\s+/);
+  for (let k = 0; k < Math.min(4, words.length); k++) { const f = IMG[words.slice(k).join(' ')]; if (f) return ROOT + f; }
+  return null;
+}
 export function productImage(p, cls = '', { eager = false } = {}) {
   const src = imgSrc(p);
   if (!src) return `<span class="pimg pimg--fallback ${cls}" aria-hidden="true">${icon('image')}</span>`;

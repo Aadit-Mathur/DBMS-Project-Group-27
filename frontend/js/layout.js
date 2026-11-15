@@ -11,7 +11,8 @@ const shop = (q = {}) => url('customer/shop.html') + (Object.keys(q).length ? '?
 const logo = (sub = '') => `<a class="logo" href="${url('index.html')}" aria-label="${APP_NAME} home">${logoMark()}<span>${APP_NAME}${sub ? `<small>${sub}</small>` : ''}</span></a>`;
 const firstName = (n) => esc(String(n || '').split(/\s+/)[0]);
 
-export const loadCategories = () => cached('cats', 10 * 60 * 1000, () => api.categories());
+// One retry: Neon can drop the first request after the database wakes up.
+export const loadCategories = () => cached('cats', 10 * 60 * 1000, () => api.categories().catch(() => new Promise((r) => setTimeout(r, 800)).then(() => api.categories())));
 
 export function signInUrl(role = 'customer', next = location.pathname.split('/').slice(-2).join('/') + location.search) {
   return url(`login.html?role=${role}&next=${encodeURIComponent(next)}`);
@@ -50,7 +51,7 @@ export function mountStore(active, { requireCustomer = false } = {}) {
         <label class="sr-only" for="hq">Search Bazaar</label><input id="hq" type="search" name="q" placeholder="Search for products, brands and more" autocomplete="off" value="${esc(active === 'shop' ? qs.get('q') || '' : '')}">
         <button type="submit" aria-label="Search">${icon('search')}</button></form>
       <div class="hdr__actions">
-        <div class="menu" id="acct"><button type="button" class="hlink hlink--account" aria-haspopup="true" aria-expanded="false"><small>${hello}</small><b><span>Account</span>${icon('chev-d', 14)}</b></button><div class="menu__pop" role="menu">${accountMenu()}</div></div>
+        <div class="menu" id="acct"><button type="button" class="hlink hlink--account" aria-haspopup="true" aria-expanded="false"><small>${hello}</small><b><span class="acct-ic">${icon('user', 24)}</span><span class="acct-tx">Account</span><span class="acct-chev">${icon('chev-d', 14)}</span></b></button><div class="menu__pop" role="menu">${accountMenu()}</div></div>
         <a class="hlink hlink--orders" href="${url('customer/orders.html')}"><small>Track</small><b>Orders</b></a>
         <a class="hlink hlink--cart" href="${url('customer/cart.html')}" aria-label="Cart">${icon('cart')}<span class="cart-count" id="cart-count" hidden>0</span><b>Cart</b></a>
       </div></div>
@@ -61,9 +62,9 @@ export function mountStore(active, { requireCustomer = false } = {}) {
   </header>
   <div class="drawer" id="drawer" aria-hidden="true"><div class="drawer__scrim" data-close-drawer></div>
     <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="All categories"><div class="drawer__head"><span>${me ? `Hello, ${firstName(me.name)}` : 'Shop by category'}</span><button type="button" data-close-drawer aria-label="Close">${icon('x')}</button></div>
-    <nav><h4>Shop by category</h4><div id="drawer-cats"></div><hr><h4>Your account</h4>
+    <nav><h2>Shop by category</h2><div id="drawer-cats"></div><hr><h2>Your account</h2>
       <a href="${url('customer/orders.html')}">Your orders</a><a href="${url('customer/cart.html')}">Your cart</a>${me ? '<a href="#" data-signout>Sign out</a>' : `<a href="${signInUrl()}">Sign in</a>`}
-      <hr><h4>Sell and manage</h4><a href="${signInUrl('seller', 'seller/seller.html')}">Seller hub</a><a href="${signInUrl('admin', 'admin/admin.html')}">Admin dashboard</a></nav></div></div>
+      <hr><h2>Sell and manage</h2><a href="${signInUrl('seller', 'seller/seller.html')}">Seller hub</a><a href="${signInUrl('admin', 'admin/admin.html')}">Admin dashboard</a></nav></div></div>
   <main id="main" class="app-main" tabindex="-1"><div class="container page" id="page"></div></main>
   ${footer()}`;
   wireStore(active, qs);
@@ -73,10 +74,10 @@ export function mountStore(active, { requireCustomer = false } = {}) {
 function footer() {
   return `<footer class="ftr"><button type="button" class="ftr__top" id="totop">Back to top</button>
   <div class="container ftr__cols">
-    <div><h4>Shop</h4><ul id="ftr-cats"></ul></div>
-    <div><h4>Your account</h4><ul><li><a href="${signInUrl()}">Sign in</a></li><li><a href="${url('customer/orders.html')}">Your orders</a></li><li><a href="${url('customer/cart.html')}">Your cart</a></li><li><a href="${url('customer/shop.html')}">All products</a></li></ul></div>
-    <div><h4>Sell on ${APP_NAME}</h4><ul><li><a href="${url('login.html?role=seller&mode=register')}">Register as a seller</a></li><li><a href="${signInUrl('seller', 'seller/seller.html')}">Seller hub</a></li><li><a href="${signInUrl('admin', 'admin/admin.html')}">Admin dashboard</a></li></ul></div>
-    <div><h4>About this project</h4><ul><li>CS F212 Database Systems, Group 27</li><li>BITS Pilani, Hyderabad Campus</li><li><a href="${API_BASE || location.origin}/docs" target="_blank" rel="noopener">API documentation</a></li><li><a href="${url('credits.html')}">Photo credits</a></li></ul></div>
+    <div><h2>Shop</h2><ul id="ftr-cats"></ul></div>
+    <div><h2>Your account</h2><ul><li><a href="${signInUrl()}">Sign in</a></li><li><a href="${url('customer/orders.html')}">Your orders</a></li><li><a href="${url('customer/cart.html')}">Your cart</a></li><li><a href="${url('customer/shop.html')}">All products</a></li></ul></div>
+    <div><h2>Sell on ${APP_NAME}</h2><ul><li><a href="${url('login.html?role=seller&mode=register')}">Register as a seller</a></li><li><a href="${signInUrl('seller', 'seller/seller.html')}">Seller hub</a></li><li><a href="${signInUrl('admin', 'admin/admin.html')}">Admin dashboard</a></li></ul></div>
+    <div><h2>About this project</h2><ul><li>CS F212 Database Systems, Group 27</li><li>BITS Pilani, Hyderabad Campus</li><li><a href="${API_BASE || location.origin}/docs" target="_blank" rel="noopener">API documentation</a></li><li><a href="${url('credits.html')}">Photo credits</a></li></ul></div>
   </div>
   <div class="container ftr__bottom">${logo()}<span>Demo storefront over a PostgreSQL database. Prices in Indian rupees.</span>${themeButton('ftr__theme', true)}</div></footer>`;
 }
@@ -114,7 +115,7 @@ function wireStore(active, qs) {
     document.getElementById('drawer-cats').innerHTML = cats.map((c) => `<a href="${shop({ category_id: c.category_id })}">${esc(c.category_name)}<span>${int(c.active_products)}</span></a>`).join('');
     document.getElementById('ftr-cats').innerHTML = byCount.slice(0, 5).map((c) => `<li><a href="${shop({ category_id: c.category_id })}">${esc(c.category_name)}</a></li>`).join('') + `<li><a href="#" data-open-drawer>All categories</a></li>`;
     document.querySelector('[data-open-drawer]').onclick = (e) => { e.preventDefault(); setDrawer(true); };
-  }).catch(() => { document.getElementById('catlinks').innerHTML = `<a href="${shop()}">All products</a>`; });
+  }).catch(() => { document.getElementById('catlinks').innerHTML = `<a href="${shop()}">All products</a>`; document.getElementById('ftr-cats').innerHTML = `<li><a href="${shop()}">All products</a></li>`; });
 }
 
 // ================= seller / admin shell =================
@@ -129,10 +130,10 @@ export function mountPortal(role, tabs, title) {
       <a class="hlink" href="${url('index.html')}">${icon('store')}<b>View store</b></a>
       <span class="hlink" aria-label="Signed in as ${esc(s.name)}"><span class="avatar" aria-hidden="true">${esc((s.name || '?')[0].toUpperCase())}</span><b class="hide-sm">${esc(s.name)}</b></span>
     </div></div></header>
+  <div class="side-scrim" id="scrim"></div>
   <div class="portal"><aside class="side" id="side" aria-label="${tag} navigation">
     <nav>${tabs.map((t) => `<a href="#${t.id}" data-tab="${t.id}">${icon(t.icon)}${esc(t.label)}</a>`).join('')}</nav>
     <div class="side__foot"><a href="${url('index.html')}">${icon('store')} Back to the store</a><button class="btn btn--block" id="signout">${icon('logout')} Sign out</button></div></aside>
-  <div class="side-scrim" id="scrim"></div>
   <main id="main" class="portal-main" tabindex="-1"><div class="portal-title"><h1 id="ptitle">${esc(title)}</h1><div id="pactions" class="row"></div></div><div id="pbody"></div></main></div>`;
   const sb = document.getElementById('side'), sc = document.getElementById('scrim');
   const toggle = (o) => { sb.classList.toggle('open', o); sc.classList.toggle('open', o); };
