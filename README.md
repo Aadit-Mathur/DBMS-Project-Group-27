@@ -20,7 +20,7 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 ## Members and Contributions
 
 ### Aadit Mathur (2024AAPS0310H)
-- Project setup and repository organization
+- Project setup and repository organization (along with documentation)
 - Database design (ER Diagram creation & Relational Schema) and business rules
 - Neon database population and overall testing
 
@@ -38,12 +38,12 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 - Seller and product module development
 - Inventory and product catalog management
 - Product delisting and low-stock monitoring
+- Frontend refinement
 
 ### Yash Agarwal (2024AAPS0294H)
 - Administrative reporting module development
 - Analytical queries and reporting functionality for revenue
 - Charts and visualisations
-- Admin API tests (pytest) and API documentation
 
 
 ## Technology Stack
@@ -57,25 +57,31 @@ The application is built around a PostgreSQL database hosted on Neon and a FastA
 
 ## Local Setup
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-# Create a .env file in the repository root with:
-#   DATABASE_URL=postgresql://...   (a Neon URL or a local PostgreSQL URL)
-uvicorn backend.app.main:app --reload
-```
+1. From the project root, install dependencies and start the backend:
 
-The API documentation is available at `/docs` when the server is running.
+   ```powershell
+   pip install -r requirements.txt
+   uvicorn backend.app.main:app --reload
+   ```
 
-After the backend is running, open a second terminal and serve the frontend:
+   Create a `.env` file in the repository root with:
 
-```powershell
-cd frontend
-python -m http.server 8080
-```
+   ```env
+   DATABASE_URL=postgresql://...   # a Neon URL or a local PostgreSQL URL
+   ADMIN_API_KEY=...               # required for the admin dashboard and admin endpoints
+   ```
 
-Then open `http://localhost:8080` in a browser.
+2. In a second terminal window, serve the frontend:
+
+   ```powershell
+   python -m http.server 5500 --directory frontend
+   ```
+
+   Then open `http://127.0.0.1:5500`.
+
+The deployed frontend is also available at
+[`https://bazaar-group27.vercel.app/`](https://bazaar-group27.vercel.app/).
+The API documentation is available at `/docs` when the backend is running.
 
 There are no passwords in this project: sign in as a customer or seller by email (for example `customer0001@example.in` or `seller0001@example.in`), and open the admin dashboard with the `ADMIN_API_KEY` value from `.env`. Page-by-page details and the endpoint each screen uses are in [`frontend/README.md`](frontend/README.md).
 
