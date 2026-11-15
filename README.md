@@ -1,95 +1,202 @@
-# E-Commerce Marketplace — DBMS Project, Group 27 (CS F212)
+# DBMS Project, Group-27: E-commerce Marketplace
 
-**Final commit:** `<PASTE FULL COMMIT HASH HERE>` (tag `final`)  
-**Team ID / Lab section:** `<FILL IN>`
+The system models a marketplace similar to Amazon, where sellers list products, customers browse and purchase items, and orders are processed through transactional database logic.
 
-A marketplace where sellers list products, customers browse and buy, and orders move through payment and shipment. Business rules live in PostgreSQL (constraints, triggers, transactional functions, views); a FastAPI backend exposes them and a plain HTML/JS frontend uses the API.
+## Project Overview
 
-## Team
+The application is built around a PostgreSQL database hosted on Neon and a FastAPI backend that exposes REST endpoints for the main domain workflows:
 
-| Member | ID | Contribution |
-|---|---|---|
-| Aadit Mathur | 2024AAPS0310H | Repository setup, database design (ER diagram, relational schema), business rules, Neon population, restore scripts |
-| Aarav Gang | 2024AAPS0328H | Ordering backend: place / pay / cancel-refund / ship / track, status-flow triggers, order timeline, payment-gateway abstraction, order SQL tests and queries, ordering API docs |
-| Divvij Yogesh Chichra | 2024AAPS0298H | Seller and product backend: catalog, stock, restock, delist/relist, low-stock view, seller API docs |
-| Yash Agarwal | 2024AAPS0294H | Admin backend: authenticated analytics endpoints (`/admin/*`), revenue and sales queries |
-| Rithwik Rudra | 2024AAPS0260H | Frontend (customer, seller, admin pages), frontend–backend integration, dashboard reports |
+- Seller registration and catalog management
+- Product search, filtering, and inventory controls
+- Customer order placement and order history
+- Payment and shipment workflow logic
+- Database-enforced integrity checks, transactions, and reporting queries
 
-## Technology stack
-PostgreSQL 16+ (Neon or local) · Python 3.11+ · FastAPI · psycopg2 · plain HTML/CSS/JavaScript · pytest · SQL / PL/pgSQL
+## Submission
 
-## Database (11 tables)
-Domain tables (10): `customer`, `address`, `seller`, `category`, `product`, `orders`, `order_item`, `payment`, `shipment`, `order_event` (order timeline).
-Plus `order_fn_backup`, a small table that stores earlier versions of functions replaced during a migration (not used by the application).
-The sample data has about 6,500 rows (600 customers, 1,560 addresses, 200 sellers, 18 categories, 801 products, 302 orders, 605 order lines, 302 payments, 251 shipments, 1,914 order events).
+- Git tag: `final` (create this tag on the submitted commit)
+- Final commit hash: replace this line with the submitted commit hash
 
-## Workflows
-1. **Customer purchase:** browse/search products → cart → choose address → place order → pay → track shipment (`place_order`, `begin_payment`, `record_payment`; one transaction each).
-2. **Seller fulfilment:** seller dashboard → manage products and stock (restock, delist) → see orders containing their products → ship (`advance_shipment`: Shipped → In Transit → Delivered).
-3. **Admin reporting:** dashboard of customers, sellers, products, revenue (paid orders only), top products, sales by category, orders by status.
+## Members and Contributions
 
-Also available through the API: cancel with refund (`cancel_order`), automatic expiry of unpaid orders (`expire_unpaid_orders`), declined-payment retry.
+### Aadit Mathur (2024AAPS0310H)
+- Project setup and repository organization
+- Database design (ER Diagram creation & Relational Schema) and business rules
+- Neon database population and overall testing
 
-## DBMS features (file → object)
-| Feature | Where |
-|---|---|
-| Transactions + row locking (no overselling) | `db_testing/order_schema.sql` → `place_order`, `cancel_order` |
-| Triggers: order total, frozen order lines, status flows, timeline | `db_testing/order_schema.sql` → `trg_order_item_total`, `trg_order_item_frozen`, `trg_orders_guard`, `trg_payment_flow`, `trg_shipment_flow`, `trg_*_event`; `trg_product_touch` in `seller_product_schema.sql` |
-| Views | `v_paid_orders` (revenue = successful payments only), `v_order_summary`, `v_low_stock_products` |
-| Indexes (partial, composite) | `idx_orders_pending`, `idx_payment_successful`, `idx_orders_customer`, `idx_product_category_price`, `idx_product_low_stock` |
-| Constraints | PK/FK, UNIQUE, CHECK on every table; composite FK `orders(address_id, customer_id)` → `address` |
-| Queries | `db_testing/queries/order_queries.sql` (10), `db_testing/queries/seller_product_queries.sql`, `backend/app/routers/admin.py` |
-| SQL tests | `db_testing/tests/order_constraint_tests.sql` (92 checks), `seller_product_constraint_tests.sql` (17) |
+### Rithwik Rudra (2024AAPS0260H)
+- Frontend development
+- Product browsing, order management, the seller portal, and administrative reporting
+- Integration of frontend and backend
 
-## Setup (macOS; Windows notes below)
+### Aarav Gang (2024AAPS0328H)
+- Ordering module development
+- Payment and shipment workflow logic
+- Transactional database design and order-processing validation
 
-### 1. Database
-Pick one.
+### Divvij Yogesh Chichra (2024AAPS0298H)
+- Seller and product module development
+- Inventory and product catalog management
+- Product delisting and low-stock monitoring
 
-**A. Local PostgreSQL (works offline, recommended for the demo).** Install PostgreSQL 16 or newer (`brew install postgresql@16`, or Postgres.app) and make sure `psql` works.
-```bash
-createdb ecommerce_local
-python3 db_testing/restore_database.py --database-url "postgresql://localhost:5432/ecommerce_local"
-```
-(If your local user needs a password: `postgresql://USER:PASSWORD@localhost:5432/ecommerce_local`.)
+### Yash Agarwal (2024AAPS0294H)
+- Administrative reporting module development
+- Analytical queries and reporting functionality for revenue
+- Charts and visualisations
+- Admin API tests (pytest) and API documentation
 
-**B. Neon.** Create an empty branch/database and pass its connection string to the same command.
 
-Check the data: `psql ecommerce_local -c "select count(*) from orders"` should print 302.
+## Technology Stack
 
-### 2. Backend
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
+- Backend: Python, FastAPI
+- Frontend: HTML, CSS, JavaScript; charts use Chart.js 4.5.1, bundled in `frontend/js/vendor/` (works offline)
+- Database: PostgreSQL (NeonDB primary target; local PostgreSQL supported for reproducible testing), 10 application tables
+- Database access: psycopg2, SQL, PL/pgSQL
+- Validation: pytest and SQL constraint tests
+- Version control: GitHub
+
+## Local Setup
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+# Create a .env file in the repository root with:
+#   DATABASE_URL=postgresql://...   (a Neon URL or a local PostgreSQL URL)
 uvicorn backend.app.main:app --reload
 ```
-Create a file named `.env` in the repository root (it is git-ignored, never commit it):
-```
-DATABASE_URL=postgresql://localhost:5432/ecommerce_local
-ADMIN_API_KEY=choose-any-secret
-```
-API docs and a health check: http://127.0.0.1:8000/docs and http://127.0.0.1:8000/health. `ADMIN_API_KEY` is only needed for the authenticated `/admin/*` endpoints.
 
-### 3. Frontend
-The backend must be running. In a second terminal:
-```bash
+The API documentation is available at `/docs` when the server is running.
+
+After the backend is running, open a second terminal and serve the frontend:
+
+```powershell
 cd frontend
-python3 -m http.server 5500
+python -m http.server 8080
 ```
-Open http://127.0.0.1:5500/ and follow the links (customer shop, seller portal, admin dashboard). The pages call the API at `http://127.0.0.1:8000`.
-There are no passwords: customers and sellers sign in with their email address, for example `customer0448@example.in` and `seller0106@example.in`.
 
-### 4. Tests
-```bash
-pytest                                                              # API tests (use DATABASE_URL; each test rolls back)
-python3 db_testing/run_sql.py db_testing/tests/order_constraint_tests.sql
-python3 db_testing/run_sql.py db_testing/tests/seller_product_constraint_tests.sql
+Then open `http://localhost:8080` in a browser.
+
+There are no passwords in this project: sign in as a customer or seller by email (for example `customer0001@example.in` or `seller0001@example.in`), and open the admin dashboard with the `ADMIN_API_KEY` value from `.env`. Page-by-page details and the endpoint each screen uses are in [`frontend/README.md`](frontend/README.md).
+
+## Reproducible database setup
+
+The checked-in database files can be restored independently of the hosted
+NeonDB instance. PostgreSQL 18 or a compatible PostgreSQL version, pgAdmin 4
+or `psql`, and the files in `reconstruct_database/` are required.
+
+### Local PostgreSQL
+
+1. Create an empty database named `ecommerce_local` in pgAdmin, or run:
+
+   ```powershell
+   createdb -U postgres ecommerce_local
+   ```
+
+2. Restore the schema and sample data with the automated helper:
+
+   ```powershell
+   python db_testing/restore_database.py `
+     --database-url "postgresql://postgres:YOUR_PASSWORD@localhost:5432/ecommerce_local"
+   ```
+
+   The helper uses `psql` because `sample_data_fixed.sql` contains `COPY`
+   blocks. It temporarily disables user-defined triggers while importing the
+   historical data, then re-enables them in the same transaction. Foreign-key
+   constraints remain enabled.
+
+   Alternatively, use `psql` manually:
+
+   ```text
+   \i 'C:/path/to/reconstruct_database/schema.sql'
+   ```
+
+   Before importing `sample_data_fixed.sql`, execute:
+
+   ```sql
+   ALTER TABLE public.address DISABLE TRIGGER USER;
+   ALTER TABLE public.category DISABLE TRIGGER USER;
+   ALTER TABLE public.customer DISABLE TRIGGER USER;
+   ALTER TABLE public.order_event DISABLE TRIGGER USER;
+   ALTER TABLE public.order_fn_backup DISABLE TRIGGER USER;
+   ALTER TABLE public.order_item DISABLE TRIGGER USER;
+   ALTER TABLE public.orders DISABLE TRIGGER USER;
+   ALTER TABLE public.payment DISABLE TRIGGER USER;
+   ALTER TABLE public.product DISABLE TRIGGER USER;
+   ALTER TABLE public.seller DISABLE TRIGGER USER;
+   ALTER TABLE public.shipment DISABLE TRIGGER USER;
+   ```
+
+   Then run:
+
+   ```text
+   \set ON_ERROR_STOP on
+   \i 'C:/path/to/reconstruct_database/sample_data_fixed.sql'
+   ```
+
+   Re-enable the triggers by changing `DISABLE` to `ENABLE` in the
+   statements above before testing normal application operations.
+
+3. Configure the application to use the restored database:
+
+   ```env
+   DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/ecommerce_local
+   ```
+
+   Then start the API:
+
+   ```powershell
+   uvicorn backend.app.main:app --reload
+   ```
+
+### Verification
+
+Run this query after importing the data:
+
+```sql
+SELECT
+    (SELECT COUNT(*) FROM customer) AS customers,
+    (SELECT COUNT(*) FROM address) AS addresses,
+    (SELECT COUNT(*) FROM category) AS categories,
+    (SELECT COUNT(*) FROM orders) AS orders,
+    (SELECT COUNT(*) FROM order_event) AS events,
+    (SELECT COUNT(*) FROM seller) AS sellers,
+    (SELECT COUNT(*) FROM product) AS products,
+    (SELECT COUNT(*) FROM order_item) AS order_items,
+    (SELECT COUNT(*) FROM payment) AS payments,
+    (SELECT COUNT(*) FROM shipment) AS shipments;
 ```
-SQL tests also run directly with `psql -f`. Run tests against a local or dev database, not against the database used for the live demo.
 
-### Windows
-Use `python -m venv .venv`, `.\.venv\Scripts\Activate.ps1`, and `py -m http.server 5500`; the rest is identical.
+Expected counts are: customer 600, address 1,560, category 18, orders 302,
+order_event 1,914, seller 200, product 801, order_item 605, payment 302,
+and shipment 251.
 
-## Repository layout
-`backend/app/` API · `backend/tests/` API tests · `frontend/` pages and scripts · `db_testing/` schema, functions, SQL tests, queries, restore helper · `reconstruct_database/` schema and sample-data dump · `Populate_DB/` data generators and order seed · `docs/` API references · `Reference/` design documents
+The restore target must be empty (or contain no objects owned by this
+project). For Neon, use a fresh branch or empty database and pass its
+connection URL to the same restore command:
+
+```powershell
+python db_testing/restore_database.py --database-url $env:DATABASE_URL
+```
+
+## Major Application Workflows
+
+### Workflow 1 — Customer Purchase
+
+Customer searches for a product → filters products → adds products to cart → selects delivery address → places an order → completes payment → views order → tracks shipment.
+
+### Workflow 2 — Seller Fulfilment
+
+Seller opens dashboard → views products and inventory → manages products/restocks inventory → views customer orders → updates shipment status from Shipped to In Transit to Delivered.
+
+### Workflow 3 — Administrative Reporting
+
+Administrator opens the dashboard → views customer, seller, product and order statistics → analyzes top products → analyzes category-wise sales → views order-status distribution.
+
+## Database objects
+
+- **10 application tables:** address, category, customer, order_event, order_item, orders, payment, product, seller, shipment. `order_fn_backup` is a development-only backup table and is excluded from this count.
+- **3 views:** `v_low_stock_products`, `v_order_summary`, `v_paid_orders`
+- **9 indexes:** `idx_order_event_order`, `idx_order_item_order`, `idx_order_item_product`, `idx_orders_customer`, `idx_orders_pending` (partial), `idx_payment_successful` (partial), `idx_product_category_price`, `idx_product_low_stock` (partial), `uq_shipment_tracking` (unique, partial)
+- **9 triggers** (order item freeze and total, order guard and event log, payment flow and event log, product timestamp, shipment flow and event log)
+- **14 functions:** `place_order`, `begin_payment`, `record_payment`, `cancel_order`, `expire_unpaid_orders`, `advance_shipment`, `restock_product` and the trigger functions behind the triggers above

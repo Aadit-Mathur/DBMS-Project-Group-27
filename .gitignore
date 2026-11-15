@@ -1,5 +1,4 @@
 .venv/
-.env
 __pycache__/
 .pytest_cache/
 .vscode/settings.json
@@ -7,3 +6,4 @@ db_testing/order_report.txt
 .DS_Store
 *.patch
 rl_*_files.zip
+.env
