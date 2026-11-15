@@ -1,76 +1,76 @@
-// Attribution for every photo in img/products/ (source: Openverse, openverse.org).
+// Attribution for every photo in img/products/ (Wikimedia Commons and Openverse).
 export const CREDITS = {
 "1-5-ton-split-ac.jpg": {
 "type": "1.5 Ton Split AC",
-"title": "A quiet street",
-"creator": "Stratman2",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/8278193@N06/51944076313",
-"provider": "flickr"
+"title": "Sanyo SAP-KRV-93EH",
+"creator": "Piisamson",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Sanyo_SAP-KRV-93EH.jpg",
+"provider": "Wikimedia Commons"
 },
 "10000mah-power-bank.jpg": {
 "type": "10000mAh Power Bank",
-"title": "Power bank",
-"creator": "modesrodriguez",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/96637397@N05/52359297549",
-"provider": "flickr"
+"title": "USB-C cable connected to a powerbank",
+"creator": "Logant547",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:USB-C_cable_connected_to_a_powerbank.jpg",
+"provider": "Wikimedia Commons"
 },
 "14-inch-business-laptop.jpg": {
 "type": "14-inch Business Laptop",
-"title": "Astronaut Samantha Cristoforetti practices robotics maneuvers on a laptop computer",
-"creator": "NASA Johnson",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/29988733@N04/52129789551",
-"provider": "nasa"
+"title": "IBM Thinkpad R51",
+"creator": "André Karwath aka Aka",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:IBM_Thinkpad_R51.jpg",
+"provider": "Wikimedia Commons"
 },
 "14-inch-student-laptop.jpg": {
 "type": "14-inch Student Laptop",
-"title": "Astronaut Josh Cassada works on a laptop computer",
-"creator": "NASA Johnson",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/29988733@N04/52443998973",
-"provider": "nasa"
+"title": "Laptop der Marke exone go 20240203 HOF06886 RAW-Export 000276",
+"creator": "PantheraLeo1359531",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Laptop_der_Marke_exone_go_20240203_HOF06886_RAW-Export_000276.png",
+"provider": "Wikimedia Commons"
 },
 "15-6-inch-creator-laptop.jpg": {
 "type": "15.6-inch Creator Laptop",
-"title": "Astronaut Josh Cassada performs laptop computer maintenance",
-"creator": "NASA Johnson",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/29988733@N04/52472561264",
-"provider": "nasa"
+"title": "Schenker VIA14 Laptop asv2021-01",
+"creator": "A.Savin",
+"license": "FAL",
+"license_url": "http://artlibre.org/licence/lal/en",
+"source": "https://commons.wikimedia.org/wiki/File:Schenker_VIA14_Laptop_asv2021-01.jpg",
+"provider": "Wikimedia Commons"
 },
 "15-6-inch-performance-laptop.jpg": {
 "type": "15.6-inch Performance Laptop",
-"title": "Astronaut Samantha Cristoforetti works on a laptop computer",
-"creator": "NASA Johnson",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/29988733@N04/52425597520",
-"provider": "nasa"
+"title": "Laptop computer",
+"creator": "KK IN HK",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Laptop_computer.jpeg",
+"provider": "Wikimedia Commons"
 },
 "1tb-nvme-ssd.jpg": {
 "type": "1TB NVMe SSD",
-"title": "HyperDrive Next USB4 NVMe SSD Enclosure HD5001GL",
-"creator": "phithanhviet",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/99146016@N07/53153780001",
-"provider": "flickr"
+"title": "2018 Pamięć Intel Optane 32GB",
+"creator": "Jacek Halicki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:2018_Pami%C4%99%C4%87_Intel_Optane_32GB.jpg",
+"provider": "Wikimedia Commons"
 },
 "2-ton-split-ac.jpg": {
 "type": "2 Ton Split AC",
-"title": "Hallway/Receptionist McQuay Air Conditioner",
-"creator": "naeemshareef422",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/201152747@N04/53997843190",
-"provider": "flickr"
+"title": "Panasonic AIR CONDITIONER INDOOR UNIT CS-C10KJ2 (2)",
+"creator": "Dinkun Chen",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Panasonic_AIR_CONDITIONER_INDOOR_UNIT_CS-C10KJ2_(2).jpg",
+"provider": "Wikimedia Commons"
 },
 "20000mah-power-bank.jpg": {
 "type": "20000mAh Power Bank",
@@ -83,516 +83,516 @@ export const CREDITS = {
 },
 "20w-usb-c-charger.jpg": {
 "type": "20W USB-C Charger",
-"title": "Multi-port USB charger (4 port) (03010941)",
-"creator": "IAEA Imagebank",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/35068899@N03/51988590265",
-"provider": "flickr"
+"title": "Battery charger set C76A Pro in Tashkent Region",
+"creator": "Sevayuu",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Battery_charger_set_C76A_Pro_in_Tashkent_Region.jpg",
+"provider": "Wikimedia Commons"
 },
 "24-inch-full-hd-monitor.jpg": {
 "type": "24-inch Full HD Monitor",
-"title": "Computer Monitors",
-"creator": "Tran Mau Tri Tam",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/computer-monitors-SLZRDLFT96",
-"provider": "stocksnap"
+"title": "NOAA's SOS Explorer application on computer monitors",
+"creator": "Hilary Peddicord/NOAA Science on a Sphere",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:NOAA%27s_SOS_Explorer_application_on_computer_monitors.png",
+"provider": "Wikimedia Commons"
 },
 "27-inch-qhd-monitor.jpg": {
 "type": "27-inch QHD Monitor",
-"title": "Computer Monitor and fireplace in Wasta",
-"creator": "daveynin",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/44124370018@N01/51654677860",
-"provider": "flickr"
+"title": "EIZO Foris FG2421 VGA computer monitor displaying test pattern",
+"creator": "Lucasbosch",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:EIZO_Foris_FG2421_VGA_computer_monitor_displaying_test_pattern.png",
+"provider": "Wikimedia Commons"
 },
 "33w-gan-charger.jpg": {
 "type": "33W GaN Charger",
-"title": "Multi-port USB charger (4 port) (03010942)",
-"creator": "IAEA Imagebank",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/35068899@N03/51988321524",
-"provider": "flickr"
+"title": "1.5V Lithium Battery Charger and Cable Top Picture",
+"creator": "TealComet",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:1.5V_Lithium_Battery_Charger_and_Cable_Top_Picture.png",
+"provider": "Wikimedia Commons"
 },
 "40-inch-smart-tv.jpg": {
 "type": "40-inch Smart TV",
-"title": "Valley of the Gods",
-"creator": "RuggyBearLA",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/21874566@N07/50066213383",
-"provider": "flickr"
+"title": "Mirai LCD TV",
+"creator": "CHG",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Mirai_LCD_TV.JPG",
+"provider": "Wikimedia Commons"
 },
 "43-inch-4k-smart-tv.jpg": {
 "type": "43-inch 4K Smart TV",
-"title": "Valley of the Gods",
-"creator": "RuggyBearLA",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/21874566@N07/50065637047",
-"provider": "flickr"
+"title": "Square LCD television",
+"creator": "UnifiedFunctionality",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Square_LCD_television.jpg",
+"provider": "Wikimedia Commons"
 },
 "50-inch-4k-smart-tv.jpg": {
 "type": "50-inch 4K Smart TV",
-"title": "Valley of the Gods",
-"creator": "RuggyBearLA",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/21874566@N07/50066109576",
-"provider": "flickr"
+"title": "Television LCD 50 Pulgadas",
+"creator": "Silmar2008",
+"license": "CC BY 3.0",
+"license_url": "https://creativecommons.org/licenses/by/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Television_LCD_50_Pulgadas.JPG",
+"provider": "Wikimedia Commons"
 },
 "55-inch-qled-tv.jpg": {
 "type": "55-inch QLED TV",
-"title": "Valley of the Gods",
-"creator": "RuggyBearLA",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/21874566@N07/50063767908",
-"provider": "flickr"
+"title": "SAMSUNG CURVED VA LCD TV",
+"creator": "Dinkun Chen",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:SAMSUNG_CURVED_VA_LCD_TV.jpg",
+"provider": "Wikimedia Commons"
 },
 "5g-smartphone-128gb.jpg": {
 "type": "5G Smartphone 128GB",
-"title": "Astrobee/Smartphone Video Guidance Sensor investigation",
-"creator": "AstroSamantha",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/65541944@N07/52418330269",
-"provider": "flickr"
+"title": "Smartphone display screen",
+"creator": "Skitterphoto",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Smartphone_display_screen.jpg",
+"provider": "Wikimedia Commons"
 },
 "5g-smartphone-256gb.jpg": {
 "type": "5G Smartphone 256GB",
-"title": "Métro, masques et smartphones",
-"creator": "besopha",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/26700188@N05/52069894981",
-"provider": "flickr"
+"title": "Smartphone di varie marche",
+"creator": "The Tech Cheat",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Smartphone_di_varie_marche.png",
+"provider": "Wikimedia Commons"
 },
 "65-inch-qled-tv.jpg": {
 "type": "65-inch QLED TV",
-"title": "Valley of the Gods",
-"creator": "RuggyBearLA",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/21874566@N07/50063856646",
-"provider": "flickr"
+"title": "SAMSUNG CURVED VA LCD TV",
+"creator": "Dinkun Chen",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:SAMSUNG_CURVED_VA_LCD_TV.jpg",
+"provider": "Wikimedia Commons"
 },
 "65w-gan-charger.jpg": {
 "type": "65W GaN Charger",
-"title": "Multi-port USB charger (10 port) (03010943)",
-"creator": "IAEA Imagebank",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/35068899@N03/51987027572",
-"provider": "flickr"
+"title": "Multi-USB and charger",
+"creator": "SD hehua",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Multi-USB_and_charger.jpg",
+"provider": "Wikimedia Commons"
 },
 "a4-project-notebook.jpg": {
 "type": "A4 Project Notebook",
-"title": "old school notebook",
-"creator": "jessamyn",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/35034353562@N01/51385349676",
-"provider": "flickr"
+"title": "Stationery Wholesale Shop notebooks",
+"creator": "Jegadeeswaran natarajan",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Stationery_Wholesale_Shop_notebooks.jpg",
+"provider": "Wikimedia Commons"
 },
 "a5-spiral-notebook.jpg": {
 "type": "A5 Spiral Notebook",
-"title": "Free stack spiral notebook image",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/5908233/image-paper-book-public-domain",
-"provider": "rawpixel"
+"title": "Spiralbinderücken -- 2022 -- 9739 (bw)",
+"creator": "Dietmar Rabich",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Spiralbinder%C3%BCcken_--_2022_--_9739_(bw).jpg",
+"provider": "Wikimedia Commons"
 },
 "accent-chair.jpg": {
 "type": "Accent Chair",
-"title": "abandoned armchair",
-"creator": "chrisinplymouth",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/21450297@N06/6065693662",
-"provider": "flickr"
+"title": "Armchair",
+"creator": "Duncan Phyfe",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Armchair_MET_DP171127.jpg",
+"provider": "Wikimedia Commons"
 },
 "action-camera.jpg": {
 "type": "Action Camera",
-"title": "The future's so bright...",
-"creator": "dingatx",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/29312295@N06/54071697309",
-"provider": "flickr"
+"title": "GoPro Hero 9 Black - Front 2",
+"creator": "Greyfiveys",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:GoPro_Hero_9_Black_-_Front_2.jpg",
+"provider": "Wikimedia Commons"
 },
 "adjustable-dumbbell.jpg": {
 "type": "Adjustable Dumbbell",
-"title": "Dumbbell",
-"creator": "₡ґǘșϯγ Ɗᶏ Ⱪᶅṏⱳդ",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.flickr.com/photos/148598741@N02/51960984380",
-"provider": "flickr"
+"title": "Colorful dumbbells of various sizes",
+"creator": "Ser Amantio di Nicolao",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Colorful_dumbbells_of_various_sizes.jpg",
+"provider": "Wikimedia Commons"
 },
 "adult-cat-food-2kg.jpg": {
 "type": "Adult Cat Food 2kg",
-"title": "Cat Food",
-"creator": "Thomas Hawk",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/51035555243@N01/51952158748",
-"provider": "flickr"
+"title": "Catdryfood",
+"creator": "irrational cat Original uploader was Dodo bird at en.wikipedia",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Catdryfood.jpg",
+"provider": "Wikimedia Commons"
 },
 "adult-dog-food-3kg.jpg": {
 "type": "Adult Dog Food 3kg",
-"title": "Sit Still, Look Pretty",
-"creator": "Grace Adamski",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/65219908@N02/51470819485",
-"provider": "flickr"
+"title": "Dog food in a bowl",
+"creator": "James Redekop",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Dog_food_in_a_bowl.jpg",
+"provider": "Wikimedia Commons"
 },
 "air-fryer-4l.jpg": {
 "type": "Air Fryer 4L",
-"title": "Air Fryer Potatoes",
-"creator": "arbyreed",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/19779889@N00/51959086119",
-"provider": "flickr"
+"title": "Air Fryer 2020",
+"creator": "I am R.",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Air_Fryer_2020.jpg",
+"provider": "Wikimedia Commons"
 },
 "air-fryer-6l.jpg": {
 "type": "Air Fryer 6L",
-"title": "Reheated Karaage from Tokyo Central in the Air Fryer",
-"creator": "mmmyoso",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/32400437@N07/53946026064",
-"provider": "flickr"
+"title": "Airfryer",
+"creator": "Djsgmnd",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Airfryer.jpg",
+"provider": "Wikimedia Commons"
 },
 "air-purifier.jpg": {
 "type": "Air Purifier",
-"title": "COVID #26 Powered Air Purifying Respirator",
-"creator": "spe.automotive",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/32775400@N06/51592080313",
-"provider": "flickr"
+"title": "Air Purifier (Levoit LV-H133) (49317867758)",
+"creator": "Home Air Quality Guides",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Air_Purifier_(Levoit_LV-H133)_(49317867758).jpg",
+"provider": "Wikimedia Commons"
 },
 "amoled-smartphone-256gb.jpg": {
 "type": "AMOLED Smartphone 256GB",
-"title": "Focus on the Smartphone",
-"creator": "Skinny Guy Lover",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/154082794@N08/25959991057",
-"provider": "flickr"
+"title": "Smartphone Use",
+"creator": "Océanos y dados",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Smartphone_Use.jpg",
+"provider": "Wikimedia Commons"
 },
 "anti-dandruff-shampoo.jpg": {
 "type": "Anti-Dandruff Shampoo",
-"title": "Biopol shampoo bottle",
-"creator": "ICI Biological Products",
-"license": "CC BY-NC-SA 4.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-"source": "https://collection.sciencemuseumgroup.org.uk/objects/co9487/biopol-shampoo-bottle",
-"provider": "sciencemuseum"
+"title": "Dove shampoo bottle in black background",
+"creator": "Ranjima np",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Dove_shampoo_bottle_in_black_background.jpg",
+"provider": "Wikimedia Commons"
 },
 "badminton-racket.jpg": {
 "type": "Badminton Racket",
-"title": "Free badminton racket white background",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/5902314/photo-image-background-public-domain-white",
-"provider": "rawpixel"
+"title": "Badminton racket",
+"creator": "DEEPAN RAJA .M",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Badminton_racket.jpg",
+"provider": "Wikimedia Commons"
 },
 "ball-pen-pack.jpg": {
 "type": "Ball Pen Pack",
-"title": "Ballpoint pen on a COVID pandemic unemployment payment form",
-"creator": "Ivan Radic",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/26344495@N05/51405739909",
-"provider": "flickr"
+"title": "Macro Biro writing2",
+"creator": "Daniel Schwen",
+"license": "CC BY-SA 2.5",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+"source": "https://commons.wikimedia.org/wiki/File:Macro_Biro_writing2.jpg",
+"provider": "Wikimedia Commons"
 },
 "basmati-rice-5kg.jpg": {
 "type": "Basmati Rice 5kg",
-"title": "Using carved cedar knockers to remove the ripened wild rice grains from the plant at a Wild Rice camp in Floodwood, Minnesota",
-"creator": "Lorie Shaull",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/11020019@N04/51467279915",
-"provider": "flickr"
+"title": "Grano de arroz basmati integral, 2020-06-12, DD 01-11 FS",
+"creator": "Diego Delso",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Grano_de_arroz_basmati_integral,_2020-06-12,_DD_01-11_FS.jpg",
+"provider": "Wikimedia Commons"
 },
 "bath-towel-set.jpg": {
 "type": "Bath Towel Set",
-"title": "Every workout needs water and towel. #kings #noexcuses #manonamission",
-"creator": "Tojosan",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/28069288@N00/14381522160",
-"provider": "flickr"
+"title": "Zusammengelegte Handtücher",
+"creator": "User:Mattes",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Zusammengelegte_Handt%C3%BCcher.jpg",
+"provider": "Wikimedia Commons"
 },
 "beard-grooming-kit.jpg": {
 "type": "Beard Grooming Kit",
-"title": "Vintage Leather Shave-Pak Travel Shaving Kit With A Gillette Safety Razor, Circa 1951 - 1952",
-"creator": "France1978",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/51764518@N02/51698650028",
-"provider": "flickr"
+"title": "Electric hair clipper (1)",
+"creator": "Batholith (talk)",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Electric_hair_clipper_(1).jpg",
+"provider": "Wikimedia Commons"
 },
 "bedside-table.jpg": {
 "type": "Bedside Table",
-"title": "A nightstand bicycle",
-"creator": "Henry Söderlund",
+"title": "Antique bedside table - Casa Loma",
+"creator": "Thomas Quine",
 "license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/46563758@N04/52453871474",
-"provider": "flickr"
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Antique_bedside_table_-_Casa_Loma.jpg",
+"provider": "Wikimedia Commons"
 },
 "bike-cover.jpg": {
 "type": "Bike Cover",
-"title": "Black Motorcycle Cover in the Castro",
-"creator": "Lynn Friedman",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/72959997@N00/51784218129",
-"provider": "flickr"
+"title": "KTM ｒacing motorcycle RC8",
+"creator": "Rainmaker47",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:KTM_%EF%BD%92acing_motorcycle_RC8.JPG",
+"provider": "Wikimedia Commons"
 },
 "bluetooth-party-speaker.jpg": {
 "type": "Bluetooth Party Speaker",
-"title": "Bluetooth Speaker",
-"creator": "PangolinOne",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/39745335@N06/52350498047",
-"provider": "flickr"
+"title": "UE Boom speakers",
+"creator": "Sinchen.Lin",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:UE_Boom_speakers.jpg",
+"provider": "Wikimedia Commons"
 },
 "body-lotion.jpg": {
 "type": "Body Lotion",
-"title": "A motion with the lotion",
-"creator": "Axel Bührmann",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/9852972@N03/51749064781",
-"provider": "flickr"
+"title": "Green shampoo bottle",
+"creator": "Mezoneni",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Green_shampoo_bottle.jpg",
+"provider": "Wikimedia Commons"
 },
 "bookshelf.jpg": {
 "type": "Bookshelf",
-"title": "Bookshelf Auto-biography #2",
-"creator": "anyjazz65",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/49024304@N00/2798302122",
-"provider": "flickr"
+"title": "Bookshelf Prunksaal OeNB Vienna AT matl00786ch",
+"creator": "Matl",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bookshelf_Prunksaal_OeNB_Vienna_AT_matl00786ch.jpg",
+"provider": "Wikimedia Commons"
 },
 "breakfast-oats-1kg.jpg": {
 "type": "Breakfast Oats 1kg",
-"title": "1958 Quaker Oats Advertisement Life Magazine November 10 1958",
-"creator": "SenseiAlan",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/91591049@N00/51531933660",
-"provider": "flickr"
+"title": "Rolled oats",
+"creator": "en:user:Hankwang",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Rolled_oats.jpg",
+"provider": "Wikimedia Commons"
 },
 "budget-5g-smartphone.jpg": {
 "type": "Budget 5G Smartphone",
-"title": "167/366 - Handys / Smartphones",
-"creator": "Boris Thaser",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/123982963@N04/27231429294",
-"provider": "flickr"
+"title": "Smartphone ownership in 2013",
+"creator": "Maps.interlude",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Smartphone_ownership_in_2013.jpg",
+"provider": "Wikimedia Commons"
 },
 "building-blocks-set.jpg": {
 "type": "Building Blocks Set",
-"title": "Polarized Particles",
-"creator": "Brookhaven National Laboratory",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/33399596@N03/51980332805",
-"provider": "flickr"
+"title": "Building blocks design-2",
+"creator": "SAHAYA RAJAN S",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Building_blocks_design-2.jpg",
+"provider": "Wikimedia Commons"
 },
 "cabin-trolley-bag.jpg": {
 "type": "Cabin Trolley Bag",
-"title": "A woman flees carrying a suitcase in Murmansk, 1941 (Destroyed by the Nazi bombers)",
-"creator": "Wasfi Akab",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/38837659@N06/54033165715",
-"provider": "flickr"
+"title": "Samsonite Pro-DLX 4 Rolling Tote 16.4 Inch Black",
+"creator": "Florian Fuchs",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Samsonite_Pro-DLX_4_Rolling_Tote_16.4_Inch_Black.jpg",
+"provider": "Wikimedia Commons"
 },
 "car-air-compressor.jpg": {
 "type": "Car Air Compressor",
-"title": "Tire Air Compressor",
-"creator": "David Parikh",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/50281218@N04/23955742965",
-"provider": "flickr"
+"title": "2023 Xiaomi Mi Portable Air Compressor 1S",
+"creator": "Jacek Halicki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:2023_Xiaomi_Mi_Portable_Air_Compressor_1S.jpg",
+"provider": "Wikimedia Commons"
 },
 "car-dashboard-cleaner.jpg": {
 "type": "Car Dashboard Cleaner",
-"title": "DHS / 1955 Chevrolet 210 dashboard (#1300)",
-"creator": "DB's travels",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/84767053@N00/51998104027",
-"provider": "flickr"
+"title": "Maruthi Suzuki Alto Dashboard 01",
+"creator": "Vjdeep",
+"license": "CC BY 3.0",
+"license_url": "https://creativecommons.org/licenses/by/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Maruthi_Suzuki_Alto_Dashboard_01.jpg",
+"provider": "Wikimedia Commons"
 },
 "car-phone-holder.jpg": {
 "type": "Car Phone Holder",
-"title": "Out and about ….grocery store",
-"creator": "moccasinlanding",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/55729546@N06/51606876587",
-"provider": "flickr"
+"title": "Car universal holder for smartphones and phablets, Oude Pekela (2018) 03",
+"creator": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons.(Want to use this image?)",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Car_universal_holder_for_smartphones_and_phablets,_Oude_Pekela_(2018)_03.jpg",
+"provider": "Wikimedia Commons"
 },
 "car-seat-cover-set.jpg": {
 "type": "Car Seat Cover Set",
-"title": "Taxi car seat covers",
-"creator": "mrpbps",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/25413523@N08/54089776866",
-"provider": "flickr"
+"title": "Colorful bamboo car seat cushions",
+"creator": "Fumikas Sagisavas",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Colorful_bamboo_car_seat_cushions.jpg",
+"provider": "Wikimedia Commons"
 },
 "car-sunshade.jpg": {
 "type": "Car Sunshade",
-"title": "Bubble symphony: dancing in the rain on a car windshield",
-"creator": "PeterThoeny",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/98786299@N00/52708129985",
-"provider": "flickr"
+"title": "Ford Taunus 12m-P6 (1967)",
+"creator": "Dacia 1410 Sport",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Ford_Taunus_12m-P6_(1967).jpg",
+"provider": "Wikimedia Commons"
 },
 "car-vacuum-cleaner.jpg": {
 "type": "Car Vacuum Cleaner",
-"title": "Vintage Sears vacuum cleaner ad",
-"creator": "Wordsmith.org",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/101711891@N06/51560406854",
-"provider": "flickr"
+"title": "Person using a handheld vacuum cleaner on a couch in a living room",
+"creator": "Shixart1985",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Person_using_a_handheld_vacuum_cleaner_on_a_couch_in_a_living_room.jpg",
+"provider": "Wikimedia Commons"
 },
 "cat-litter-5kg.jpg": {
 "type": "Cat Litter 5kg",
-"title": "He has to get used to this!",
-"creator": "Stratman2",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/8278193@N06/48019344601",
-"provider": "flickr"
+"title": "Modkat Cat Litter Box White by Modko",
+"creator": "ModProducts LLC.",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Modkat_Cat_Litter_Box_White_by_Modko.jpg",
+"provider": "Wikimedia Commons"
 },
 "ceiling-fan.jpg": {
 "type": "Ceiling Fan",
-"title": "Huge ceiling fan at OCBC Aquatic Centre",
-"creator": "Jnzl's Photos",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/102748040@N03/14376548809",
-"provider": "flickr"
+"title": "Ceiling Fan Mid-Spin",
+"creator": "Noah Wulf",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Ceiling_Fan_Mid-Spin.jpg",
+"provider": "Wikimedia Commons"
 },
 "coffee-table.jpg": {
 "type": "Coffee Table",
-"title": "coffee table",
-"creator": "Mario A. P.",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/99058495@N00/49613298016",
-"provider": "flickr"
+"title": "Miele, IFA 2018, Berlin (P1070072)",
+"creator": "Matti Blume",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Miele,_IFA_2018,_Berlin_(P1070072).jpg",
+"provider": "Wikimedia Commons"
 },
 "computer-table.jpg": {
 "type": "Computer Table",
-"title": "Computer Desk",
-"creator": "Anita Peeples",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/computer-desk-GVYM0DWG9D",
-"provider": "stocksnap"
+"title": "Brown and beige, Computer desk, Rostov-on-Don, Russia",
+"creator": "Vyacheslav Argenberg",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Brown_and_beige,_Computer_desk,_Rostov-on-Don,_Russia.jpg",
+"provider": "Wikimedia Commons"
 },
 "conditioner.jpg": {
 "type": "Conditioner",
-"title": "Biopol shampoo bottle",
-"creator": "ICI Biological Products",
-"license": "CC BY-NC-SA 4.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-"source": "https://collection.sciencemuseumgroup.org.uk/objects/co9487/biopol-shampoo-bottle",
-"provider": "sciencemuseum"
+"title": "Hair shampoos, conditioners and other hair care products in liter bottles for use in hair salon",
+"creator": "Pittigrilli",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Hair_shampoos,_conditioners_and_other_hair_care_products_in_liter_bottles_for_use_in_hair_salon.jpg",
+"provider": "Wikimedia Commons"
 },
 "cotton-bedsheet.jpg": {
 "type": "Cotton Bedsheet",
-"title": "Bed Sheets",
-"creator": "Jay Mantri",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/bed-sheets-3E40BB7D1D",
-"provider": "stocksnap"
+"title": "Bed in Seattle hotel",
+"creator": "Liz Lawley",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bed_in_Seattle_hotel.jpg",
+"provider": "Wikimedia Commons"
 },
 "cricket-ball-pack.jpg": {
 "type": "Cricket Ball Pack",
-"title": "My Cricket ball that I bought in Hong Kong in 1997",
-"creator": "Nabil Molinari Photography (10 Million views, Than",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/100251406@N07/51720624753",
-"provider": "flickr"
+"title": "GandM Purist-Grace match cricket balls",
+"creator": "Marie-Lan Nguyen",
+"license": "CC BY 2.5",
+"license_url": "https://creativecommons.org/licenses/by/2.5",
+"source": "https://commons.wikimedia.org/wiki/File:GandM_Purist-Grace_match_cricket_balls.jpg",
+"provider": "Wikimedia Commons"
 },
 "cricket-bat.jpg": {
 "type": "Cricket Bat",
-"title": "Hunter playing cricket (batting) at Tracy Village Social & Sports Club, Darwin, 20 Aug 2022.",
-"creator": "Gary Danvers",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/63119628@N07/52298311060",
-"provider": "flickr"
+"title": "GandM Flare DXM bat-Purist 156g ball",
+"creator": "Marie-Lan Nguyen",
+"license": "CC BY 2.5",
+"license_url": "https://creativecommons.org/licenses/by/2.5",
+"source": "https://commons.wikimedia.org/wiki/File:GandM_Flare_DXM_bat-Purist_156g_ball.jpg",
+"provider": "Wikimedia Commons"
 },
 "curtain-set.jpg": {
 "type": "Curtain Set",
-"title": "Behind the Curtain",
-"creator": "Jocelyn777 Love Europe",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/42201095@N03/52385447173",
-"provider": "flickr"
+"title": "Curtains in the doors",
+"creator": "Vijay Kumar Soren",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Curtains_in_the_doors.jpg",
+"provider": "Wikimedia Commons"
 },
 "cycling-helmet.jpg": {
 "type": "Cycling Helmet",
-"title": "Bicycle Helmet in Grass",
-"creator": "mikecogh",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/89165847@N00/52533750893",
-"provider": "flickr"
+"title": "Bicycle Helmet 0085 Transparent",
+"creator": "SonOfWasps",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bicycle_Helmet_0085_Transparent.png",
+"provider": "Wikimedia Commons"
 },
 "daily-moisturizer.jpg": {
 "type": "Daily Moisturizer",
-"title": "`M.BIRDIE / Bovo Outer @ K9",
-"creator": "Moni ` M.birdie",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/110293507@N06/51378330735",
-"provider": "flickr"
+"title": "Moisturizing cream",
+"creator": "Сергей Михель",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Moisturizing_cream.jpg",
+"provider": "Wikimedia Commons"
 },
 "data-structures-in-c.jpg": {
 "type": "Data Structures in C++",
-"title": "Stack of books and stationery (ca. 1891–1941) drawing in high resolution by Leo Gestel. Original from The Rijksmuseum. Digitally enhanced by rawpixel.",
-"creator": "Free Public Domain Illustrations by rawpixel",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/153584064@N07/51915030408",
-"provider": "flickr"
+"title": "The C Programming Language, 2nd Edition",
+"creator": "Emil Engler",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:The_C_Programming_Language,_2nd_Edition.png",
+"provider": "Wikimedia Commons"
 },
 "database-systems.jpg": {
 "type": "Database Systems",
-"title": "Middle-aged woman holding a stack of book at home.",
-"creator": "nenadstojkovicart",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/202846129@N03/54570919103",
-"provider": "flickr"
+"title": "First Grade Classroom-Egypt-2018 (cropped)",
+"creator": "Linda Herrera",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:First_Grade_Classroom-Egypt-2018_(cropped).jpg",
+"provider": "Wikimedia Commons"
 },
 "desk-organizer.jpg": {
 "type": "Desk Organizer",
@@ -605,327 +605,327 @@ export const CREDITS = {
 },
 "digital-electronics.jpg": {
 "type": "Digital Electronics",
-"title": "a scene of a man sorting through tomes of lost knowledge. Stacks of books and paper and print outs. Old school computer screen",
-"creator": "紅色死神",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/8873441@N06/53474200462",
-"provider": "flickr"
+"title": "FL Textbook Ban 2023",
+"creator": "Yamasztuka",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:FL_Textbook_Ban_2023.jpg",
+"provider": "Wikimedia Commons"
 },
 "dining-table.jpg": {
 "type": "Dining Table",
-"title": "Copper Dining Table",
-"creator": "Metal Sheets Limited",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/90928791@N04/51295511070",
-"provider": "flickr"
+"title": "Dining table in Standen House 2024-10-08",
+"creator": "Andy Li",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Dining_table_in_Standen_House_2024-10-08.jpg",
+"provider": "Wikimedia Commons"
 },
 "dinner-set.jpg": {
 "type": "Dinner Set",
-"title": "Stacked Monochrome Dinner Ware",
-"creator": "sswj",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/37286454@N07/48020907832",
-"provider": "flickr"
+"title": "Crown Ducal tableware - 2023-10-30 - Andy Mabbett - 03",
+"creator": "Andy Mabbett",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Crown_Ducal_tableware_-_2023-10-30_-_Andy_Mabbett_-_03.jpg",
+"provider": "Wikimedia Commons"
 },
 "document-folder.jpg": {
 "type": "Document Folder",
-"title": "Cacti, file folder and constructionel innovation",
-"creator": "fender66ge",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/54417531@N07/51504842925",
-"provider": "flickr"
+"title": "File folders 3 2014-12-14",
+"creator": "FASTILY",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:File_folders_3_2014-12-14.JPG",
+"provider": "Wikimedia Commons"
 },
 "dog-collar.jpg": {
 "type": "Dog Collar",
-"title": "Yes A Store Just for Dog Collars",
-"creator": "Thomas Hawk",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/51035555243@N01/51959368810",
-"provider": "flickr"
+"title": "Leather dog collar made by Les cuirs d'Agathe (DSC07529)",
+"creator": "Trougnouf (Benoit Brummer), Les cuirs d'Agathe",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Leather_dog_collar_made_by_Les_cuirs_d%27Agathe_(DSC07529).jpg",
+"provider": "Wikimedia Commons"
 },
 "dog-leash.jpg": {
 "type": "Dog Leash",
-"title": "Free black dog leash image",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/5923256/photo-image-background-public-domain-dog",
-"provider": "rawpixel"
+"title": "Chain Leash crop",
+"creator": "Wesha",
+"license": "CC BY 3.0",
+"license_url": "https://creativecommons.org/licenses/by/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Chain_Leash_crop.jpg",
+"provider": "Wikimedia Commons"
 },
 "double-door-refrigerator.jpg": {
 "type": "Double Door Refrigerator",
-"title": "CPU Refrigerator Magnet",
-"creator": "DandyDanny",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/56705560@N00/493534393",
-"provider": "flickr"
+"title": "Open refrigerator with food at night",
+"creator": "W.carter",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Open_refrigerator_with_food_at_night.jpg",
+"provider": "Wikimedia Commons"
 },
 "electric-kettle-1-5l.jpg": {
 "type": "Electric Kettle 1.5L",
-"title": "HMV electric kettle",
-"creator": "His Masters Voice",
-"license": "CC BY-NC-SA 4.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-"source": "https://collection.sciencemuseumgroup.org.uk/objects/co8406943/hmv-electric-kettle",
-"provider": "sciencemuseum"
+"title": "2023 Czajnik elektryczny N'OVEEN",
+"creator": "Jacek Halicki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:2023_Czajnik_elektryczny_N%27OVEEN.jpg",
+"provider": "Wikimedia Commons"
 },
 "emergency-roadside-kit.jpg": {
 "type": "Emergency Roadside Kit",
-"title": "The trunk, Sahara, 20230915",
-"creator": "G · RTM",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/89446016@N00/53208777749",
-"provider": "flickr"
+"title": "Erste Hilfe 003 2026 02 17",
+"creator": "Friedrich Haag",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Erste_Hilfe_003_2026_02_17.jpg",
+"provider": "Wikimedia Commons"
 },
 "everyday-indian-cooking.jpg": {
 "type": "Everyday Indian Cooking",
-"title": "Cookbooks",
-"creator": "redazadi",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/89626269@N00/1751806539",
-"provider": "flickr"
+"title": "Mrs. Welch's Cookbook, published in 1884",
+"creator": "Unknown authorUnknown author",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Mrs._Welch%27s_Cookbook,_published_in_1884.jpg",
+"provider": "Wikimedia Commons"
 },
 "filter-coffee-500g.jpg": {
 "type": "Filter Coffee 500g",
-"title": "Grinding Coffee Beans",
-"creator": "Rod Waddington",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/64607715@N05/52222630812",
-"provider": "flickr"
+"title": "Indian filter coffee in Dabarah",
+"creator": "Unknown",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Indian_filter_coffee_in_Dabarah.jpg",
+"provider": "Wikimedia Commons"
 },
 "fitness-bottle.jpg": {
 "type": "Fitness Bottle",
-"title": "Splash for Trash 2021",
-"creator": "Greenville, NC",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/156869144@N02/51352658621",
-"provider": "flickr"
+"title": "Metal Water Bottles",
+"creator": "Amraepowell",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Metal_Water_Bottles.jpeg",
+"provider": "Wikimedia Commons"
 },
 "foaming-face-wash.jpg": {
 "type": "Foaming Face Wash",
-"title": "SMEs showcase Fish based skincare products produced by SMEs in Tanzania-Photo Tom Malambo",
-"creator": "WorldFish",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/61545321@N06/54501916707",
-"provider": "flickr"
+"title": "Fit Me Face Wash review",
+"creator": "Adam",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Fit_Me_Face_Wash_review.jpg",
+"provider": "Wikimedia Commons"
 },
 "foldable-travel-backpack.jpg": {
 "type": "Foldable Travel Backpack",
-"title": "Backpackers in Hoodoo Basin",
-"creator": "YellowstoneNPS",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/80223459@N05/51484725609",
-"provider": "flickr"
+"title": "A backpack with trekking poles and shoes",
+"creator": "SGrabarczuk (WMF)",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:A_backpack_with_trekking_poles_and_shoes.jpg",
+"provider": "Wikimedia Commons"
 },
 "football.jpg": {
 "type": "Football",
-"title": "Floating Soccer Ball",
-"creator": "Stanley Zimny (Thank You for 64 Million views)",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/82256086@N00/51998527507",
-"provider": "flickr"
+"title": "Just a soccer ball (34782492153)",
+"creator": "bluesbby from Mountain View, USA",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Just_a_soccer_ball_(34782492153).jpg",
+"provider": "Wikimedia Commons"
 },
 "front-load-washing-machine.jpg": {
 "type": "Front Load Washing Machine",
-"title": "Washing Machine Selfie - 88/365",
-"creator": "Mr Moss",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/49734171@N00/16982473245",
-"provider": "flickr"
+"title": "Drum of a washing machine (Bosch Maxx WFO 2440)",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Drum_of_a_washing_machine_(Bosch_Maxx_WFO_2440).jpg",
+"provider": "Wikimedia Commons"
 },
 "gaming-laptop.jpg": {
 "type": "Gaming Laptop",
-"title": "Laptop Computer",
-"creator": "Startup Stock Photos",
+"title": "MSI Gaming Laptop on wood floor",
+"creator": "Kurt Kaiser",
 "license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/laptop-computer-4O4FZUVSIU",
-"provider": "stocksnap"
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:MSI_Gaming_Laptop_on_wood_floor.jpg",
+"provider": "Wikimedia Commons"
 },
 "gel-pen-pack.jpg": {
 "type": "Gel Pen Pack",
-"title": "8/28/21 100 Gel Pens",
-"creator": "loonyhiker",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/23240330@N03/51411600639",
-"provider": "flickr"
+"title": "GelPen stub",
+"creator": "User PiccoloNamek on en.wikipedia",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:GelPen_stub.jpg",
+"provider": "Wikimedia Commons"
 },
 "gentle-face-cleanser.jpg": {
 "type": "Gentle Face Cleanser",
-"title": "Bach skincare products, location unknown",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/6113768/photo-image-background-public-domain-doctor",
-"provider": "rawpixel"
+"title": "HK Jif Cif household 清潔液 Cream cleanser 香港聯合利華 Unilever 500ml August 2017 Lnv2 back",
+"creator": "Bilpou521",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:HK_Jif_Cif_household_%E6%B8%85%E6%BD%94%E6%B6%B2_Cream_cleanser_%E9%A6%99%E6%B8%AF%E8%81%AF%E5%90%88%E5%88%A9%E8%8F%AF_Unilever_500ml_August_2017_Lnv2_back.jpg",
+"provider": "Wikimedia Commons"
 },
 "glass-storage-container-set.jpg": {
 "type": "Glass Storage Container Set",
-"title": "Cupcakes Icing",
-"creator": "Mario Calvo",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/cupcakes-icing-R9EDXEL99H",
-"provider": "stocksnap"
+"title": "Illuminated wooden shelf with many glass jars containing cookies for sale in Tokyo",
+"creator": "Basile Morin",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Illuminated_wooden_shelf_with_many_glass_jars_containing_cookies_for_sale_in_Tokyo.jpg",
+"provider": "Wikimedia Commons"
 },
 "hand-blender.jpg": {
 "type": "Hand Blender",
-"title": "spaceship in shape of raven, hyperrealistic, detailed, unreal engine, tony swift",
-"creator": "紅色死神",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/8873441@N06/53205564660",
-"provider": "flickr"
+"title": "Blender (immersion)",
+"creator": "Fluous",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Blender_(immersion).png",
+"provider": "Wikimedia Commons"
 },
 "herbal-shampoo.jpg": {
 "type": "Herbal Shampoo",
-"title": "Biopol shampoo bottle",
-"creator": "ICI Biological Products",
-"license": "CC BY-NC-SA 4.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-"source": "https://collection.sciencemuseumgroup.org.uk/objects/co9487/biopol-shampoo-bottle",
-"provider": "sciencemuseum"
+"title": "Shampoo Bottle made of PLA-Blend Bio-Flex",
+"creator": "F. Kesselring, FKuR Willich",
+"license": "CC BY-SA 3.0 de",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Shampoo_Bottle_made_of_PLA-Blend_Bio-Flex.jpg",
+"provider": "Wikimedia Commons"
 },
 "highlighter-set.jpg": {
 "type": "Highlighter Set",
-"title": "MTA Chair and CEO Lieber and MTA Police Officers Join Mayor Adams and Other Officials at City Hall Highlighting Arrest of Terror Suspect at Penn Station",
-"creator": "MTAPhotos",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/61135621@N03/52514280277",
-"provider": "flickr"
+"title": "BIC Brite Liner highlighter, orange",
+"creator": "ShyAndroid",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:BIC_Brite_Liner_highlighter,_orange.jpg",
+"provider": "Wikimedia Commons"
 },
 "hyaluronic-acid-serum.jpg": {
 "type": "Hyaluronic Acid Serum",
-"title": "Dropper bottle, blank retro label",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/11515770/dropper-bottle-blank-retro-label",
-"provider": "rawpixel"
+"title": "LE SERUM CONTOUR DES YEUX",
+"creator": "Evidens",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:LE_SERUM_CONTOUR_DES_YEUX.jpg",
+"provider": "Wikimedia Commons"
 },
 "indian-polity-handbook.jpg": {
 "type": "Indian Polity Handbook",
-"title": "Books on shelf",
-"creator": "quinet",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/91994044@N00/52198270453",
-"provider": "flickr"
+"title": "Stack of Books for decor",
+"creator": "mycurrency.com",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Stack_of_Books_for_decor.jpg",
+"provider": "Wikimedia Commons"
 },
 "induction-cooktop.jpg": {
 "type": "Induction Cooktop",
-"title": "Induction cooktop",
-"creator": "tjmills1520",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/154752783@N05/52185189352",
-"provider": "flickr"
+"title": "Induction Cooktop Rolling Boil Cropped",
+"creator": "Wtshymanski",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Induction_Cooktop_Rolling_Boil_Cropped.jpg",
+"provider": "Wikimedia Commons"
 },
 "interactive-pet-toy.jpg": {
 "type": "Interactive Pet Toy",
-"title": "Dog toy",
-"creator": "rustman",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/49503155594@N01/51602432096",
-"provider": "flickr"
+"title": "Boston terrier with toy",
+"creator": "Sendai Blog",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Boston_terrier_with_toy.jpg",
+"provider": "Wikimedia Commons"
 },
 "introduction-to-economics.jpg": {
 "type": "Introduction to Economics",
-"title": "stack of books",
-"creator": "Leo Reynolds",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/49968232@N00/53715214598",
-"provider": "flickr"
+"title": "Bodo language textbooks",
+"creator": "SlowPhoton",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bodo_language_textbooks.jpg",
+"provider": "Wikimedia Commons"
 },
 "jigsaw-puzzle-500-piece.jpg": {
 "type": "Jigsaw Puzzle 500 Piece",
-"title": "So now it is time to disassemble the parts of the jigsaw puzzle or to piece another one together, for I find that, having come to the end of my story, my life is just beginning",
-"creator": "duncan cumming",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/34427470616@N01/52486757941",
-"provider": "flickr"
+"title": "Palace of Westminster from the dome on Methodist Central Hall - 1000 piece jigsaw puzzle",
+"creator": "Colin",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster_from_the_dome_on_Methodist_Central_Hall_-_1000_piece_jigsaw_puzzle.jpg",
+"provider": "Wikimedia Commons"
 },
 "kettlebell.jpg": {
 "type": "Kettlebell",
-"title": "Pullover with Kettlebells",
-"creator": "personaltrainertoronto",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/121183998@N08/51332761834",
-"provider": "flickr"
+"title": "Kettlebell truebalance romeike",
+"creator": "Detlef Romeike",
+"license": "CC BY-SA 2.5",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+"source": "https://commons.wikimedia.org/wiki/File:Kettlebell_truebalance_romeike.jpg",
+"provider": "Wikimedia Commons"
 },
 "kids-cotton-t-shirt.jpg": {
 "type": "Kids' Cotton T-Shirt",
-"title": "Cccp - Lake Placid - New York - Golden Arrow Lakeside Resort - Entrance - Red T-Shirt",
-"creator": "Onasill - Bill Badzo - 149 Million Views - Thank Y",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/7156765@N05/51540792955",
-"provider": "flickr"
+"title": "A boy wearing a t-shirt and shorts",
+"creator": "Juraj Kovacik",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:A_boy_wearing_a_t-shirt_and_shorts.jpg",
+"provider": "Wikimedia Commons"
 },
 "kids-velcro-shoes.jpg": {
 "type": "Kids' Velcro Shoes",
-"title": "Sandy's Kid's Shoes",
-"creator": "clembore",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/92787319@N00/51389689002",
-"provider": "flickr"
+"title": "SAKURAKO's new shoes. - NewBalance FS320. (4623803791)",
+"creator": "MIKI Yoshihito from Sapporo City,Hokkaido., JAPAN",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:SAKURAKO%27s_new_shoes._-_NewBalance_FS320._(4623803791).jpg",
+"provider": "Wikimedia Commons"
 },
 "kitchen-knife-set.jpg": {
 "type": "Kitchen Knife Set",
-"title": "An old idea from Scullin for our kitchen knives",
-"creator": "spelio",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/61804295@N00/51332440962",
-"provider": "flickr"
+"title": "2020 Noże kuchenne Gerlach",
+"creator": "Jacek Halicki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:2020_No%C5%BCe_kuchenne_Gerlach.jpg",
+"provider": "Wikimedia Commons"
 },
 "laptop-backpack.jpg": {
 "type": "Laptop Backpack",
-"title": "Man with Pink Backpack",
-"creator": "Chris Hunkeler",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/14913305@N00/51967088493",
-"provider": "flickr"
+"title": "Plecak Hiker 50 L HiMountain",
+"creator": "WrS.tm.pl",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Plecak_Hiker_50_L_HiMountain.jpg",
+"provider": "Wikimedia Commons"
 },
 "large-trolley-bag.jpg": {
 "type": "Large Trolley Bag",
-"title": "The Suitcase Collection, Women, Neon & American Ruin",
-"creator": "Thomas Hawk",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/51035555243@N01/51508655890",
-"provider": "flickr"
+"title": "Belber Striped Suitcase",
+"creator": "Sandrine Z",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Belber_Striped_Suitcase.jpg",
+"provider": "Wikimedia Commons"
 },
 "led-headlight-bulb.jpg": {
 "type": "LED Headlight Bulb",
-"title": "Headlight bulb connector car",
-"creator": "Mechanic Base",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/194218872@N08/51577376823",
-"provider": "flickr"
+"title": "045 Replacing car headlight bulb - HIR2 type 12V halogen lightbulb for Toyota Auris",
+"creator": "Marek Ślusarczyk (Tupungato) Photo portfolio",
+"license": "CC BY 3.0",
+"license_url": "https://creativecommons.org/licenses/by/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:045_Replacing_car_headlight_bulb_-_HIR2_type_12V_halogen_lightbulb_for_Toyota_Auris.jpg",
+"provider": "Wikimedia Commons"
 },
 "magnetic-tiles-set.jpg": {
 "type": "Magnetic Tiles Set",
@@ -938,192 +938,192 @@ export const CREDITS = {
 },
 "magsafe-compatible-stand.jpg": {
 "type": "MagSafe-Compatible Stand",
-"title": "Liam and Isaac's phone stand and Fathers Day cards - message",
-"creator": "avlxyz",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/10559879@N00/51426646468",
-"provider": "flickr"
+"title": "Souvenir. The phone stand. The Obelisk to the Hero City of Leningrad",
+"creator": "Walter-Walter T.T.",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Souvenir._The_phone_stand._The_Obelisk_to_the_Hero_City_of_Leningrad.jpg",
+"provider": "Wikimedia Commons"
 },
 "mechanical-keyboard.jpg": {
 "type": "Mechanical Keyboard",
-"title": "Mechanical keyboard",
-"creator": "phithanhviet",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/99146016@N07/52309916271",
-"provider": "flickr"
+"title": "Mechanical Keyboard",
+"creator": "SolarMainframe",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Mechanical_Keyboard.jpg",
+"provider": "Wikimedia Commons"
 },
 "mechanical-pencil-set.jpg": {
 "type": "Mechanical Pencil Set",
-"title": "Apollo 17 Garland Mechanical Pencil, From the Surface of the Moon",
-"creator": "jurvetson",
+"title": "Mechanical Pencils 2019",
+"creator": "J. C. Barros",
 "license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/44124348109@N01/52549895849",
-"provider": "flickr"
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Mechanical_Pencils_2019.jpg",
+"provider": "Wikimedia Commons"
 },
 "medium-trolley-bag.jpg": {
 "type": "Medium Trolley Bag",
-"title": "Girl Walking with Blue Suitcase at Taichung High Speed Rail HSR Station in Taiwan",
-"creator": "midnightbreakfastcafe",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/193353181@N06/52119360469",
-"provider": "flickr"
+"title": "Woman with suitcase",
+"creator": "Matthew Hurst",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Woman_with_suitcase.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-casual-shirt.jpg": {
 "type": "Men's Casual Shirt",
-"title": "Supermodels - Long White Dress Shirt Fashion Edition",
-"creator": "kndynt2099",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/14612880@N05/53432529850",
-"provider": "flickr"
+"title": "Stack of men's casual shirts",
+"creator": "Kotivalo",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Stack_of_men%27s_casual_shirts.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-casual-sneakers.jpg": {
 "type": "Men's Casual Sneakers",
-"title": "Sandals and Sneakers",
-"creator": "Theen ...",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/57768536@N05/51638992002",
-"provider": "flickr"
+"title": "Reebok Royal Glide Ripple Clip shoe",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Reebok_Royal_Glide_Ripple_Clip_shoe.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-chino-trousers.jpg": {
 "type": "Men's Chino Trousers",
-"title": "Legs and feet",
-"creator": "FOTOSHO-TO",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/87193413@N00/51705724801",
-"provider": "flickr"
+"title": "Chino pants",
+"creator": "Kuha455405",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Chino_pants.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-cotton-t-shirt.jpg": {
 "type": "Men's Cotton T-Shirt",
-"title": "New T-Shirt from TYT",
-"creator": "phit2btyd",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/39038034@N03/52078113831",
-"provider": "flickr"
+"title": "Ambigram Ideal, polysymmetrical logo printed on a green T-shirt",
+"creator": "Basile Morin",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Ambigram_Ideal,_polysymmetrical_logo_printed_on_a_green_T-shirt.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-formal-loafers.jpg": {
 "type": "Men's Formal Loafers",
-"title": "Shoes Loafers",
-"creator": "Alexander Andrews",
+"title": "Loafers being worn",
+"creator": "Goodreg3",
 "license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/shoes-loafers-ZLD1BVS642",
-"provider": "stocksnap"
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Loafers_being_worn.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-formal-shirt.jpg": {
 "type": "Men's Formal Shirt",
-"title": "Supermodels - Long White Dress Shirt Fashion Edition",
-"creator": "kndynt2099",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/14612880@N05/53432248003",
-"provider": "flickr"
+"title": "Camisade puño doble",
+"creator": "Incal",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Camisade_pu%C3%B1o_doble.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-leather-sandals.jpg": {
 "type": "Men's Leather Sandals",
-"title": "Sandals",
-"creator": "SissyTvinhose",
+"title": "Leather sandals from the grave goods of child mummy S. 278 title QS:P1476,en:\"Leather sandals from the grave goods of child mummy S. 278 \"label QS:Len,\"Leather sandals from the grave goods of child mummy S. 278 \"label QS:Lit,\"Sandali di cuoio, dal corredo funerario della mummia di bambino S. 278\"",
+"creator": "Unknown",
 "license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.flickr.com/photos/166654743@N04/51627425769",
-"provider": "flickr"
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Leather_sandals_from_the_grave_goods_of_child_mummy_S278_-_Museo_Egizio,_Turin_S_279_p01.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-running-shoes.jpg": {
 "type": "Men's Running Shoes",
-"title": "Running Shoes, Light, Shadow, and Legs",
-"creator": "Silver Starre",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/89108261@N00/493277732",
-"provider": "flickr"
+"title": "Mizuno Wave Ibuki 2",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Mizuno_Wave_Ibuki_2.jpg",
+"provider": "Wikimedia Commons"
 },
 "men-s-walking-shoes.jpg": {
 "type": "Men's Walking Shoes",
-"title": "Walking shoes in black or white DSCF0267",
-"creator": "Roy Katzenberg",
+"title": "Green Shoe Envy (8437690154)",
+"creator": "Tony Alter from Newport News, USA",
 "license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/14149634@N00/51860446734",
-"provider": "flickr"
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Green_Shoe_Envy_(8437690154).jpg",
+"provider": "Wikimedia Commons"
 },
 "microfiber-cleaning-kit.jpg": {
 "type": "Microfiber Cleaning Kit",
-"title": "MICROFIBER CLOTH FOR CAR - 1",
-"creator": "automaxfx",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.flickr.com/photos/197103350@N07/52625831843",
-"provider": "flickr"
+"title": "Microfibre cloth",
+"creator": "Polyesterchen",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Microfibre_cloth.jpg",
+"provider": "Wikimedia Commons"
 },
 "microwave-oven-20l.jpg": {
 "type": "Microwave Oven 20L",
 "title": "Microwave Oven",
-"creator": "string_bass_dave",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/16069488@N00/52279067703",
-"provider": "flickr"
+"creator": "Srini297",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Microwave_Oven.jpg",
+"provider": "Wikimedia Commons"
 },
 "microwave-oven-28l.jpg": {
 "type": "Microwave Oven 28L",
-"title": "microwave ovens vary",
-"creator": "Timothy Valentine",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/92686475@N00/52444005791",
-"provider": "flickr"
+"title": "Panasonic MICROWAVE OVEN NN-GM333W",
+"creator": "Dinkun Chen",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Panasonic_MICROWAVE_OVEN_NN-GM333W.jpg",
+"provider": "Wikimedia Commons"
 },
 "mirrorless-camera.jpg": {
 "type": "Mirrorless Camera",
-"title": "Just copied using the a6000 mirrorless camera and a 16mm extension tube.",
-"creator": "spelio",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/61804295@N00/53060698184",
-"provider": "flickr"
+"title": "Mirrorless Camera Sensor",
+"creator": "Nulcheck",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Mirrorless_Camera_Sensor.jpg",
+"provider": "Wikimedia Commons"
 },
 "mixed-nuts-500g.jpg": {
 "type": "Mixed Nuts 500g",
-"title": "Mixed Nuts",
-"creator": "arbyreed",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/19779889@N00/51652372911",
-"provider": "flickr"
+"title": "Liat Portal for Foodie Disorder - Mixed nuts and dried fruit",
+"creator": "HaJunkiyada",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Mixed_nuts_and_dried_fruit.jpg",
+"provider": "Wikimedia Commons"
 },
 "mixer-grinder-1000w.jpg": {
 "type": "Mixer Grinder 1000W",
-"title": "DSCF0946: a woman in a pink turban is making a smoothie",
-"creator": "PattayaPatrol",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/194424926@N05/54588466551",
-"provider": "flickr"
+"title": "A table-top mixer-grinder or mixie",
+"creator": "Vimkay",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:A_table-top_mixer-grinder_or_mixie.jpg",
+"provider": "Wikimedia Commons"
 },
 "mixer-grinder-750w.jpg": {
 "type": "Mixer Grinder 750W",
-"title": "A still of the spice garden official showing how to use the grinding stone",
-"creator": "shankar s.",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/77742560@N06/52572522340",
-"provider": "flickr"
+"title": "Mixer-grinder-blades",
+"creator": "Smart Home Guide",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Mixer-grinder-blades.jpg",
+"provider": "Wikimedia Commons"
 },
 "modern-indian-history.jpg": {
 "type": "Modern Indian History",
-"title": "Kelly Link book with shelf-talker, Powell's, Cedar Hills Crossing, Portland, Oregon, USA",
-"creator": "gruntzooki",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/37996580417@N01/52871563642",
-"provider": "flickr"
+"title": "History Books",
+"creator": "Useendk",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:History_Books.jpg",
+"provider": "Wikimedia Commons"
 },
 "moong-dal-1kg.jpg": {
 "type": "Moong Dal 1kg",
@@ -1136,318 +1136,318 @@ export const CREDITS = {
 },
 "multigrain-atta-5kg.jpg": {
 "type": "Multigrain Atta 5kg",
-"title": "Former Flour Mill, Beardstown, Illinois",
-"creator": "myoldpostcards",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/31910582@N05/51916124628",
-"provider": "flickr"
+"title": "Atta flour",
+"creator": "Nga Ahorangi",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Atta_flour.jpg",
+"provider": "Wikimedia Commons"
 },
 "non-stick-fry-pan.jpg": {
 "type": "Non-Stick Fry Pan",
-"title": "Out of the Frying Pan and Into the Fire",
-"creator": "antonychammond",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/8525214@N06/51982174661",
-"provider": "flickr"
+"title": "Frying pan with black handle",
+"creator": "User:Lcarsdata",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Frying_pan_with_black_handle.jpg",
+"provider": "Wikimedia Commons"
 },
 "office-chair.jpg": {
 "type": "Office Chair",
-"title": "New Office Chair",
-"creator": "SheepGuardingLlama",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/99385068@N00/51862815351",
-"provider": "flickr"
+"title": "Buerostuhl (fcm)",
+"creator": "Photograph: Frank C. Müller, Baden-Baden",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Buerostuhl_(fcm).jpg",
+"provider": "Wikimedia Commons"
 },
 "office-desk.jpg": {
 "type": "Office Desk",
-"title": "Windows 1 Computer desk",
-"creator": "70023venus2009",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/41798338@N04/51490707189",
-"provider": "flickr"
+"title": "Roll top desk in office",
+"creator": "Hu Nhu",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Roll_top_desk_in_office.jpg",
+"provider": "Wikimedia Commons"
 },
 "otg-30l.jpg": {
 "type": "OTG 30L",
-"title": "Toaster Oven Biscuits",
-"creator": "vanhookc",
+"title": "Breadstick - Toaster oven with elements on",
+"creator": "lokate366",
 "license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/97651299@N00/51858282998",
-"provider": "flickr"
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Breadstick_-_Toaster_oven_with_elements_on.jpg",
+"provider": "Wikimedia Commons"
 },
 "over-ear-wireless-headphones.jpg": {
 "type": "Over-Ear Wireless Headphones",
-"title": "Koss headphones",
-"creator": "Abdulla Al Muhairi",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.flickr.com/photos/57866029@N00/52459692877",
-"provider": "flickr"
+"title": "Bose QuietComfort 25 Acoustic Noise Cancelling Headphones with Carry Case",
+"creator": "Florian Fuchs",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bose_QuietComfort_25_Acoustic_Noise_Cancelling_Headphones_with_Carry_Case.jpg",
+"provider": "Wikimedia Commons"
 },
 "packing-cube-set.jpg": {
 "type": "Packing Cube Set",
-"title": "W Trail Day 2: Frozen in Patagonia: Beachside with a Side of Shivering.",
-"creator": "ER's Eyes - Our planet is so beautiful.",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/41111966@N04/53750924579",
-"provider": "flickr"
+"title": "Patagonia Packing Cube (45287958485)",
+"creator": "Tony Webster from Minneapolis, Minnesota, United States",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Patagonia_Packing_Cube_(45287958485).jpg",
+"provider": "Wikimedia Commons"
 },
 "passport-holder.jpg": {
 "type": "Passport Holder",
-"title": "passport damage",
-"creator": "andrewbateman",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/71608848@N00/14987479",
-"provider": "flickr"
+"title": "Passports-assorted",
+"creator": "Normadic at English Wikipedia, User:Quistnix, बिजय पोख्रेल, and the PRC Government (as indicated in the file for the PRC passport)",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Passports-assorted.jpg",
+"provider": "Wikimedia Commons"
 },
 "pet-bed.jpg": {
 "type": "Pet Bed",
-"title": "Cathy in dog bed 11 14 21",
-"creator": "safoocat",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/9754872@N08/51725174449",
-"provider": "flickr"
+"title": "Dog sleeping in a dog bed",
+"creator": "Tomwsulcer",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Dog_sleeping_in_a_dog_bed.JPG",
+"provider": "Wikimedia Commons"
 },
 "pet-feeding-bowl.jpg": {
 "type": "Pet Feeding Bowl",
-"title": "... because I didn't give her fresh water in a lovely clean pet bowl inside at all, ever... #oldladycatsofinstagram #oldcatsofinstagram #catsofinstagram",
-"creator": "ebbandflo_pomomama",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/41478173@N00/53958869533",
-"provider": "flickr"
+"title": "Dark Gray Slow Feeder Dog Bowl with Labyrinth Pattern",
+"creator": "ELTORO.VET",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Dark_Gray_Slow_Feeder_Dog_Bowl_with_Labyrinth_Pattern.jpg",
+"provider": "Wikimedia Commons"
 },
 "pet-grooming-brush.jpg": {
 "type": "Pet Grooming Brush",
-"title": "Think Someone Brushed Their Dog .....",
-"creator": "mikecogh",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/89165847@N00/52318233643",
-"provider": "flickr"
+"title": "Dog brush",
+"creator": "ZooFari",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Dog_brush.JPG",
+"provider": "Wikimedia Commons"
 },
 "pet-shampoo.jpg": {
 "type": "Pet Shampoo",
-"title": "Relocating the dog’s bathing experience",
-"creator": "Katy Wrathall",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/29053279@N02/52541706489",
-"provider": "flickr"
+"title": "Washing a dog in a bath tub",
+"creator": "Andrew Vargas",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Washing_a_dog_in_a_bath_tub.jpg",
+"provider": "Wikimedia Commons"
 },
 "portable-projector.jpg": {
 "type": "Portable Projector",
-"title": "Back of Projector Lens",
-"creator": "wordman1",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/12699118@N00/147320148",
-"provider": "flickr"
+"title": "InFocus IN34",
+"creator": "Dave Pape",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:InFocus_IN34.jpg",
+"provider": "Wikimedia Commons"
 },
 "printer-paper-500-sheets.jpg": {
 "type": "Printer Paper 500 Sheets",
-"title": "Aspiration is a Long Way From Talent",
-"creator": "Joe Wilcox",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/58491094@N00/51328272350",
-"provider": "flickr"
+"title": "6 reams of paper stacked on the floor",
+"creator": "Sage Ross (WMF)",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:6_reams_of_paper_stacked_on_the_floor.jpg",
+"provider": "Wikimedia Commons"
 },
 "puppy-food-3kg.jpg": {
 "type": "Puppy Food 3kg",
-"title": "'Forget that cat and let's get going!' by Benni Girl",
-"creator": "Bennilover",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/75885098@N05/51412296817",
-"provider": "flickr"
+"title": "Dog Food (208810939)",
+"creator": "chrismetcalfTV",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Dog_Food_(208810939).jpg",
+"provider": "Wikimedia Commons"
 },
 "python-programming.jpg": {
 "type": "Python Programming",
-"title": "stack of books",
-"creator": "Leo Reynolds",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/49968232@N00/53715434565",
-"provider": "flickr"
+"title": "Programming language textbooks",
+"creator": "User:K.lee",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Programming_language_textbooks.jpg",
+"provider": "Wikimedia Commons"
 },
 "resistance-band-set.jpg": {
 "type": "Resistance Band Set",
-"title": "Water Resistant band / fashion accessory",
-"creator": "Solarcan",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/164235673@N02/52551049353",
-"provider": "flickr"
+"title": "Resistance Band (cropped)",
+"creator": "Corn cheese",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Resistance_Band_(cropped).jpg",
+"provider": "Wikimedia Commons"
 },
 "rice-cooker-1-8l.jpg": {
 "type": "Rice Cooker 1.8L",
-"title": "2023 (Day 9 - 9 Jan): Cuckoo rice cooker",
-"creator": "tawalker",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/30139045@N00/52617835261",
-"provider": "flickr"
+"title": "Rice-cooker",
+"creator": "Taken by User:Aarchiba; detoured by Rama",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Rice-cooker.jpg",
+"provider": "Wikimedia Commons"
 },
 "room-heater.jpg": {
 "type": "Room Heater",
-"title": "Our Space Heater Disappears on the Horizon",
-"creator": "MikoFox",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/28648755@N07/52293561497",
-"provider": "flickr"
+"title": "Portable infrared electric heater used on a film set",
+"creator": "Siarhei Besarab",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Portable_infrared_electric_heater_used_on_a_film_set.jpg",
+"provider": "Wikimedia Commons"
 },
 "shoe-rack.jpg": {
 "type": "Shoe Rack",
-"title": "Shoe Rack",
-"creator": "charcoal soul",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/65737797@N00/52166776323",
-"provider": "flickr"
+"title": "Shoes in a spanish shoe store",
+"creator": "Tomascastelazo",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Shoes_in_a_spanish_shoe_store.jpg",
+"provider": "Wikimedia Commons"
 },
 "signals-and-systems.jpg": {
 "type": "Signals and Systems",
-"title": "stack of books",
-"creator": "Leo Reynolds",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/49968232@N00/53715434710",
-"provider": "flickr"
+"title": "Textbooks in the Seoul Education Museum",
+"creator": "Motoko C. K.",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Textbooks_in_the_Seoul_Education_Museum.jpg",
+"provider": "Wikimedia Commons"
 },
 "single-door-refrigerator.jpg": {
 "type": "Single Door Refrigerator",
-"title": "Refrigerator tree feels cool when touched",
-"creator": "PeterThoeny",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/98786299@N00/51943278053",
-"provider": "flickr"
+"title": "LG refrigerator interior",
+"creator": "Milad Mosapoor",
+"license": "Attribution",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:LG_refrigerator_interior.jpg",
+"provider": "Wikimedia Commons"
 },
 "skipping-rope.jpg": {
 "type": "Skipping Rope",
-"title": "jump rope",
-"creator": "steve: they can't all be zingers!!! (primus)",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/64525258@N00/51305353372",
-"provider": "flickr"
+"title": "Ghanaian kid (skipping rope) 02",
+"creator": "Pambelle12",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Ghanaian_kid_(skipping_rope)_02.jpg",
+"provider": "Wikimedia Commons"
 },
 "sona-masoori-rice-5kg.jpg": {
 "type": "Sona Masoori Rice 5kg",
-"title": "Checking the wild rice grains after removing it from the parcher at Wild Rice House in Finland, Minnesota",
-"creator": "Lorie Shaull",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/11020019@N04/51430312449",
-"provider": "flickr"
+"title": "Rice Grains",
+"creator": "Hpannu7",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Rice_Grains_.png",
+"provider": "Wikimedia Commons"
 },
 "soundbar-2-1-channel.jpg": {
 "type": "Soundbar 2.1 Channel",
-"title": "BOSE SoundTouch 300 soundbar-1.jpg",
-"creator": "TAKA@P.P.R.S",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/26414679@N05/33523750735",
-"provider": "flickr"
+"title": "Philips Soundbar with Ambisound HTS9140 front",
+"creator": "Philips Communications",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Philips_Soundbar_with_Ambisound_HTS9140_front.jpg",
+"provider": "Wikimedia Commons"
 },
 "stainless-steel-cookware-set.jpg": {
 "type": "Stainless Steel Cookware Set",
-"title": "Stainless Steel Pot",
-"creator": "Jo Zimny Photos",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/78814955@N00/52734611607",
-"provider": "flickr"
+"title": "Stainless Steel Frying Pan",
+"creator": "Jim Stonos",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Stainless_Steel_Frying_Pan.jpg",
+"provider": "Wikimedia Commons"
 },
 "sticky-notes-set.jpg": {
 "type": "Sticky Notes Set",
-"title": "Self-Care - Sticky Notes",
-"creator": "Chronic Joy",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/148283563@N04/52102011541",
-"provider": "flickr"
+"title": "Post-it",
+"creator": "The original uploader was Consequencefree at English Wikipedia.",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Post-it.jpg",
+"provider": "Wikimedia Commons"
 },
 "storage-basket-set.jpg": {
 "type": "Storage Basket Set",
-"title": "Storage Baskets",
-"creator": "Clint__Budd",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/58827557@N06/51676025256",
-"provider": "flickr"
+"title": "Eggs in basket 2020 G1",
+"creator": "George Chernilevsky",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Eggs_in_basket_2020_G1.jpg",
+"provider": "Wikimedia Commons"
 },
 "study-table.jpg": {
 "type": "Study Table",
-"title": "Charles Dickens Museum - Dickens's Study - desks",
-"creator": "ell brown",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/39415781@N06/52518908855",
-"provider": "flickr"
+"title": "Brown and beige, Computer desk, Rostov-on-Don, Russia",
+"creator": "Vyacheslav Argenberg",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Brown_and_beige,_Computer_desk,_Rostov-on-Don,_Russia.jpg",
+"provider": "Wikimedia Commons"
 },
 "sugar-5kg.jpg": {
 "type": "Sugar 5kg",
-"title": "Victorias Milling Company transporting sugar cane, San Carlos, Negros Occidental, Philippines 1970s-1980s (1)",
-"creator": "J. Tewell",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/9406236@N02/52447522189",
-"provider": "flickr"
+"title": "Kandiszucker -- 2018 -- 3588",
+"creator": "Dietmar Rabich",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Kandiszucker_--_2018_--_3588.jpg",
+"provider": "Wikimedia Commons"
 },
 "sunscreen-spf-50.jpg": {
 "type": "Sunscreen SPF 50",
-"title": "50-50 protection -[ HMM]-",
-"creator": "Carbon Arc",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/41002268@N03/51320770706",
-"provider": "flickr"
+"title": "Sunscreen Sonnencreme in Zürich Switzerland",
+"creator": "Alpantex",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Sunscreen_Sonnencreme_in_Z%C3%BCrich_Switzerland.jpg",
+"provider": "Wikimedia Commons"
 },
 "tea-500g.jpg": {
 "type": "Tea 500g",
-"title": "Chinese green tea ball - Flowering tea is mainly made of green tea leaves and freshly dried flowers",
-"creator": "fotogake",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/43045536@N08/52174155583",
-"provider": "flickr"
+"title": "Zhu-Ye-Qing-Tea-03",
+"creator": "CEphoto, Uwe Aranas",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Zhu-Ye-Qing-Tea-03.jpg",
+"provider": "Wikimedia Commons"
 },
 "the-mango-orchard.jpg": {
 "type": "The Mango Orchard",
-"title": "Essex Nov 2023 A House For essex Julies books middle shelf",
-"creator": "i_gallagher",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/39691453@N00/53379320719",
-"provider": "flickr"
+"title": "Hanna book cover",
+"creator": "Verlag von Wilhelm Jacobsohn, Breslau",
+"license": "Public domain",
+"license_url": null,
+"source": "https://commons.wikimedia.org/wiki/File:Hanna_book_cover.jpg",
+"provider": "Wikimedia Commons"
 },
 "the-monsoon-letters.jpg": {
 "type": "The Monsoon Letters",
-"title": "Books stacked shelf",
-"creator": "Unknown",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/3298137/free-photo-image-book-bookcase-cc0",
-"provider": "rawpixel"
+"title": "Waverley novels-1 volume per novel",
+"creator": "Pete unseth",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Waverley_novels-1_volume_per_novel.png",
+"provider": "Wikimedia Commons"
 },
 "toiletry-travel-kit.jpg": {
 "type": "Toiletry Travel Kit",
-"title": "Large Capacity Waterproof Leather Toiletry Bag for Men",
-"creator": "1289513147",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/194579500@N07/51747079032",
-"provider": "flickr"
+"title": "Kulturbeutel1",
+"creator": "Peng",
+"license": "CC BY 2.5",
+"license_url": "https://creativecommons.org/licenses/by/2.5",
+"source": "https://commons.wikimedia.org/wiki/File:Kulturbeutel1.jpg",
+"provider": "Wikimedia Commons"
 },
 "toor-dal-1kg.jpg": {
 "type": "Toor Dal 1kg",
@@ -1460,299 +1460,299 @@ export const CREDITS = {
 },
 "top-load-washing-machine.jpg": {
 "type": "Top Load Washing Machine",
-"title": "Washing Machines",
-"creator": "mikecogh",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/89165847@N00/16119937526",
-"provider": "flickr"
+"title": "Drum of a washing machine (Bosch Maxx WFO 2440)",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Drum_of_a_washing_machine_(Bosch_Maxx_WFO_2440).jpg",
+"provider": "Wikimedia Commons"
 },
 "tower-fan.jpg": {
 "type": "Tower Fan",
-"title": "Holmes Tower Fan",
-"creator": "FanFan61618",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/129344407@N05/52323304245",
-"provider": "flickr"
+"title": "Ventilatore a torre Orieme",
+"creator": "Air fans",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Ventilatore_a_torre_Orieme.jpg",
+"provider": "Wikimedia Commons"
 },
 "travel-duffle-bag.jpg": {
 "type": "Travel Duffle Bag",
-"title": "Isaac wheeling his duffel bag to school camp",
-"creator": "avlxyz",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/10559879@N00/52095925008",
-"provider": "flickr"
+"title": "Seabag",
+"creator": "Bahamut0013",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Seabag.jpg",
+"provider": "Wikimedia Commons"
 },
 "travel-neck-pillow.jpg": {
 "type": "Travel Neck Pillow",
-"title": "IMG_1207",
-"creator": "lida skoteina",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/47561465@N00/54266863448",
-"provider": "flickr"
+"title": "Neck pillow on a white background at a school",
+"creator": "Curpharar",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Neck_pillow_on_a_white_background_at_a_school.jpg",
+"provider": "Wikimedia Commons"
 },
 "true-wireless-earbuds.jpg": {
 "type": "True Wireless Earbuds",
-"title": "Fairphone+True+Wireless+Earbuds+with+Charging+Case",
-"creator": "Fairphone",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/60295192@N08/51548822927",
-"provider": "flickr"
+"title": "Bose QuietComfort 25 Acoustic Noise Cancelling Headphones with Carry Case",
+"creator": "Florian Fuchs",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Bose_QuietComfort_25_Acoustic_Noise_Cancelling_Headphones_with_Carry_Case.jpg",
+"provider": "Wikimedia Commons"
 },
 "tv-unit.jpg": {
 "type": "TV Unit",
-"title": "Project 365 #269: 260922 The Chase",
-"creator": "comedy_nose",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/23408922@N07/52386999194",
-"provider": "flickr"
+"title": "Wall mounted Tv stand unit",
+"creator": "Coster Snowbird",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Wall_mounted_Tv_stand_unit.jpg",
+"provider": "Wikimedia Commons"
 },
 "tyre-inflator-gauge.jpg": {
 "type": "Tyre Inflator Gauge",
-"title": "Vintage Schrader Tire-Pressure Gauge, Imprinted 'Compliments Of A. Schrader's Son, Division Of Scovill Manufacturing Company, Incorporated', Made In USA, Circa 1940s",
-"creator": "France1978",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/51764518@N02/53183149866",
-"provider": "flickr"
+"title": "Porsche Tire Pressure Gauge (9207945919)",
+"creator": "Antti",
+"license": "CC BY 2.0",
+"license_url": "https://creativecommons.org/licenses/by/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Porsche_Tire_Pressure_Gauge_(9207945919).jpg",
+"provider": "Wikimedia Commons"
 },
 "unisex-hoodie.jpg": {
 "type": "Unisex Hoodie",
-"title": "[V.C.LAB] CØDE Hoodie Set × EQUAL10",
-"creator": "V.C.Laboratory [V.C.LAB]",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/187527820@N04/51442996228",
-"provider": "flickr"
+"title": "Sonoma Raceway hoodie - June 2023 - Sarah Stierch",
+"creator": "Missvain",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Sonoma_Raceway_hoodie_-_June_2023_-_Sarah_Stierch.jpg",
+"provider": "Wikimedia Commons"
 },
 "unisex-sports-shoes.jpg": {
 "type": "Unisex Sports Shoes",
-"title": "2021 - Vancouver - 18 Pairs of Blue and White Running Shoes",
-"creator": "Ted's photos - Stand With Ukraine",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/90955804@N04/51329341280",
-"provider": "flickr"
+"title": "Reebok Royal Glide Ripple Clip shoe",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Reebok_Royal_Glide_Ripple_Clip_shoe.jpg",
+"provider": "Wikimedia Commons"
 },
 "usb-c-braided-cable.jpg": {
 "type": "USB-C Braided Cable",
-"title": "Cool White LED Ring Light with USB Cable and On/Off Switch - 70mm Diameter 5V",
-"creator": "adafruit",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/35434449@N08/51499830637",
-"provider": "flickr"
+"title": "USB-C cable connected to a powerbank",
+"creator": "Logant547",
+"license": "CC BY 4.0",
+"license_url": "https://creativecommons.org/licenses/by/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:USB-C_cable_connected_to_a_powerbank.jpg",
+"provider": "Wikimedia Commons"
 },
 "usb-c-docking-station.jpg": {
 "type": "USB-C Docking Station",
-"title": "20170403 2001 - new usb hub - 201704032001-11",
-"creator": "Claire CJS",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/31355686@N00/37071030762",
-"provider": "flickr"
+"title": "USB HUB 2.0",
+"creator": "Kskhh",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:USB_HUB_2.0.jpg",
+"provider": "Wikimedia Commons"
 },
 "vitamin-c-face-serum.jpg": {
 "type": "Vitamin C Face Serum",
-"title": "3 bottles beard oil, blank",
-"creator": "Unknown",
+"title": "A serum made",
+"creator": "Jahra Tasfia Reza",
 "license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/11515788/bottles-beard-oil-blank-label",
-"provider": "rawpixel"
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:A_serum_made.jpg",
+"provider": "Wikimedia Commons"
 },
 "wall-decor-set.jpg": {
 "type": "Wall Decor Set",
-"title": "Adelaide. 1940s Art Deco house. Stucco walls, decorative chimney, stepped bricks on corners and chimney, rounded window ridge, rounded porch entry leadlight window, glazed bricks above foundations, asymmetrical facade .",
-"creator": "denisbin",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/82134796@N03/51732786549",
-"provider": "flickr"
+"title": "Pyramid kirigami wall decor 01",
+"creator": "Olugold",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Pyramid_kirigami_wall_decor_01.jpg",
+"provider": "Wikimedia Commons"
 },
 "water-bottle-set.jpg": {
 "type": "Water Bottle Set",
-"title": "Club UK Water Bottle",
-"creator": "paolo999",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/71437328@N00/14967239",
-"provider": "flickr"
+"title": "Metal Water Bottles",
+"creator": "Amraepowell",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Metal_Water_Bottles.jpeg",
+"provider": "Wikimedia Commons"
 },
 "weekender-bag.jpg": {
 "type": "Weekender Bag",
-"title": "Weekend bag, Paris, 20240203",
-"creator": "G · RTM",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/89446016@N00/53531571422",
-"provider": "flickr"
+"title": "Suitcase BW 2025-08-17 14-54-11",
+"creator": "Berthold Werner",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Suitcase_BW_2025-08-17_14-54-11.jpg",
+"provider": "Wikimedia Commons"
 },
 "wheat-flour-5kg.jpg": {
 "type": "Wheat Flour 5kg",
-"title": "Norfolk Virginia - Ghost Signs - The House of Hofflin - Sailors Suits Made to Order - Gold Medal Flour - United States",
-"creator": "Onasill - Bill Badzo - 149 Million Views - Thank Y",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/7156765@N05/51492064663",
-"provider": "flickr"
+"title": "All-Purpose Flour (4107895947)",
+"creator": "Veganbaking.net from USA",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:All-Purpose_Flour_(4107895947).jpg",
+"provider": "Wikimedia Commons"
 },
 "whiteboard-marker-set.jpg": {
 "type": "Whiteboard Marker Set",
-"title": "Whiteboard Markers",
-"creator": "Startup Stock Photos",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://stocksnap.io/photo/whiteboard-markers-16VYGB9PG5",
-"provider": "stocksnap"
+"title": "Whiteboard marker and eraser",
+"creator": "Zv0486~commonswiki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Whiteboard_marker_and_eraser.jpg",
+"provider": "Wikimedia Commons"
 },
 "wi-fi-6-router.jpg": {
 "type": "Wi-Fi 6 Router",
-"title": "Cheeky Liam showing all the wifi routers in a Roblox game",
-"creator": "avlxyz",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/10559879@N00/52390411136",
-"provider": "flickr"
+"title": "Wi-fi router in North York Centre station",
+"creator": "Al12si",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Wi-fi_router_in_North_York_Centre_station.jpg",
+"provider": "Wikimedia Commons"
 },
 "wireless-charging-pad.jpg": {
 "type": "Wireless Charging Pad",
-"title": "SmartLuv iPhone Wireless Charger Stand",
-"creator": "TheBetterDay",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/94977883@N08/51640374613",
-"provider": "flickr"
+"title": "LG WCP-300 Qi wireless charger",
+"creator": "Dsimic",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:LG_WCP-300_Qi_wireless_charger.jpg",
+"provider": "Wikimedia Commons"
 },
 "wireless-keyboard-mouse-combo.jpg": {
 "type": "Wireless Keyboard Mouse Combo",
-"title": "ATWO AG0401 Wireless Mini Keyboard Mouse",
-"creator": "TheBetterDay",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/94977883@N08/51729400627",
-"provider": "flickr"
+"title": "Apple-wireless-keyboard",
+"creator": "Marcin Wieclaw (Pc Site)",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Apple-wireless-keyboard.jpg",
+"provider": "Wikimedia Commons"
 },
 "wireless-mouse.jpg": {
 "type": "Wireless Mouse",
-"title": "Computer mouse",
-"creator": "#Sacho#",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/189108616@N08/54133831784",
-"provider": "flickr"
+"title": "A wireless computer mouse",
+"creator": "Pixloom",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:A_wireless_computer_mouse.jpg",
+"provider": "Wikimedia Commons"
 },
 "wireless.jpg": {
 "type": "wireless",
-"title": "Is it a computer mouse? Of course not! It's a computer hamster! Thanks @_sarahgraham7, the best accountability buddy a girl could ask for 💜💜💜",
-"creator": "incurable_hippie",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/49503155381@N01/52577661358",
-"provider": "flickr"
+"title": "2023 Mysz komputerowa Logitech G903 Lightspeed",
+"creator": "Jacek Halicki",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:2023_Mysz_komputerowa_Logitech_G903_Lightspeed.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-anarkali-kurta.jpg": {
 "type": "Women's Anarkali Kurta",
-"title": "Taj Mahal Restaurant",
-"creator": "Streets of Washington",
-"license": "CC BY-NC 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
-"source": "https://www.flickr.com/photos/33661083@N06/52035690211",
-"provider": "flickr"
+"title": "Women of Puducherry",
+"creator": "Bernard Gagnon",
+"license": "CC BY-SA 3.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+"source": "https://commons.wikimedia.org/wiki/File:Women_of_Puducherry.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-ballet-flats.jpg": {
 "type": "Women's Ballet Flats",
-"title": "Hugo Award Shoes Fit Check",
-"creator": "Kevin Standlee",
-"license": "CC BY-NC-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-sa/2.0/",
-"source": "https://www.flickr.com/photos/8638651@N07/54510616386",
-"provider": "flickr"
+"title": "Ballerinas (Weiss)",
+"creator": "Stefan-Xp",
+"license": "CC BY-SA 3.0",
+"license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+"source": "https://commons.wikimedia.org/wiki/File:Ballerinas_(Weiss).jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-casual-sneakers.jpg": {
 "type": "Women's Casual Sneakers",
-"title": "My gf playing with her sister old sneakers",
-"creator": "Tnisamante",
-"license": "CC BY-SA 2.0",
-"license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-"source": "https://www.flickr.com/photos/95027552@N02/21746555471",
-"provider": "flickr"
+"title": "FILA FLOAT MAXXI and FILA AXILUS ACE in Brazil",
+"creator": "Laiyenbr",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:FILA_FLOAT_MAXXI_and_FILA_AXILUS_ACE_in_Brazil.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-casual-top.jpg": {
 "type": "Women's Casual Top",
-"title": "Women wearing a teal polo shirt",
-"creator": "Rydale Country Clothing",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/182435424@N02/52362118765",
-"provider": "flickr"
+"title": "Blouse",
+"creator": "Jeanne Lanvin / Lanvin",
+"license": "CC0",
+"license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"source": "https://commons.wikimedia.org/wiki/File:Blouse_MET_CI63.38.3_F.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-cotton-kurta.jpg": {
 "type": "Women's Cotton Kurta",
-"title": "Kurta IS/ADB digitizer",
-"creator": "30pincom",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/190213398@N06/51924914198",
-"provider": "flickr"
+"title": "Rajasthani woman in traditional dress",
+"creator": "Jaishree.lunkaransar",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Rajasthani_woman_in_traditional_dress.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-running-shoes.jpg": {
 "type": "Women's Running Shoes",
-"title": "New Running Shoes!",
-"creator": "OakleyOriginals",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/47264866@N00/15958297680",
-"provider": "flickr"
+"title": "Asics Gel-Cumulus 22",
+"creator": "Petar Milošević",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Asics_Gel-Cumulus_22.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-sandals.jpg": {
 "type": "Women's Sandals",
-"title": "Sandal Boy",
-"creator": "FotoGrazio",
-"license": "CC BY-NC-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
-"source": "https://www.flickr.com/photos/94075184@N00/18618777624",
-"provider": "flickr"
+"title": "Sandals (3)",
+"creator": "Б.Раданова",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Sandals_(3).jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-saree.jpg": {
 "type": "Women's Saree",
-"title": "anushka-shetty-unseen-hot-green-saree-2007",
-"creator": "Ramkumar@chennai",
-"license": "Public domain",
-"license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-"source": "https://www.flickr.com/photos/68019852@N07/51208318480",
-"provider": "flickr"
+"title": "Sari 2",
+"creator": "Yann (talk)",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Sari_2.jpg",
+"provider": "Wikimedia Commons"
 },
 "women-s-straight-trousers.jpg": {
 "type": "Women's Straight Trousers",
-"title": "Fragment from Women's Trousers",
-"creator": "themet",
-"license": "CC0",
-"license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "https://www.rawpixel.com/image/8081501/fragment-from-womens-trousers",
-"provider": "rawpixel"
+"title": "Trousers-colourisolated",
+"creator": "Dressed_for_summer.jpg: Ed Yourdon derivative work: Themightyquill (talk)",
+"license": "CC BY-SA 2.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+"source": "https://commons.wikimedia.org/wiki/File:Trousers-colourisolated.jpg",
+"provider": "Wikimedia Commons"
 },
 "wooden-puzzle.jpg": {
 "type": "Wooden Puzzle",
-"title": "153 of 365",
-"creator": "Wicked Sushi",
-"license": "CC BY-ND 2.0",
-"license_url": "https://creativecommons.org/licenses/by-nd/2.0/",
-"source": "https://www.flickr.com/photos/54666141@N05/52264487182",
-"provider": "flickr"
+"title": "Wooden cube puzzle man",
+"creator": "Lpele",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Wooden_cube_puzzle_man.jpg",
+"provider": "Wikimedia Commons"
 },
 "yoga-mat.jpg": {
 "type": "Yoga Mat",
-"title": "Extended puppy pose on yoga mat. A young woman stretching",
-"creator": "Ivan Radic",
-"license": "CC BY 2.0",
-"license_url": "https://creativecommons.org/licenses/by/2.0/",
-"source": "https://www.flickr.com/photos/26344495@N05/51287191909",
-"provider": "flickr"
+"title": "Yoga Mat Made of Carpet Underlay",
+"creator": "Ian Alexander",
+"license": "CC BY-SA 4.0",
+"license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+"source": "https://commons.wikimedia.org/wiki/File:Yoga_Mat_Made_of_Carpet_Underlay.jpg",
+"provider": "Wikimedia Commons"
 }
 };
