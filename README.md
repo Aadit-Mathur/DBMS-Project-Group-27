@@ -187,3 +187,217 @@ python db_testing/restore_database.py --database-url $env:DATABASE_URL
 - Admin dashboard module development 
 - Analytical queries and reporting functionality for revenue
 - Charts and visualisations
+
+
+# E-Commerce Marketplace — DBMS Project
+
+## 1. Project Overview
+
+This project is a full-stack e-commerce marketplace application developed as part of the DBMS course.
+
+The system connects a web-based frontend with a FastAPI backend and a PostgreSQL relational database. It supports customers, sellers, products, orders, payments, shipments, inventory management, and administrative reporting.
+
+The application demonstrates practical use of relational database concepts including primary and foreign keys, integrity constraints, transactions, stored functions, triggers, multi-table queries, aggregation, and database-backed application workflows.
+
+---
+
+## 2. Technology Stack
+
+### Frontend
+- HTML
+- CSS
+- JavaScript
+
+### Backend
+- Python
+- FastAPI
+- psycopg2
+
+### Database
+- PostgreSQL
+
+### Development Tools
+- Visual Studio Code
+- pgAdmin
+- Swagger / OpenAPI
+- Git / GitHub
+
+---
+
+## 3. Main Users
+
+### Customer
+Customers can:
+- Browse products
+- Search and filter products
+- Add products to a cart
+- Checkout
+- Place orders
+- Make payments
+- View previous orders
+- Track shipments
+
+### Seller
+Sellers can:
+- View their seller dashboard
+- View their products
+- Add products
+- Edit products
+- Delete/delist products
+- Restock products
+- View orders containing their products
+- Update shipment status
+
+### Administrator
+The administrator dashboard provides:
+- Overall system statistics
+- Top-selling products
+- Category-wise sales reports
+- Order-status summaries
+
+---
+
+## 4. Database Schema
+
+The application uses a relational database containing the following major relations:
+
+1. Customer
+2. Seller
+3. Category
+4. Product
+5. Address
+6. Delivery_Address
+7. Inventory
+8. Orders
+9. Order_Item
+10. Payment
+11. Shipment
+
+The database uses primary keys and foreign keys to maintain relationships between entities and enforce referential integrity.
+
+Important constraints such as NOT NULL, UNIQUE, CHECK, PRIMARY KEY, and FOREIGN KEY constraints are enforced at the database level where appropriate.
+
+---
+
+## 5. Major Application Workflows
+
+### Workflow 1 — Customer Purchase
+
+Customer searches for a product → filters products → adds products to cart → selects delivery address → places an order → completes payment → views order → tracks shipment.
+
+### Workflow 2 — Seller Fulfilment
+
+Seller opens dashboard → views products and inventory → manages products/restocks inventory → views customer orders → updates shipment status from Shipped to In Transit to Delivered.
+
+### Workflow 3 — Administrative Reporting
+
+Administrator opens the dashboard → views customer, seller, product and order statistics → analyzes top products → analyzes category-wise sales → views order-status distribution.
+
+---
+
+## 6. Reports and Dashboard
+
+The application provides the following reports:
+
+- Overall dashboard statistics
+- Top products by units sold and revenue
+- Category-wise sales
+- Order-status summary
+
+These reports use SQL joins, aggregation, grouping, filtering and ordering across multiple relations.
+
+---
+
+## 7. DBMS Features Demonstrated
+
+The project demonstrates the following DBMS features:
+
+### Transactions
+Database transactions are used for coordinated operations such as order and payment processing.
+
+### Stored Functions
+Database functions are used for important operations including:
+- `place_order`
+- `begin_payment`
+- `record_payment`
+- `advance_shipment`
+- `restock_product`
+
+### Triggers
+Triggers are used for automatic database operations such as maintaining product update information.
+
+### Integrity Constraints
+The database uses:
+- Primary keys
+- Foreign keys
+- UNIQUE constraints
+- NOT NULL constraints
+- CHECK constraints
+
+---
+
+## 8. Important SQL Operations
+
+The project contains non-trivial SQL queries involving:
+
+- Multiple-table joins
+- Aggregation using SUM and COUNT
+- GROUP BY
+- ORDER BY
+- Filtering
+- Subqueries
+- Seller-specific order retrieval
+- Product sales analysis
+- Category sales analysis
+- Dashboard statistics
+
+These queries support both application functionality and administrative reporting.
+
+---
+
+## 9. Project Structure
+
+DBMS-Project-Group-27/
+│
+├── backend/
+│   └── app/
+│       ├── routers/
+│       ├── db.py
+│       ├── schemas.py
+│       └── main.py
+│
+├── frontend/
+│   ├── customer/
+│   ├── seller/
+│   ├── admin/
+│   ├── css/
+│   └── js/
+│
+├── db_testing/
+│   ├── seller_product_schema.sql
+│   ├── order_schema.sql
+│   ├── reset_order_data.sql
+│   └── run_sql.py
+│
+├── Populate_DB/
+├── Reference/
+├── docs/
+├── requirements.txt
+└── README.md
+
+
+### Part 3 — Setup
+
+Continue with:
+
+```markdown
+---
+
+## 10. Running the Backend
+
+Install the required Python dependencies.
+
+From the project root, run:
+
+```bash
+uvicorn backend.app.main:app --reload

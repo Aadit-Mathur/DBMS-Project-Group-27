@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - E-Commerce DBMS</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <h1>Checkout</h1>
+
+    <div id="checkout">
+
+        <h2>Customer</h2>
+
+        <input
+            type="email"
+            id="customerEmail"
+            placeholder="Enter your email"
+        >
+
+        <button onclick="loadCustomer()">
+            Find Customer
+        </button>
+
+        <div id="customerDetails"></div>
+
+
+        <h2>Delivery Address</h2>
+
+        <select id="addressSelect">
+            <option value="">Select an address</option>
+        </select>
+
+
+        <h2>Payment Method</h2>
+
+        <select id="paymentMethod">
+
+            <option value="UPI">UPI</option>
+
+            <option value="Credit Card">
+                Credit Card
+            </option>
+
+            <option value="Debit Card">
+                Debit Card
+            </option>
+
+            <option value="Net Banking">
+                Net Banking
+            </option>
+
+            <option value="Wallet">
+                Wallet
+            </option>
+
+        </select>
+
+
+        <h2>Order Summary</h2>
+
+        <div id="orderSummary"></div>
+
+
+        <button onclick="placeOrder()">
+            Place Order
+        </button>
+
+        <button onclick="window.location.href='orders.html'">
+            My Orders
+        </button>
+
+    </div>
+
+
+    <script src="../js/api.js"></script>
+    <script src="../js/checkout.js"></script>
+
+</body>
+
+</html>
