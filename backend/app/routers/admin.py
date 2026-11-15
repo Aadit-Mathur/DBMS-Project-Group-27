@@ -17,12 +17,17 @@ import secrets
 from datetime import date
 from typing import Optional
 
-from fastapi import APIRouter, Depends, Header, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.security import APIKeyHeader
 
 from .. import db
 
 
-def require_admin(x_admin_key: Optional[str] = Header(None)) -> None:
+# Declaring the header as a security scheme makes /docs show an "Authorize" button.
+admin_key_header = APIKeyHeader(name="X-Admin-Key", auto_error=False)
+
+
+def require_admin(x_admin_key: Optional[str] = Depends(admin_key_header)) -> None:
     """Reject the request unless it carries the admin key in an X-Admin-Key header.
 
     The key lives in .env as ADMIN_API_KEY (never in git). There are no user
@@ -37,7 +42,16 @@ def require_admin(x_admin_key: Optional[str] = Header(None)) -> None:
 
 
 # Every route in this router needs the key.
-router = APIRouter(prefix="/admin", tags=["Admin dashboard"], dependencies=[Depends(require_admin)])
+router = APIRouter(
+    prefix="/admin",
+    tags=["Admin dashboard"],
+    dependencies=[Depends(require_admin)],
+    # Lists these codes in /docs so they no longer show as "Undocumented".
+    responses={
+        401: {"description": "Admin key missing or wrong"},
+        503: {"description": "ADMIN_API_KEY is not configured on the server"},
+    },
+)
 
 # Reused in every query that has a date window. psycopg2 fills the named params.
 DATE_FILTER = """
