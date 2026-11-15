@@ -1,87 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Checkout - E-Commerce DBMS</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout · Bazaar</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem('mk_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css">
 </head>
-
 <body>
-
-    <h1>Checkout</h1>
-
-    <div id="checkout">
-
-        <h2>Customer</h2>
-
-        <input
-            type="email"
-            id="customerEmail"
-            placeholder="Enter your email"
-        >
-
-        <button onclick="loadCustomer()">
-            Find Customer
-        </button>
-
-        <div id="customerDetails"></div>
-
-
-        <h2>Delivery Address</h2>
-
-        <select id="addressSelect">
-            <option value="">Select an address</option>
-        </select>
-
-
-        <h2>Payment Method</h2>
-
-        <select id="paymentMethod">
-
-            <option value="UPI">UPI</option>
-
-            <option value="Credit Card">
-                Credit Card
-            </option>
-
-            <option value="Debit Card">
-                Debit Card
-            </option>
-
-            <option value="Net Banking">
-                Net Banking
-            </option>
-
-            <option value="Wallet">
-                Wallet
-            </option>
-
-        </select>
-
-
-        <h2>Order Summary</h2>
-
-        <div id="orderSummary"></div>
-
-
-        <button onclick="placeOrder()">
-            Place Order
-        </button>
-
-        <button onclick="window.location.href='orders.html'">
-            My Orders
-        </button>
-
-    </div>
-
-
-    <script src="../js/api.js"></script>
-    <script src="../js/checkout.js"></script>
-
+<noscript>This app needs JavaScript.</noscript>
+<script type="module" src="./checkout.js"></script>
 </body>
-
 </html>

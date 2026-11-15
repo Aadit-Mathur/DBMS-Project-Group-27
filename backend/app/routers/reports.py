@@ -13,9 +13,8 @@ def dashboard():
                 (SELECT COUNT(*) FROM seller) AS total_sellers,
                 (SELECT COUNT(*) FROM product) AS total_products,
                 (SELECT COUNT(*) FROM orders) AS total_orders,
-                (SELECT COALESCE(SUM(total_amount), 0)
-                 FROM orders
-                 WHERE order_status <> 'Cancelled') AS total_order_value
+                (SELECT COALESCE(SUM(paid_amount), 0)
+                 FROM v_paid_orders) AS total_order_value   -- revenue = successfully paid orders only
         """)
         return cur.fetchone()
 
@@ -32,9 +31,8 @@ def top_products():
             FROM order_item oi
             JOIN product p
                 ON p.product_id = oi.product_id
-            JOIN orders o
-                ON o.order_id = oi.order_id
-            WHERE o.order_status <> 'Cancelled'
+            JOIN v_paid_orders o
+                ON o.order_id = oi.order_id            -- paid orders only
             GROUP BY p.product_id, p.product_name
             ORDER BY units_sold DESC
             LIMIT 10
@@ -56,9 +54,8 @@ def category_sales():
                 ON p.product_id = oi.product_id
             JOIN category c
                 ON c.category_id = p.category_id
-            JOIN orders o
-                ON o.order_id = oi.order_id
-            WHERE o.order_status <> 'Cancelled'
+            JOIN v_paid_orders o
+                ON o.order_id = oi.order_id            -- paid orders only
             GROUP BY c.category_id, c.category_name
             ORDER BY revenue DESC
         """)

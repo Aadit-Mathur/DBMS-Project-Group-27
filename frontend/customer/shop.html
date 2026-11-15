@@ -1,60 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Shop - E-Commerce DBMS</title>
-    <link rel="stylesheet" href="../css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop · Bazaar</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem('mk_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css">
 </head>
-
 <body>
-
-    <h1>Our Products</h1>
-
-    <p>Browse products available in our marketplace.</p>
-
-    <div id="filters">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search products..."
-        >
-
-        <select id="categoryFilter">
-            <option value="">All Categories</option>
-        </select>
-
-        <input
-            type="number"
-            id="minPrice"
-            placeholder="Min price"
-        >
-
-        <input
-            type="number"
-            id="maxPrice"
-            placeholder="Max price"
-        >
-
-        <label>
-            <input type="checkbox" id="stockFilter">
-            In stock only
-        </label>
-
-        <button onclick="searchProducts()">Search</button>
-
-    </div>
-
-    <div id="products">
-        <!-- Products will appear here -->
-    </div>
-
-    <script src="../js/api.js"></script>
-    <script src="../js/customer.js"></script>
-
+<noscript>This app needs JavaScript.</noscript>
+<script type="module" src="./shop.js"></script>
 </body>
-
 </html>

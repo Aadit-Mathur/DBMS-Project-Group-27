@@ -1,403 +1,95 @@
-# DBMS Project, Group-27: E-commerce Marketplace
-
-The system models a marketplace similar to Amazon, where sellers list products, customers browse and purchase items, and orders are processed through transactional database logic.
-
-## Project Overview
-
-The application is built around a PostgreSQL database hosted on Neon and a FastAPI backend that exposes REST endpoints for the main domain workflows:
-
-- Seller registration and catalog management
-- Product search, filtering, and inventory controls
-- Customer order placement and order history
-- Payment and shipment workflow logic
-- Database-enforced integrity checks, transactions, and reporting queries
-
-## Current Progress (Mid-Sem Evaluation)
-
-### Completed work
-
-- Core database objects and business rules for the marketplace have been implemented for the seller, product, category, order, payment, and shipment workflow.
-- Most SQL constraints, unique keys, checks, triggers, views, and functions are in place to support validation and inventory-related logic.
-- FastAPI routes have been implemented for seller registration, product management, product search, category listing, and order-related actions.
-- Transactional database logic is used for order placement and stock updates to keep the core workflow atomic.
-- SQL validation scripts and API tests have been added to exercise key constraints and backend operations.
-- Sample data generation scripts are included to populate realistic customers, sellers, categories, products, and addresses for testing.
-
-### In progress / next milestones
-
-- Addition of a few more triggers, views, etc. under consideration
-- Development of the frontend is ongoing
-- Admin dashboard module in development
-- Final frontend-backend integration and UX refinement
-- Complete end-to-end validation across frontend, backend, and database workflows
-
-## Repository Structure
-
-- `backend/app/` — FastAPI application, database connection, request validation, and routers
-- `backend/tests/` — API tests for seller/product workflows
-- `db_testing/` — database restore, schema scripts, SQL validation files, and queries
-- `reconstruct_database/` — portable schema and sample data dumps
-- `populate_DB/` — data-generation scripts for realistic sample data
-- `Reference/` — design documents used as the baseline for the project
-
-## Technology Stack
-
-- Backend: Python, FastAPI
-- Database: PostgreSQL (Neon or local)
-- Database access: psycopg2, SQL, PL/pgSQL
-- Validation: pytest and SQL constraint tests
-- Version control: GitHub
-
-## Local Setup
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-# Set DATABASE_URL in a local .env file before running the app.
-# It may be a Neon URL or a local PostgreSQL URL.
-uvicorn backend.app.main:app --reload
-```
-
-The API documentation is available at `/docs` when the server is running.
-
-## Reproducible database setup
-
-The checked-in database files can be restored independently of the hosted
-NeonDB instance. PostgreSQL 18 or a compatible PostgreSQL version, pgAdmin 4
-or `psql`, and the files in `reconstruct_database/` are required.
-
-### Local PostgreSQL
-
-1. Create an empty database named `ecommerce_local` in pgAdmin, or run:
-
-   ```powershell
-   createdb -U postgres ecommerce_local
-   ```
-
-2. Restore the schema and sample data with the automated helper:
-
-   ```powershell
-   python db_testing/restore_database.py `
-     --database-url "postgresql://postgres:YOUR_PASSWORD@localhost:5432/ecommerce_local"
-   ```
-
-   The helper uses `psql` because `sample_data_fixed.sql` contains `COPY`
-   blocks. It temporarily disables user-defined triggers while importing the
-   historical data, then re-enables them in the same transaction. Foreign-key
-   constraints remain enabled.
-
-   Alternatively, use `psql` manually:
-
-   ```text
-   \i 'C:/path/to/reconstruct_database/schema.sql'
-   ```
-
-   Before importing `sample_data_fixed.sql`, execute:
-
-   ```sql
-   ALTER TABLE public.address DISABLE TRIGGER USER;
-   ALTER TABLE public.category DISABLE TRIGGER USER;
-   ALTER TABLE public.customer DISABLE TRIGGER USER;
-   ALTER TABLE public.order_event DISABLE TRIGGER USER;
-   ALTER TABLE public.order_fn_backup DISABLE TRIGGER USER;
-   ALTER TABLE public.order_item DISABLE TRIGGER USER;
-   ALTER TABLE public.orders DISABLE TRIGGER USER;
-   ALTER TABLE public.payment DISABLE TRIGGER USER;
-   ALTER TABLE public.product DISABLE TRIGGER USER;
-   ALTER TABLE public.seller DISABLE TRIGGER USER;
-   ALTER TABLE public.shipment DISABLE TRIGGER USER;
-   ```
-
-   Then run:
-
-   ```text
-   \set ON_ERROR_STOP on
-   \i 'C:/path/to/reconstruct_database/sample_data_fixed.sql'
-   ```
-
-   Re-enable the triggers by changing `DISABLE` to `ENABLE` in the
-   statements above before testing normal application operations.
-
-3. Configure the application to use the restored database:
-
-   ```env
-   DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/ecommerce_local
-   ```
-
-   Then start the API:
-
-   ```powershell
-   uvicorn backend.app.main:app --reload
-   ```
-
-### Verification
-
-Run this query after importing the data:
-
-```sql
-SELECT
-    (SELECT COUNT(*) FROM customer) AS customers,
-    (SELECT COUNT(*) FROM address) AS addresses,
-    (SELECT COUNT(*) FROM category) AS categories,
-    (SELECT COUNT(*) FROM orders) AS orders,
-    (SELECT COUNT(*) FROM order_event) AS events,
-    (SELECT COUNT(*) FROM seller) AS sellers,
-    (SELECT COUNT(*) FROM product) AS products,
-    (SELECT COUNT(*) FROM order_item) AS order_items,
-    (SELECT COUNT(*) FROM payment) AS payments,
-    (SELECT COUNT(*) FROM shipment) AS shipments;
-```
-
-Expected counts are: customer 600, address 1,560, category 18, orders 302,
-order_event 1,914, seller 200, product 801, order_item 605, payment 302,
-and shipment 251.
-
-The restore target must be empty (or contain no objects owned by this
-project). For Neon, use a fresh branch or empty database and pass its
-connection URL to the same restore command:
-
-```powershell
-python db_testing/restore_database.py --database-url $env:DATABASE_URL
-```
-
-## Contributors
-
-### Aadit Mathur (2024AAPS0310H)
-- Project setup and repository organization
-- Database design (ER Diagram creation & Relational Schema) and business rules
-- Neon database population and overall testing
-
-### Rithwik Rudra (2024AAPS0260H)
-- Frontend development
-- Product browsing, order management, the seller portal, and the admin dashboard
-- Integration of frontend and backend
-
-### Aarav Gang (2024AAPS0328H)
-- Ordering module development
-- Payment and shipment workflow logic
-- Transactional database design and order-processing validation
-
-### Divvij Yogesh Chichra (2024AAPS0298H)
-- Seller and product module development
-- Inventory and product catalog management
-- Product delisting and low-stock monitoring
-
-### Yash Agarwal (2024AAPS0294H)
-- Admin dashboard module development 
-- Analytical queries and reporting functionality for revenue
-- Charts and visualisations
-
-
-# E-Commerce Marketplace — DBMS Project
-
-## 1. Project Overview
-
-This project is a full-stack e-commerce marketplace application developed as part of the DBMS course.
-
-The system connects a web-based frontend with a FastAPI backend and a PostgreSQL relational database. It supports customers, sellers, products, orders, payments, shipments, inventory management, and administrative reporting.
-
-The application demonstrates practical use of relational database concepts including primary and foreign keys, integrity constraints, transactions, stored functions, triggers, multi-table queries, aggregation, and database-backed application workflows.
-
----
-
-## 2. Technology Stack
-
-### Frontend
-- HTML
-- CSS
-- JavaScript
-
-### Backend
-- Python
-- FastAPI
-- psycopg2
-
-### Database
-- PostgreSQL
-
-### Development Tools
-- Visual Studio Code
-- pgAdmin
-- Swagger / OpenAPI
-- Git / GitHub
-
----
-
-## 3. Main Users
-
-### Customer
-Customers can:
-- Browse products
-- Search and filter products
-- Add products to a cart
-- Checkout
-- Place orders
-- Make payments
-- View previous orders
-- Track shipments
-
-### Seller
-Sellers can:
-- View their seller dashboard
-- View their products
-- Add products
-- Edit products
-- Delete/delist products
-- Restock products
-- View orders containing their products
-- Update shipment status
-
-### Administrator
-The administrator dashboard provides:
-- Overall system statistics
-- Top-selling products
-- Category-wise sales reports
-- Order-status summaries
-
----
-
-## 4. Database Schema
-
-The application uses a relational database containing the following major relations:
-
-1. Customer
-2. Seller
-3. Category
-4. Product
-5. Address
-6. Delivery_Address
-7. Inventory
-8. Orders
-9. Order_Item
-10. Payment
-11. Shipment
-
-The database uses primary keys and foreign keys to maintain relationships between entities and enforce referential integrity.
-
-Important constraints such as NOT NULL, UNIQUE, CHECK, PRIMARY KEY, and FOREIGN KEY constraints are enforced at the database level where appropriate.
-
----
-
-## 5. Major Application Workflows
-
-### Workflow 1 — Customer Purchase
-
-Customer searches for a product → filters products → adds products to cart → selects delivery address → places an order → completes payment → views order → tracks shipment.
-
-### Workflow 2 — Seller Fulfilment
-
-Seller opens dashboard → views products and inventory → manages products/restocks inventory → views customer orders → updates shipment status from Shipped to In Transit to Delivered.
-
-### Workflow 3 — Administrative Reporting
-
-Administrator opens the dashboard → views customer, seller, product and order statistics → analyzes top products → analyzes category-wise sales → views order-status distribution.
-
----
-
-## 6. Reports and Dashboard
-
-The application provides the following reports:
-
-- Overall dashboard statistics
-- Top products by units sold and revenue
-- Category-wise sales
-- Order-status summary
-
-These reports use SQL joins, aggregation, grouping, filtering and ordering across multiple relations.
-
----
-
-## 7. DBMS Features Demonstrated
-
-The project demonstrates the following DBMS features:
-
-### Transactions
-Database transactions are used for coordinated operations such as order and payment processing.
-
-### Stored Functions
-Database functions are used for important operations including:
-- `place_order`
-- `begin_payment`
-- `record_payment`
-- `advance_shipment`
-- `restock_product`
-
-### Triggers
-Triggers are used for automatic database operations such as maintaining product update information.
-
-### Integrity Constraints
-The database uses:
-- Primary keys
-- Foreign keys
-- UNIQUE constraints
-- NOT NULL constraints
-- CHECK constraints
-
----
-
-## 8. Important SQL Operations
-
-The project contains non-trivial SQL queries involving:
-
-- Multiple-table joins
-- Aggregation using SUM and COUNT
-- GROUP BY
-- ORDER BY
-- Filtering
-- Subqueries
-- Seller-specific order retrieval
-- Product sales analysis
-- Category sales analysis
-- Dashboard statistics
-
-These queries support both application functionality and administrative reporting.
-
----
-
-## 9. Project Structure
-
-DBMS-Project-Group-27/
-│
-├── backend/
-│   └── app/
-│       ├── routers/
-│       ├── db.py
-│       ├── schemas.py
-│       └── main.py
-│
-├── frontend/
-│   ├── customer/
-│   ├── seller/
-│   ├── admin/
-│   ├── css/
-│   └── js/
-│
-├── db_testing/
-│   ├── seller_product_schema.sql
-│   ├── order_schema.sql
-│   ├── reset_order_data.sql
-│   └── run_sql.py
-│
-├── Populate_DB/
-├── Reference/
-├── docs/
-├── requirements.txt
-└── README.md
-
-
-### Part 3 — Setup
-
-Continue with:
-
-```markdown
----
-
-## 10. Running the Backend
-
-Install the required Python dependencies.
-
-From the project root, run:
-
+# E-Commerce Marketplace — DBMS Project, Group 27 (CS F212)
+
+**Final commit:** `<PASTE FULL COMMIT HASH HERE>` (tag `final`)  
+**Team ID / Lab section:** `<FILL IN>`
+
+A marketplace where sellers list products, customers browse and buy, and orders move through payment and shipment. Business rules live in PostgreSQL (constraints, triggers, transactional functions, views); a FastAPI backend exposes them and a plain HTML/JS frontend uses the API.
+
+## Team
+
+| Member | ID | Contribution |
+|---|---|---|
+| Aadit Mathur | 2024AAPS0310H | Repository setup, database design (ER diagram, relational schema), business rules, Neon population, restore scripts |
+| Aarav Gang | 2024AAPS0328H | Ordering backend: place / pay / cancel-refund / ship / track, status-flow triggers, order timeline, payment-gateway abstraction, order SQL tests and queries, ordering API docs |
+| Divvij Yogesh Chichra | 2024AAPS0298H | Seller and product backend: catalog, stock, restock, delist/relist, low-stock view, seller API docs |
+| Yash Agarwal | 2024AAPS0294H | Admin backend: authenticated analytics endpoints (`/admin/*`), revenue and sales queries |
+| Rithwik Rudra | 2024AAPS0260H | Frontend (customer, seller, admin pages), frontend–backend integration, dashboard reports |
+
+## Technology stack
+PostgreSQL 16+ (Neon or local) · Python 3.11+ · FastAPI · psycopg2 · plain HTML/CSS/JavaScript · pytest · SQL / PL/pgSQL
+
+## Database (11 tables)
+Domain tables (10): `customer`, `address`, `seller`, `category`, `product`, `orders`, `order_item`, `payment`, `shipment`, `order_event` (order timeline).
+Plus `order_fn_backup`, a small table that stores earlier versions of functions replaced during a migration (not used by the application).
+The sample data has about 6,500 rows (600 customers, 1,560 addresses, 200 sellers, 18 categories, 801 products, 302 orders, 605 order lines, 302 payments, 251 shipments, 1,914 order events).
+
+## Workflows
+1. **Customer purchase:** browse/search products → cart → choose address → place order → pay → track shipment (`place_order`, `begin_payment`, `record_payment`; one transaction each).
+2. **Seller fulfilment:** seller dashboard → manage products and stock (restock, delist) → see orders containing their products → ship (`advance_shipment`: Shipped → In Transit → Delivered).
+3. **Admin reporting:** dashboard of customers, sellers, products, revenue (paid orders only), top products, sales by category, orders by status.
+
+Also available through the API: cancel with refund (`cancel_order`), automatic expiry of unpaid orders (`expire_unpaid_orders`), declined-payment retry.
+
+## DBMS features (file → object)
+| Feature | Where |
+|---|---|
+| Transactions + row locking (no overselling) | `db_testing/order_schema.sql` → `place_order`, `cancel_order` |
+| Triggers: order total, frozen order lines, status flows, timeline | `db_testing/order_schema.sql` → `trg_order_item_total`, `trg_order_item_frozen`, `trg_orders_guard`, `trg_payment_flow`, `trg_shipment_flow`, `trg_*_event`; `trg_product_touch` in `seller_product_schema.sql` |
+| Views | `v_paid_orders` (revenue = successful payments only), `v_order_summary`, `v_low_stock_products` |
+| Indexes (partial, composite) | `idx_orders_pending`, `idx_payment_successful`, `idx_orders_customer`, `idx_product_category_price`, `idx_product_low_stock` |
+| Constraints | PK/FK, UNIQUE, CHECK on every table; composite FK `orders(address_id, customer_id)` → `address` |
+| Queries | `db_testing/queries/order_queries.sql` (10), `db_testing/queries/seller_product_queries.sql`, `backend/app/routers/admin.py` |
+| SQL tests | `db_testing/tests/order_constraint_tests.sql` (92 checks), `seller_product_constraint_tests.sql` (17) |
+
+## Setup (macOS; Windows notes below)
+
+### 1. Database
+Pick one.
+
+**A. Local PostgreSQL (works offline, recommended for the demo).** Install PostgreSQL 16 or newer (`brew install postgresql@16`, or Postgres.app) and make sure `psql` works.
 ```bash
+createdb ecommerce_local
+python3 db_testing/restore_database.py --database-url "postgresql://localhost:5432/ecommerce_local"
+```
+(If your local user needs a password: `postgresql://USER:PASSWORD@localhost:5432/ecommerce_local`.)
+
+**B. Neon.** Create an empty branch/database and pass its connection string to the same command.
+
+Check the data: `psql ecommerce_local -c "select count(*) from orders"` should print 302.
+
+### 2. Backend
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 uvicorn backend.app.main:app --reload
+```
+Create a file named `.env` in the repository root (it is git-ignored, never commit it):
+```
+DATABASE_URL=postgresql://localhost:5432/ecommerce_local
+ADMIN_API_KEY=choose-any-secret
+```
+API docs and a health check: http://127.0.0.1:8000/docs and http://127.0.0.1:8000/health. `ADMIN_API_KEY` is only needed for the authenticated `/admin/*` endpoints.
+
+### 3. Frontend
+The backend must be running. In a second terminal:
+```bash
+cd frontend
+python3 -m http.server 5500
+```
+Open http://127.0.0.1:5500/ and follow the links (customer shop, seller portal, admin dashboard). The pages call the API at `http://127.0.0.1:8000`.
+There are no passwords: customers and sellers sign in with their email address, for example `customer0448@example.in` and `seller0106@example.in`.
+
+### 4. Tests
+```bash
+pytest                                                              # API tests (use DATABASE_URL; each test rolls back)
+python3 db_testing/run_sql.py db_testing/tests/order_constraint_tests.sql
+python3 db_testing/run_sql.py db_testing/tests/seller_product_constraint_tests.sql
+```
+SQL tests also run directly with `psql -f`. Run tests against a local or dev database, not against the database used for the live demo.
+
+### Windows
+Use `python -m venv .venv`, `.\.venv\Scripts\Activate.ps1`, and `py -m http.server 5500`; the rest is identical.
+
+## Repository layout
+`backend/app/` API · `backend/tests/` API tests · `frontend/` pages and scripts · `db_testing/` schema, functions, SQL tests, queries, restore helper · `reconstruct_database/` schema and sample-data dump · `Populate_DB/` data generators and order seed · `docs/` API references · `Reference/` design documents

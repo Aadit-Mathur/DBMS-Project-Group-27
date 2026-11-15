@@ -1,0 +1,22 @@
+:root{
+  --font-head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --brand:#4f46e5;--brand-600:#4338ca;--brand-50:#eef0ff;--brand-contrast:#fff;--accent:#f59e0b;
+  --bg:#f5f6fb;--surface:#fff;--surface-2:#f0f2f9;--border:#e2e5f0;--text:#12141f;--muted:#586079;
+  --success:#0f7a56;--success-bg:#e2f5ec;--warn:#92580a;--warn-bg:#fff1d6;
+  --danger:#bf2530;--danger-bg:#fde7e8;--info:#1b5bc9;--info-bg:#e5eeff;--neutral:#4a5168;--neutral-bg:#eceef5;
+  --s1:.25rem;--s2:.5rem;--s3:.75rem;--s4:1rem;--s5:1.5rem;--s6:2rem;--s7:3rem;--s8:4rem;
+  --r-sm:8px;--r:12px;--r-lg:18px;--r-full:999px;
+  --shadow-sm:0 1px 2px rgb(18 20 31/.06),0 1px 1px rgb(18 20 31/.04);
+  --shadow:0 4px 14px rgb(18 20 31/.08);--shadow-lg:0 18px 48px rgb(18 20 31/.18);
+  --ease:cubic-bezier(.2,.7,.2,1);--header-h:64px;--sidebar-w:248px;
+  color-scheme:light;
+}
+[data-theme=dark]{
+  --brand:#8b8dfc;--brand-600:#a5a7ff;--brand-50:#23264a;--brand-contrast:#0e1017;
+  --bg:#0d0f16;--surface:#161923;--surface-2:#1e2230;--border:#2b3042;--text:#eceef7;--muted:#a3abc2;
+  --success:#4ade9d;--success-bg:#12332a;--warn:#fbbf5c;--warn-bg:#3a2b0e;
+  --danger:#ff8089;--danger-bg:#3d1a1e;--info:#7fb0ff;--info-bg:#162a4d;--neutral:#b5bcd0;--neutral-bg:#252a3a;
+  --shadow-sm:0 1px 2px rgb(0 0 0/.4);--shadow:0 4px 14px rgb(0 0 0/.4);--shadow-lg:0 18px 48px rgb(0 0 0/.6);
+  color-scheme:dark;
+}
