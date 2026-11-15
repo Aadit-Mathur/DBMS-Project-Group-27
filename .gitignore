@@ -5,3 +5,4 @@ __pycache__/
 .vscode/settings.json
 db_testing/order_report.txt
 .DS_Store
+.env
