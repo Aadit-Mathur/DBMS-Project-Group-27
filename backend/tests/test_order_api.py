@@ -112,7 +112,16 @@ def test_cancel_unpaid_order_restores_stock(client, conn, customer, product):
     res = client.post(f"/orders/{oid}/cancel", json={"customer_id": customer["customer_id"], "reason": "changed mind"})
     assert res.status_code == 200 and res.json()["refund"] is None
     assert res.json()["order"]["status"] == "Cancelled" and stock(conn, product) == 5
-    assert client.post(f"/orders/{oid}/cancel", json={}).status_code == 409
+    assert client.post(f"/orders/{oid}/cancel", json={"customer_id": customer["customer_id"]}).status_code == 409
+
+
+def test_cancel_without_customer_needs_admin_key(client, customer, product, monkeypatch):
+    monkeypatch.setenv("ADMIN_API_KEY", "test-admin-key")
+    oid = place(client, customer, product).json()["order_id"]
+    assert client.post(f"/orders/{oid}/cancel", json={}).status_code == 401                      # anonymous
+    assert client.post(f"/orders/{oid}/cancel", json={}, headers={"X-Admin-Key": "wrong"}).status_code == 401
+    res = client.post(f"/orders/{oid}/cancel", json={"reason": "admin"}, headers={"X-Admin-Key": "test-admin-key"})
+    assert res.status_code == 200 and res.json()["order"]["status"] == "Cancelled"
 
 
 def test_cancel_paid_order_refunds(client, conn, customer, product):
@@ -133,25 +142,39 @@ def test_failed_refund_keeps_the_order(client, customer, product):
     client.post(f"/orders/{oid}/payment", json={"customer_id": customer["customer_id"]})
     app.dependency_overrides[get_gateway] = BrokenRefund
     try:
-        assert client.post(f"/orders/{oid}/cancel", json={}).status_code == 502
+        assert client.post(f"/orders/{oid}/cancel", json={"customer_id": customer["customer_id"]}).status_code == 502
     finally:
         app.dependency_overrides.pop(get_gateway, None)
     assert client.get(f"/orders/{oid}").json()["status"] == "Confirmed"
 
 
-def test_shipment_flow_and_tracking(client, customer, product):
-    cid = customer["customer_id"]
+def test_shipment_flow_and_tracking(client, customer, product, seller):
+    cid, as_seller = customer["customer_id"], {"X-Seller-Id": str(seller["seller_id"])}
     oid = place(client, customer, product).json()["order_id"]
-    assert client.post(f"/orders/{oid}/shipment", json={"status": "Shipped"}).status_code == 409   # unpaid
+    ship = lambda body: client.post(f"/orders/{oid}/shipment", json=body, headers=as_seller)
+    assert ship({"status": "Shipped"}).status_code == 409                       # unpaid
     client.post(f"/orders/{oid}/payment", json={"customer_id": cid})
-    assert client.post(f"/orders/{oid}/shipment", json={"status": "Delivered"}).status_code == 409  # cannot skip
-    assert client.post(f"/orders/{oid}/shipment", json={"status": "Shipped", "carrier": "BlueDart"}).json()["status"] == "Shipped"
+    assert ship({"status": "Delivered"}).status_code == 409                     # cannot skip
+    assert ship({"status": "Shipped", "carrier": "BlueDart"}).json()["status"] == "Shipped"
     assert client.post(f"/orders/{oid}/cancel", json={"customer_id": cid}).status_code == 409       # too late
-    client.post(f"/orders/{oid}/shipment", json={"status": "In Transit"})
-    assert client.post(f"/orders/{oid}/shipment", json={"status": "Delivered"}).json()["status"] == "Delivered"
+    ship({"status": "In Transit"})
+    assert ship({"status": "Delivered"}).json()["status"] == "Delivered"
     t = client.get(f"/orders/{oid}/tracking").json()
     assert t["status"] == "Delivered" and t["carrier"] == "BlueDart" and t["tracking_number"].startswith("TRK")
     assert [e["event_type"] for e in t["timeline"]][-1] == "Order Delivered"
+
+
+def test_shipment_needs_the_orders_seller_or_admin(client, customer, product, other_seller, monkeypatch):
+    oid = place(client, customer, product).json()["order_id"]
+    client.post(f"/orders/{oid}/payment", json={"customer_id": customer["customer_id"]})
+    url = f"/orders/{oid}/shipment"
+    assert client.post(url, json={"status": "Shipped"}).status_code == 401
+    assert client.post(url, json={"status": "Shipped"},
+                       headers={"X-Seller-Id": str(other_seller["seller_id"])}).status_code == 403
+    monkeypatch.setenv("ADMIN_API_KEY", "test-admin-key")
+    assert client.post(url, json={"status": "Shipped"}, headers={"X-Admin-Key": "wrong"}).status_code == 401
+    res = client.post(url, json={"status": "Shipped"}, headers={"X-Admin-Key": "test-admin-key"})
+    assert res.status_code == 200 and res.json()["shipment"]["status"] == "Shipped"
 
 
 def test_customer_endpoints(client, customer, product):
@@ -166,9 +189,21 @@ def test_customer_endpoints(client, customer, product):
     assert client.get("/customers/999999999").status_code == 404
 
 
-def test_expire_unpaid(client, conn, customer, product):
+def test_expire_unpaid(client, conn, customer, product, monkeypatch):
+    monkeypatch.setenv("ADMIN_API_KEY", "test-admin-key")
     oid = place(client, customer, product).json()["order_id"]
     with conn.cursor() as cur:
         cur.execute("UPDATE orders SET order_date = LOCALTIMESTAMP - interval '2 hours' WHERE order_id = %s", (oid,))
-    assert client.post("/orders/expire-unpaid", params={"minutes": 30}).json()["cancelled"] >= 1
+    assert client.post("/orders/expire-unpaid", params={"minutes": 30}).status_code == 401   # admin only
+    res = client.post("/orders/expire-unpaid", params={"minutes": 30}, headers={"X-Admin-Key": "test-admin-key"})
+    assert res.json()["cancelled"] >= 1
     assert client.get(f"/orders/{oid}").json()["status"] == "Cancelled"
+
+
+def test_identical_addresses_are_listed_once(client, conn, customer):
+    with conn.cursor() as cur:   # the same address stored a second time, as in the sample data
+        cur.execute("INSERT INTO address (customer_id, address_type, house_no, street, locality, city, district, state, pin_code) "
+                    "SELECT customer_id, address_type, house_no, street, locality, city, district, state, pin_code FROM address WHERE address_id = %s",
+                    (customer["address_id"],))
+    rows = client.get(f"/customers/{customer['customer_id']}/addresses").json()
+    assert [r["address_id"] for r in rows] == [customer["address_id"]]

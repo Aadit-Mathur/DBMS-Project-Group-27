@@ -77,6 +77,8 @@ python -m http.server 8080
 
 Then open `http://localhost:8080` in a browser.
 
+There are no passwords in this project: sign in as a customer or seller by email (for example `customer0001@example.in` or `seller0001@example.in`), and open the admin dashboard with the `ADMIN_API_KEY` value from `.env`. Page-by-page details and the endpoint each screen uses are in [`frontend/README.md`](frontend/README.md).
+
 ## Reproducible database setup
 
 The checked-in database files can be restored independently of the hosted

@@ -1,0 +1,29 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-color:var(--line-strong) transparent}
+body{margin:0;font-family:var(--font);font-size:var(--t-base);line-height:1.5;color:var(--ink);background:var(--bg);min-height:100vh;display:flex;flex-direction:column;caret-color:var(--brand);-webkit-font-smoothing:antialiased}
+body>main,body>.app-main{flex:1}
+h1,h2,h3,h4{font-family:var(--font);line-height:1.25;margin:0 0 var(--s3);font-weight:700;color:var(--ink)}
+h1{font-size:var(--t-xl)}h2{font-size:var(--t-lg)}h3{font-size:var(--t-md)}h4{font-size:var(--t-base)}
+p{margin:0 0 var(--s3)}
+a{color:var(--brand);text-decoration:none;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration:underline;color:var(--brand-hover)}
+img{max-width:100%;display:block}
+svg{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+table{border-collapse:collapse;width:100%}
+code{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:.88em;background:var(--surface-2);border:1px solid var(--line);padding:.05em .35em;border-radius:var(--r-sm)}
+hr{border:0;border-top:1px solid var(--line);margin:var(--s4) 0}
+::selection{background:color-mix(in srgb,var(--cta) 55%,transparent);color:var(--ink)}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+input[type=checkbox],input[type=radio]{accent-color:var(--brand)}
+.skip{position:absolute;left:-999px;top:0;background:var(--cta);color:var(--cta-ink);font-weight:700;padding:var(--s2) var(--s4);z-index:200;border-radius:var(--r-sm)}
+.skip:focus{left:var(--s3);top:var(--s3)}
+.muted{color:var(--muted)}.small{font-size:var(--t-sm)}.xsmall{font-size:var(--t-xs)}.right{text-align:right}.nowrap{white-space:nowrap}
+.num,.tabular{font-variant-numeric:tabular-nums}
+.row{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}.row--between{justify-content:space-between}.row--top{align-items:flex-start}.grow{flex:1;min-width:0}
+.stack>*+*{margin-top:var(--s4)}.stack--sm>*+*{margin-top:var(--s2)}
+.hide{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.icon{width:1.1em;height:1.1em;flex:none;vertical-align:-.18em}
+.clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

@@ -13,6 +13,13 @@ from .. import db
 admin_key_header = APIKeyHeader(name="X-Admin-Key", auto_error=False)
 
 
+def admin_key_valid(key: Optional[str]) -> bool:
+    """True when `key` matches ADMIN_API_KEY (constant-time compare). Used by routes outside
+    this router that also accept the admin, such as shipment updates."""
+    expected = os.getenv("ADMIN_API_KEY")
+    return bool(expected) and key is not None and secrets.compare_digest(key, expected)
+
+
 def require_admin(x_admin_key: Optional[str] = Depends(admin_key_header)) -> None:
     """Reject the request unless it carries the admin key in an X-Admin-Key header.
 

@@ -1,10 +1,31 @@
-"""Seller endpoints: registration, lookup, dashboard, own catalog, low-stock alerts."""
-from fastapi import APIRouter, HTTPException, Query
+"""Seller endpoints: registration, lookup, dashboard, own catalog, low-stock alerts.
+
+There is no login in this project (team decision): the seller portal sends the
+signed-in seller's id in the X-Seller-Id header, and every route that reads or
+changes a seller's own data checks that header against the seller_id in the URL.
+"""
+from typing import Optional
+
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 
 from .. import db
 from ..schemas import ProductCreate, SellerCreate
 
 router = APIRouter(prefix="/sellers", tags=["Sellers"])
+
+
+def require_same_seller(seller_id: int,
+                        x_seller_id: Optional[int] = Header(None, alias="X-Seller-Id")) -> None:
+    """Only the seller named in the URL may use their dashboard, catalog and orders."""
+    if x_seller_id is None:
+        raise HTTPException(status_code=401, detail="Sign in as a seller first (X-Seller-Id header missing).")
+    if x_seller_id != seller_id:
+        raise HTTPException(status_code=403, detail="You can only access your own seller account.")
+
+
+OWNER_ONLY = [Depends(require_same_seller)]
+OWNER_RESPONSES = {401: {"description": "X-Seller-Id header missing"},
+                   403: {"description": "X-Seller-Id is a different seller"}}
 
 
 def require_seller(cur, seller_id: int) -> None:
@@ -59,7 +80,7 @@ def get_seller(seller_id: int):
         return row
 
 
-@router.get("/{seller_id}/dashboard")
+@router.get("/{seller_id}/dashboard", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def seller_dashboard(seller_id: int):
     """Query Q1 for one seller: catalog size, stock, inventory value, and the
     low-stock count read from the view v_low_stock_products."""
@@ -87,14 +108,14 @@ def seller_dashboard(seller_id: int):
         return row
 
 
-@router.get("/{seller_id}/products")
+@router.get("/{seller_id}/products", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def list_seller_products(seller_id: int, include_inactive: bool = False):
     """The seller's own catalog. Delisted products are hidden unless asked for."""
     with db.transaction() as cur:
         require_seller(cur, seller_id)
         cur.execute(
             """
-            SELECT p.product_id, p.product_name, p.brand, p.price,
+            SELECT p.product_id, p.product_name, p.description, p.brand, p.price,
                    p.quantity_in_stock, p.reorder_level, p.is_active,
                    p.last_updated, c.category_id, c.category_name
             FROM   product p
@@ -108,7 +129,7 @@ def list_seller_products(seller_id: int, include_inactive: bool = False):
         return cur.fetchall()
 
 
-@router.post("/{seller_id}/products", status_code=201)
+@router.post("/{seller_id}/products", status_code=201, dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def add_product(seller_id: int, body: ProductCreate):
     """CHECK price >= 0 / stock >= 0, UNIQUE (seller_id, product_name) and the
     category FK are enforced by the DB."""
@@ -126,53 +147,7 @@ def add_product(seller_id: int, body: ProductCreate):
         )
         return cur.fetchone()
 
-@router.put("/{seller_id}/products/{product_id}")
-def update_product(
-    seller_id: int,
-    product_id: int,
-    body: ProductCreate
-):
-    with db.transaction() as cur:
-        require_seller(cur, seller_id)
-
-        cur.execute(
-            """
-            UPDATE product
-            SET category_id = %s,
-                product_name = %s,
-                description = %s,
-                brand = %s,
-                price = %s,
-                quantity_in_stock = %s,
-                reorder_level = %s
-            WHERE product_id = %s
-              AND seller_id = %s
-            RETURNING *
-            """,
-            (
-                body.category_id,
-                body.product_name,
-                body.description,
-                body.brand,
-                body.price,
-                body.quantity_in_stock,
-                body.reorder_level,
-                product_id,
-                seller_id
-            )
-        )
-
-        product = cur.fetchone()
-
-        if product is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Product not found for this seller."
-            )
-
-        return product
-
-@router.get("/{seller_id}/low-stock")
+@router.get("/{seller_id}/low-stock", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def low_stock(seller_id: int):
     """Reads the view v_low_stock_products."""
     with db.transaction() as cur:
@@ -189,7 +164,7 @@ def low_stock(seller_id: int):
         )
         return cur.fetchall()
 
-@router.get("/{seller_id}/orders")
+@router.get("/{seller_id}/orders", dependencies=OWNER_ONLY, responses=OWNER_RESPONSES)
 def seller_orders(seller_id: int):
     with db.transaction() as cur:
 

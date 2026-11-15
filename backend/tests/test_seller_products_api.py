@@ -57,7 +57,7 @@ def test_add_product(product):
 
 
 def test_negative_price_is_400(client, seller, category_id):
-    res = client.post(f"/sellers/{seller['seller_id']}/products",
+    res = client.post(f"/sellers/{seller['seller_id']}/products", headers=seller_header(seller),
                       json={"category_id": category_id, "product_name": "Bad", "price": "-5"})
     assert res.status_code == 400
     assert res.json()["constraint"] == "chk_product_price"
@@ -65,7 +65,7 @@ def test_negative_price_is_400(client, seller, category_id):
 
 
 def test_duplicate_product_name_is_409(client, seller, product, category_id):
-    res = client.post(f"/sellers/{seller['seller_id']}/products",
+    res = client.post(f"/sellers/{seller['seller_id']}/products", headers=seller_header(seller),
                       json={"category_id": category_id, "product_name": product["product_name"],
                             "price": "10"})
     assert res.status_code == 409
@@ -73,21 +73,40 @@ def test_duplicate_product_name_is_409(client, seller, product, category_id):
 
 
 def test_unknown_category_is_400(client, seller):
-    res = client.post(f"/sellers/{seller['seller_id']}/products",
+    res = client.post(f"/sellers/{seller['seller_id']}/products", headers=seller_header(seller),
                       json={"category_id": -1, "product_name": "X", "price": "10"})
     assert res.status_code == 400
 
 
 def test_unknown_seller_is_404(client, category_id):
-    res = client.post("/sellers/-1/products",
+    res = client.post("/sellers/-1/products", headers={"X-Seller-Id": "-1"},
                       json={"category_id": category_id, "product_name": "X", "price": "10"})
     assert res.status_code == 404
+
+
+# ---------- ownership: X-Seller-Id must match the seller in the URL ----------
+
+@pytest.mark.parametrize("path", ["dashboard", "products", "low-stock", "orders"])
+def test_seller_routes_need_the_seller_header(client, seller, path):
+    assert client.get(f"/sellers/{seller['seller_id']}/{path}").status_code == 401
+
+
+@pytest.mark.parametrize("path", ["dashboard", "products", "low-stock", "orders"])
+def test_seller_routes_refuse_another_seller(client, seller, other_seller, path):
+    res = client.get(f"/sellers/{seller['seller_id']}/{path}", headers=seller_header(other_seller))
+    assert res.status_code == 403
+
+
+def test_add_product_for_another_seller_is_403(client, seller, other_seller, category_id):
+    res = client.post(f"/sellers/{seller['seller_id']}/products", headers=seller_header(other_seller),
+                      json={"category_id": category_id, "product_name": "X", "price": "10"})
+    assert res.status_code == 403
 
 
 # ---------- dashboard, catalog, low stock ----------
 
 def test_dashboard(client, seller, product):
-    res = client.get(f"/sellers/{seller['seller_id']}/dashboard")
+    res = client.get(f"/sellers/{seller['seller_id']}/dashboard", headers=seller_header(seller))
     assert res.status_code == 200
     body = res.json()
     assert body["active_products"] == 1
@@ -97,12 +116,13 @@ def test_dashboard(client, seller, product):
 
 
 def test_seller_catalog(client, seller, product):
-    res = client.get(f"/sellers/{seller['seller_id']}/products")
+    res = client.get(f"/sellers/{seller['seller_id']}/products", headers=seller_header(seller))
     assert [p["product_id"] for p in res.json()] == [product["product_id"]]
+    assert "description" in res.json()[0]      # the edit form needs it, or saving would blank it
 
 
 def test_low_stock_list(client, seller, product):
-    res = client.get(f"/sellers/{seller['seller_id']}/low-stock")
+    res = client.get(f"/sellers/{seller['seller_id']}/low-stock", headers=seller_header(seller))
     assert res.status_code == 200
     assert res.json()[0]["shortfall"] == 5
 
@@ -140,7 +160,7 @@ def test_restock(client, seller, product):
                       headers=seller_header(seller))
     assert res.status_code == 200
     assert res.json()["quantity_in_stock"] == 25
-    low = client.get(f"/sellers/{seller['seller_id']}/low-stock").json()
+    low = client.get(f"/sellers/{seller['seller_id']}/low-stock", headers=seller_header(seller)).json()
     assert low == []
 
 
@@ -163,7 +183,7 @@ def test_remove_never_ordered_product_deletes_it(client, seller, product):
         f"/products/{product['product_id']}", headers=seller_header(seller))
     assert res.status_code == 204
     assert client.get(
-        f"/sellers/{seller['seller_id']}/products?include_inactive=true").json() == []
+        f"/sellers/{seller['seller_id']}/products?include_inactive=true", headers=seller_header(seller)).json() == []
 
 
 def test_remove_ordered_product_delists_it(client, conn, seller, product):
@@ -196,9 +216,9 @@ def test_remove_ordered_product_delists_it(client, conn, seller, product):
     assert res.json()["status"] == "delisted"
     assert client.get(
         # hidden
-        f"/sellers/{seller['seller_id']}/products").json() == []
+        f"/sellers/{seller['seller_id']}/products", headers=seller_header(seller)).json() == []
     hidden = client.get(
-        f"/sellers/{seller['seller_id']}/products?include_inactive=true").json()
+        f"/sellers/{seller['seller_id']}/products?include_inactive=true", headers=seller_header(seller)).json()
     # but kept
     assert hidden[0]["is_active"] is False
 

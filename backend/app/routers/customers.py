@@ -37,10 +37,16 @@ def get_customer(customer_id: int):
 
 @router.get("/customers/{customer_id}/addresses")
 def list_addresses(customer_id: int):
+    """The customer's distinct delivery addresses. The sample data stores every address twice
+    (the seed ran twice), so identical rows are collapsed to the oldest address_id."""
     with db.transaction() as cur:
         _customer_or_404(cur, customer_id)
-        cur.execute("""SELECT address_id, address_type, house_no, street, locality, city, district, state, pin_code
-                       FROM address WHERE customer_id = %s ORDER BY address_id""", (customer_id,))
+        cur.execute("""SELECT * FROM (
+                           SELECT DISTINCT ON (address_type, house_no, street, locality, city, district, state, pin_code)
+                                  address_id, address_type, house_no, street, locality, city, district, state, pin_code
+                           FROM   address WHERE customer_id = %s
+                           ORDER  BY address_type, house_no, street, locality, city, district, state, pin_code, address_id) a
+                       ORDER BY address_id""", (customer_id,))
         return cur.fetchall()
 
 

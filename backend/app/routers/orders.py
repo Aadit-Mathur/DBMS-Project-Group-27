@@ -4,11 +4,13 @@ transaction per request, talks to the payment gateway, and shapes the response.
 """
 import json
 from contextlib import contextmanager
+from typing import Optional
 
 import psycopg2
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 
 from .. import db
+from .admin import admin_key_valid, require_admin
 from ..order_schemas import CancelIn, OrderCreate, PaymentIn, ShipmentUpdate
 from ..payments import GatewayError, PaymentGateway, get_gateway
 
@@ -124,12 +126,19 @@ def pay_order(order_id: int, body: PaymentIn, gateway: PaymentGateway = Depends(
             "order": order}
 
 
-@router.post("/orders/{order_id}/cancel")
+@router.post("/orders/{order_id}/cancel",
+             responses={401: {"description": "No customer_id and no admin key"}})
 def cancel_order(order_id: int, body: CancelIn | None = None,
-                 gateway: PaymentGateway = Depends(get_gateway)):
+                 gateway: PaymentGateway = Depends(get_gateway),
+                 x_admin_key: Optional[str] = Header(None, alias="X-Admin-Key")):
     """Cancel before shipping. Stock is returned; a paid order is refunded through the gateway
-    in the same transaction (if the refund fails, the order is NOT cancelled)."""
+    in the same transaction (if the refund fails, the order is NOT cancelled).
+    The customer cancels with their customer_id (cancel_order() checks it owns the order);
+    a cancel without customer_id is an admin cancel and needs the admin key."""
     body = body or CancelIn()
+    if body.customer_id is None and not admin_key_valid(x_admin_key):
+        raise HTTPException(status_code=401, detail="Send the customer_id of the order's customer, "
+                                                    "or the admin key, to cancel an order.")
     refund = None
     with order_transaction() as cur:
         cur.execute("SELECT cancel_order(%s, %s, %s) AS outcome",
@@ -148,15 +157,38 @@ def cancel_order(order_id: int, body: CancelIn | None = None,
     return {"order": order, "refund": refund}
 
 
-@router.post("/orders/{order_id}/shipment")
-def update_shipment(order_id: int, body: ShipmentUpdate):
+def require_fulfiller(cur, order_id: int, seller_id: Optional[int], admin_key: Optional[str]) -> None:
+    """Shipment updates come from the admin (X-Admin-Key) or from a seller who has at
+    least one item in the order (X-Seller-Id). advance_shipment moves the whole order."""
+    if admin_key_valid(admin_key):
+        return
+    if seller_id is None:
+        raise HTTPException(status_code=401, detail="Only the order's seller or the admin can update a shipment "
+                                                    "(send X-Seller-Id or X-Admin-Key).")
+    cur.execute("SELECT 1 FROM orders WHERE order_id = %s", (order_id,))
+    if cur.fetchone() is None:
+        raise HTTPException(status_code=404, detail="Order not found.")
+    cur.execute("""SELECT 1 FROM order_item oi JOIN product p ON p.product_id = oi.product_id
+                   WHERE oi.order_id = %s AND p.seller_id = %s LIMIT 1""", (order_id, seller_id))
+    if cur.fetchone() is None:
+        raise HTTPException(status_code=403, detail="This order has no items from your store.")
+
+
+@router.post("/orders/{order_id}/shipment",
+             responses={401: {"description": "No seller or admin credentials"},
+                        403: {"description": "Seller has no items in this order"}})
+def update_shipment(order_id: int, body: ShipmentUpdate,
+                    x_seller_id: Optional[int] = Header(None, alias="X-Seller-Id"),
+                    x_admin_key: Optional[str] = Header(None, alias="X-Admin-Key")):
     """Fulfilment (seller/admin UI): Shipped -> In Transit -> Delivered."""
     with order_transaction() as cur:
+        require_fulfiller(cur, order_id, x_seller_id, x_admin_key)
         cur.execute("SELECT advance_shipment(%s, %s, %s)", (order_id, body.status, body.carrier))
         return load_order(cur, order_id)
 
 
-@router.post("/orders/expire-unpaid")
+@router.post("/orders/expire-unpaid", dependencies=[Depends(require_admin)],
+             responses={401: {"description": "Admin key missing or wrong"}})
 def expire_unpaid(minutes: int = Query(30, ge=1, le=10080)):
     """Cancel orders that stayed unpaid for more than `minutes` (call it from an admin button or a cron)."""
     with order_transaction() as cur:
