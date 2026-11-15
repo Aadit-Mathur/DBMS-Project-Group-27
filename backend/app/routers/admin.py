@@ -12,14 +12,32 @@ Definitions used everywhere (state these in the report):
   * Product/category/seller sales use order_item.unit_price * quantity
     (order_item.subtotal), i.e. the price at purchase time, not today's price.
 """
+import os
+import secrets
 from datetime import date
 from typing import Optional
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Depends, Header, HTTPException, Query
 
 from .. import db
 
-router = APIRouter(prefix="/admin", tags=["Admin dashboard"])
+
+def require_admin(x_admin_key: Optional[str] = Header(None)) -> None:
+    """Reject the request unless it carries the admin key in an X-Admin-Key header.
+
+    The key lives in .env as ADMIN_API_KEY (never in git). There are no user
+    accounts in this project, so a shared secret is the simplest gate; it is
+    the same idea as the X-Seller-Id header the seller routes use, but secret.
+    """
+    expected = os.getenv("ADMIN_API_KEY")
+    if not expected:
+        raise HTTPException(status_code=503, detail="ADMIN_API_KEY is not configured on the server")
+    if x_admin_key is None or not secrets.compare_digest(x_admin_key, expected):
+        raise HTTPException(status_code=401, detail="Admin key missing or wrong")
+
+
+# Every route in this router needs the key.
+router = APIRouter(prefix="/admin", tags=["Admin dashboard"], dependencies=[Depends(require_admin)])
 
 # Reused in every query that has a date window. psycopg2 fills the named params.
 DATE_FILTER = """
