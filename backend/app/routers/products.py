@@ -118,38 +118,6 @@ def update_product(product_id: int, body: ProductUpdate,
         cur.execute(query, {**changes, "product_id": product_id})
         return cur.fetchone()
 
-@router.patch("/{product_id}/relist")
-def relist_product(
-    product_id: int,
-    seller_id: int = Header(alias="X-Seller-Id")
-):
-    """Reactivate a previously delisted product."""
-    with db.transaction() as cur:
-        require_owned_product(cur, product_id, seller_id)
-
-        cur.execute(
-            """
-            UPDATE product
-            SET is_active = TRUE
-            WHERE product_id = %s
-            RETURNING product_id, product_name, is_active
-            """,
-            (product_id,)
-        )
-
-        product = cur.fetchone()
-
-        if product is None:
-            raise HTTPException(
-                status_code=404,
-                detail="Product not found."
-            )
-
-        return {
-            **product,
-            "status": "relisted"
-        }
-
 @router.post("/{product_id}/restock")
 def restock_product(product_id: int, body: RestockRequest,
                     seller_id: int = Header(alias="X-Seller-Id")):
