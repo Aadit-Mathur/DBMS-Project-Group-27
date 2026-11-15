@@ -45,15 +45,76 @@ function bindFilter(reload) {
 
 async function overview() {
   reset(); main.innerHTML = skeletonRows(6);
-  const res = await Promise.allSettled([api.admin.overview(), api.admin.summary(q()), api.admin['revenue-trend']({ ...q(), interval }), api.admin['orders-by-status'](q()), api.admin['sales-by-category'](q()), api.admin['top-products']({ ...q(), limit: 10 })]);
+  const res = await Promise.allSettled([
+    api.reports.dashboard(),
+    api.admin.summary(q()),
+    api.admin["revenue-trend"]({ ...q(), interval }),
+    api.admin["orders-by-status"](q()),
+    api.admin["sales-by-category"](q()),
+    api.admin["top-products"]({ ...q(), limit: 10 }),
+  ]);
   const [ov, sum, trend, status, cat, top] = res.map(ok);
   if (res.every((r) => r.status === 'rejected')) { main.innerHTML = errorState(res[0].reason.message); $('[data-retry]').onclick = overview; return; }
   res.filter((r) => r.status === 'rejected').slice(0, 1).forEach((r) => toastError(r.reason));
   main.innerHTML = `${filterBar(true)}
-  <div class="grid-stats">${sum ? stat('rupee', moneyShort(sum.revenue), 'Revenue (paid orders)', 'stat--ok') + stat('receipt', `${int(sum.paid_orders)} <span class="muted small">/ ${int(sum.total_orders)}</span>`, 'Paid / total orders', 'stat--info') + stat('trend', moneyShort(sum.avg_order_value), 'Average order value') + stat('refresh', moneyShort(sum.refunded_amount), 'Refunded', 'stat--warn') : ''}
-  ${ov ? stat('users', int(ov.customers), 'Customers') + stat('store', int(ov.sellers), 'Sellers') + stat('package', `${int(ov.active_products)} <span class="muted small">/ ${int(ov.products)}</span>`, 'Active / total products') : ''}</div>
-  <div class="grid-charts">${section('Revenue trend', '<div class="chart-box"><canvas id="c-trend" role="img" aria-label="Revenue trend line chart"></canvas></div>')}${section('Orders by status', '<div class="chart-box"><canvas id="c-status" role="img" aria-label="Orders by status doughnut chart"></canvas></div>')}${section('Sales by category', '<div class="chart-box" style="height:420px"><canvas id="c-cat" role="img" aria-label="Revenue by category bar chart"></canvas></div>')}</div>
-  ${section('Top-selling products', top ? table([['#'], ['Product'], ['Seller'], ['Units sold', 1], ['Revenue', 1]], top.map((p, i) => `<tr><td>${i + 1}</td><td><b>${esc(p.product_name)}</b></td><td>${esc(p.seller_name)}</td><td class="num">${int(p.units_sold)}</td><td class="num">${money(p.revenue)}</td></tr>`)) : '')}`;
+  <div class="grid-stats">${
+    sum
+      ? stat(
+          "rupee",
+          moneyShort(sum.revenue),
+          "Revenue (paid orders)",
+          "stat--ok"
+        ) +
+        stat(
+          "receipt",
+          `${int(sum.paid_orders)} <span class="muted small">/ ${int(
+            sum.total_orders
+          )}</span>`,
+          "Paid / total orders",
+          "stat--info"
+        ) +
+        stat("trend", moneyShort(sum.avg_order_value), "Average order value") +
+        stat(
+          "refresh",
+          moneyShort(sum.refunded_amount),
+          "Refunded",
+          "stat--warn"
+        )
+      : ""
+  }
+  ${
+    ov
+      ? stat("users", int(ov.total_customers), "Customers") +
+        stat("store", int(ov.total_sellers), "Sellers") +
+        stat("package", int(ov.total_products), "Products")
+      : ""
+  }</div>
+  <div class="grid-charts">${section(
+    "Revenue trend",
+    '<div class="chart-box"><canvas id="c-trend" role="img" aria-label="Revenue trend line chart"></canvas></div>'
+  )}${section(
+    "Orders by status",
+    '<div class="chart-box"><canvas id="c-status" role="img" aria-label="Orders by status doughnut chart"></canvas></div>'
+  )}${section(
+    "Sales by category",
+    '<div class="chart-box" style="height:420px"><canvas id="c-cat" role="img" aria-label="Revenue by category bar chart"></canvas></div>'
+  )}</div>
+  ${section(
+    "Top-selling products",
+    top
+      ? table(
+          [["#"], ["Product"], ["Seller"], ["Units sold", 1], ["Revenue", 1]],
+          top.map(
+            (p, i) =>
+              `<tr><td>${i + 1}</td><td><b>${esc(
+                p.product_name
+              )}</b></td><td>${esc(p.seller_name)}</td><td class="num">${int(
+                p.units_sold
+              )}</td><td class="num">${money(p.revenue)}</td></tr>`
+          )
+        )
+      : ""
+  )}`;
   bindFilter(overview);
   if (trend) chart('c-trend', () => ({ type: 'line', data: { labels: trend.map((r) => r.period), datasets: [{ label: 'Revenue (₹)', data: trend.map((r) => Number(r.revenue)), borderColor: PALETTE[0], backgroundColor: PALETTE[0] + '33', fill: true, tension: .3, pointRadius: 2 }] }, options: opts({ plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { callback: (v) => '₹' + Intl.NumberFormat('en-IN', { notation: 'compact' }).format(v) } } } }) }));
   if (status) chart('c-status', () => ({ type: 'doughnut', data: { labels: status.map((s) => s.status), datasets: [{ data: status.map((s) => Number(s.orders)), backgroundColor: status.map((s) => STATUS_COLORS[s.status] || '#94a3b8'), borderColor: cv('--surface'), borderWidth: 2 }] }, options: opts({ cutout: '62%', plugins: { legend: { position: 'bottom' } } }) }));

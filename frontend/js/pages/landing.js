@@ -53,12 +53,13 @@ async function submit(form) {
         const s = mode === 'register' ? await api.sellers.register({ name: v.name.trim(), email: v.email.trim(), phone: v.phone.trim() }) : await api.sellers.find(v.email.trim());
         if (mode === 'register') toast('Seller account created. Welcome!', 'success');
         session.set({ role, id: s.seller_id, name: s.name, email: s.email });
-      } else { adminKey.set(v.key); await api.admin.overview(); session.set({ role, id: 0, name: 'Administrator' }); adminKey.set(v.key); }
+      } else { adminKey.set(v.key);await api.admin.summary(); session.set({ role, id: 0, name: 'Administrator' }); adminKey.set(v.key); }
     });
     location.href = HOME[role];
-  } catch (e) {
-    if (e.status === 404) toastError(new Error(role === 'customer' ? 'No customer found with that email. The backend has no customer sign-up, so use an existing customer email.' : 'No seller found with that email. Use "Register as seller" to create one.'));
-    else toastError(e.status === 401 ? new Error('That admin key is not correct.') : e);
+  }  catch (e) {
+    if (role === 'admin') toastError(e.status === 401 ? new Error('That admin key is not correct.') : e.status === 404 ? new Error('Admin API not found (404). Is the backend running the latest code?') : e);
+    else if (e.status === 404) toastError(new Error(role === 'customer' ? 'No customer found with that email. The backend has no customer sign-up, so use an existing customer email.' : 'No seller found with that email. Use "Register as seller" to create one.'));
+    else toastError(e);
   }
 }
 app.addEventListener('click', (e) => {
