@@ -50,14 +50,15 @@ export const api = {
     addresses: (id) => get(`/customers/${id}/addresses`),
     orders: (id, params) => get(`/customers/${id}/orders`, { params }),
   },
+  // Seller routes send X-Seller-Id; the backend checks it against the seller in the URL.
   sellers: {
     register: (body) => post('/sellers', body),
     find: (email) => get('/sellers', { params: { email } }),
-    dashboard: (id) => get(`/sellers/${id}/dashboard`),
-    products: (id, include_inactive = true) => get(`/sellers/${id}/products`, { params: { include_inactive } }),
-    addProduct: (id, body) => post(`/sellers/${id}/products`, body),
-    lowStock: (id) => get(`/sellers/${id}/low-stock`),
-    orders: (id) => get(`/sellers/${id}/orders`),
+    dashboard: (id) => get(`/sellers/${id}/dashboard`, { seller: true }),
+    products: (id, include_inactive = true) => get(`/sellers/${id}/products`, { params: { include_inactive }, seller: true }),
+    addProduct: (id, body) => post(`/sellers/${id}/products`, body, { seller: true }),
+    lowStock: (id) => get(`/sellers/${id}/low-stock`, { seller: true }),
+    orders: (id) => get(`/sellers/${id}/orders`, { seller: true }),
   },
   orders: {
     place: (body) => post('/orders', body),
@@ -65,8 +66,9 @@ export const api = {
     tracking: (id) => get(`/orders/${id}/tracking`),
     pay: (id, body) => post(`/orders/${id}/payment`, body),
     cancel: (id, body) => post(`/orders/${id}/cancel`, body),
-    shipment: (id, body) => post(`/orders/${id}/shipment`, body),
-    expireUnpaid: (minutes) => request('POST', `/orders/expire-unpaid`, { params: { minutes } }),
+    // Only a seller with items in the order, or the admin, may move its shipment.
+    shipment: (id, body, as = 'seller') => post(`/orders/${id}/shipment`, body, as === 'admin' ? { admin: true } : { seller: true }),
+    expireUnpaid: (minutes) => request('POST', `/orders/expire-unpaid`, { params: { minutes }, admin: true }),
   },
   admin: Object.fromEntries(
     ['overview', 'summary', 'revenue-trend', 'orders-by-status', 'top-products', 'top-sellers', 'sales-by-category',

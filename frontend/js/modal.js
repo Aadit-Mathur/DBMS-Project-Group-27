@@ -21,7 +21,7 @@ export function openModal({ title, body = '', footer = '', wide = false, onClose
 export function confirmDialog({ title, message, confirmLabel = 'Confirm', danger = false }) {
   return new Promise((resolve) => {
     let ok = false;
-    const m = openModal({ title, body: `<p>${esc(message)}</p>`, footer: `<button class="btn" data-close>Cancel</button><button class="btn ${danger ? 'btn--danger' : 'btn--primary'}" data-ok>${esc(confirmLabel)}</button>`, onClose: () => resolve(ok) });
+    const m = openModal({ title, body: `<p>${esc(message)}</p>`, footer: `<button class="btn" data-close>Cancel</button><button class="btn ${danger ? 'btn--danger-solid' : 'btn--primary'}" data-ok>${esc(confirmLabel)}</button>`, onClose: () => resolve(ok) });
     m.el.querySelector('[data-ok]').onclick = () => { ok = true; m.close(); };
     m.el.querySelector('[data-ok]').focus();
   });
@@ -44,7 +44,7 @@ export function formModal({ title, intro = '', fields, submitLabel = 'Save', dan
   form.innerHTML = `${intro ? `<p class="muted">${intro}</p>` : ''}<div class="form-grid">${fields.map(fieldHtml).join('')}</div><button type="submit" hidden></button>`;
   clearErrorOnInput(form);
   const foot = document.createElement('div'); foot.style.display = 'contents';
-  foot.innerHTML = `<button type="button" class="btn" data-close>Cancel</button><button type="button" class="btn ${danger ? 'btn--danger' : 'btn--primary'}" data-submit>${esc(submitLabel)}</button>`;
+  foot.innerHTML = `<button type="button" class="btn" data-close>Cancel</button><button type="button" class="btn ${danger ? 'btn--danger-solid' : 'btn--primary'}" data-submit>${esc(submitLabel)}</button>`;
   const m = openModal({ title, body: form, footer: foot, wide });
   const submit = async () => {
     if (!validateForm(form)) return;

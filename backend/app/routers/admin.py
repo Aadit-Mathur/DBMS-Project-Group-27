@@ -13,6 +13,13 @@ from .. import db
 admin_key_header = APIKeyHeader(name="X-Admin-Key", auto_error=False)
 
 
+def admin_key_valid(key: Optional[str]) -> bool:
+    """True when `key` matches ADMIN_API_KEY (constant-time compare). Used by routes outside
+    this router that also accept the admin, such as shipment updates."""
+    expected = os.getenv("ADMIN_API_KEY")
+    return bool(expected) and key is not None and secrets.compare_digest(key, expected)
+
+
 def require_admin(x_admin_key: Optional[str] = Depends(admin_key_header)) -> None:
     """Reject the request unless it carries the admin key in an X-Admin-Key header.
 
@@ -253,3 +260,18 @@ def shipments(date_from: Optional[date] = None, date_to: Optional[date] = None):
                   ARRAY['Pending','Shipped','In Transit','Delivered','Cancelled'], sh.shipment_status::text)
     """
     return _rows(sql, _window(date_from, date_to))
+
+
+# --------------------------------------------------------------------------
+# 9. Overview counts (live snapshot, no date window)
+# --------------------------------------------------------------------------
+@router.get("/overview")
+def overview():
+    # Scalar subqueries: one round trip returns all the headline counts.
+    sql = """
+        SELECT (SELECT COUNT(*) FROM customer)                     AS customers,
+               (SELECT COUNT(*) FROM seller)                       AS sellers,
+               (SELECT COUNT(*) FROM product)                      AS products,
+               (SELECT COUNT(*) FROM product WHERE is_active)      AS active_products
+    """
+    return _rows(sql, {})[0]

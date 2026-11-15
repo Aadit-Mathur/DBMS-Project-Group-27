@@ -1,6 +1,6 @@
 // Single place for the API base URL. Override at runtime:
 //   localStorage.setItem('mk_api_base', 'https://my-api.example.com')
-const stored = localStorage.getItem('mk_api_base');
+let stored = null; try { stored = localStorage.getItem('mk_api_base'); } catch { /* storage blocked */ }
 export const API_BASE = (stored || (location.port === '8000' ? '' : 'http://127.0.0.1:8000')).replace(/\/$/, '');
 export const APP_NAME = 'Bazaar';
 export const CURRENCY = 'INR';

@@ -76,6 +76,7 @@ def other_seller(client):
 @pytest.fixture()
 def product(client, seller, category_id):
     res = client.post(f"/sellers/{seller['seller_id']}/products",
+                      headers={"X-Seller-Id": str(seller["seller_id"])},
                       json={"category_id": category_id, "product_name": "__API Test Product__",
                             "price": "499.00", "quantity_in_stock": 5, "reorder_level": 10})
     assert res.status_code == 201, res.text
