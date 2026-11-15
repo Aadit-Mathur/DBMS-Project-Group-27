@@ -126,12 +126,19 @@ def pay_order(order_id: int, body: PaymentIn, gateway: PaymentGateway = Depends(
             "order": order}
 
 
-@router.post("/orders/{order_id}/cancel")
+@router.post("/orders/{order_id}/cancel",
+             responses={401: {"description": "No customer_id and no admin key"}})
 def cancel_order(order_id: int, body: CancelIn | None = None,
-                 gateway: PaymentGateway = Depends(get_gateway)):
+                 gateway: PaymentGateway = Depends(get_gateway),
+                 x_admin_key: Optional[str] = Header(None, alias="X-Admin-Key")):
     """Cancel before shipping. Stock is returned; a paid order is refunded through the gateway
-    in the same transaction (if the refund fails, the order is NOT cancelled)."""
+    in the same transaction (if the refund fails, the order is NOT cancelled).
+    The customer cancels with their customer_id (cancel_order() checks it owns the order);
+    a cancel without customer_id is an admin cancel and needs the admin key."""
     body = body or CancelIn()
+    if body.customer_id is None and not admin_key_valid(x_admin_key):
+        raise HTTPException(status_code=401, detail="Send the customer_id of the order's customer, "
+                                                    "or the admin key, to cancel an order.")
     refund = None
     with order_transaction() as cur:
         cur.execute("SELECT cancel_order(%s, %s, %s) AS outcome",

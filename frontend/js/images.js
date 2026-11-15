@@ -197,3 +197,6 @@ export const IMG = {
 "wooden puzzle": "wooden-puzzle.jpg",
 "yoga mat": "yoga-mat.jpg"
 };
+
+// Product id -> photo, so products of the same type show different photos.
+export const PIMG = {};

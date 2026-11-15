@@ -29,7 +29,7 @@ class PaymentIn(BaseModel):
 
 class CancelIn(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    customer_id: Optional[int] = None                       # omit = admin cancel (no ownership check)
+    customer_id: Optional[int] = None                       # omit = admin cancel: needs X-Admin-Key
     reason: Optional[str] = Field(default=None, max_length=200)
 
 

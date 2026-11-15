@@ -209,6 +209,8 @@
 /* ================= cart / checkout ================= */
 .cols{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:var(--s4);align-items:start}
 .cols--even{grid-template-columns:repeat(2,minmax(0,1fr))}
+.portal-main .cols,.portal-main>.panel{margin-bottom:var(--s4)}
+.portal-main .cols{align-items:stretch}
 .sticky-side{position:sticky;top:calc(var(--header-h) + var(--catbar-h) + var(--s4))}
 .line{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
 .line:last-child{border-bottom:0}
@@ -283,7 +285,8 @@
 .side__foot{margin-top:auto;display:grid;gap:var(--s2);padding-top:var(--s3);border-top:1px solid var(--line)}
 .side__foot a{font-size:var(--t-sm);display:flex;align-items:center;gap:var(--s2);padding:.4rem .75rem;color:var(--muted)}
 .portal-main{padding:var(--s5) var(--s6) var(--s7);min-width:0}
-.portal-title{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s5);flex-wrap:wrap}
+.portal-title{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4);flex-wrap:wrap}
+.portal-title #pactions{flex-direction:column;align-items:flex-end;gap:var(--s2)}
 .portal-title h1{margin:0}
 .menu-btn{display:none}
 .side-scrim{display:none}

@@ -1,5 +1,5 @@
 import { CURRENCY } from './config.js';
-import { IMG } from './images.js';
+import { IMG, PIMG } from './images.js';
 import { icon } from './icons.js';
 
 const cur = new Intl.NumberFormat('en-IN', { style: 'currency', currency: CURRENCY, maximumFractionDigits: 2 });
@@ -49,8 +49,10 @@ export function productType(name, brand) {
 export const displayName = (name) => String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
 
 const ROOT = new URL('../img/products/', import.meta.url).href;
+// Each product has its own photo (PIMG, so neighbours on a shelf differ); otherwise the photo of its type.
 // Order lines carry no brand, so when the exact type is unknown drop leading words (the brand) until one matches.
 export function imgSrc(p) {
+  if (p.product_id != null && PIMG[p.product_id]) return ROOT + PIMG[p.product_id];
   const words = productType(p.product_name, p.brand).toLowerCase().split(/\s+/);
   for (let k = 0; k < Math.min(4, words.length); k++) { const f = IMG[words.slice(k).join(' ')]; if (f) return ROOT + f; }
   return null;
